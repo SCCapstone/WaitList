@@ -6,5 +6,9 @@ header {
     right: 0;
     background-color: #73000a;
     color: #ffffff;
+}
 
+.submission-fields {
+    padding: 250px;
+    margin: 250px;
 }
