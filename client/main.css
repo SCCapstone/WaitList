@@ -1,3 +1,4 @@
+/*Header of page*/
 header {
     position: fixed;
     padding-left: 15px;
@@ -8,7 +9,20 @@ header {
     color: #ffffff;
 }
 
+/*div holding all input fields*/
 .submission-fields {
-    padding: 250px;
-    margin: 250px;
+    margin: 175px;
+    margin-right: 0px;
+    padding-left: 100px;
+    padding-top: 275px;
+    padding-right: 0px;
+}
+/*label for dropdown selection*/
+.control-label {
+    font-size: 25px;
+    width: 230px;
+}
+/*drop down selection*/
+.form-control {
+    width: 450px;
 }
