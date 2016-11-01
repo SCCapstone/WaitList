@@ -5,24 +5,98 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    height: 100px;
     background-color: #73000a;
     color: #ffffff;
 }
 
 /*div holding all input fields*/
 .submission-fields {
-    margin: 175px;
-    margin-right: 0px;
-    padding-left: 100px;
-    padding-top: 275px;
-    padding-right: 0px;
+    height: 600px;
+    margin: 20px;
+    margin-top: 100px;
+    padding-left: 300px;
+    padding-right: 100px;
+    border-style: solid;
+    text-align: left;
+}
+
+.login {
+    text-align: right;
+    text-decoration: underline;
+    margin-right: 100px;
+    margin-bottom: 20px;
+}
+
+.Name {
+    font-size: 25px;
+    margin-top: 125px;
+    height: 40px;
+    width: 300px;
+    text-align: right;
+    position: absolute;
+}
+.phone {
+    font-size: 25px;
+    margin-top: 175px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+}
+
+.vip {
+    font-size: 25px;
+    margin-top: 225px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
 }
 /*label for dropdown selection*/
 .control-label {
     font-size: 25px;
-    width: 230px;
+    margin-top: 275px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
 }
 /*drop down selection*/
-.form-control {
-    width: 450px;
+.dropdown {
+    margin-left: 320px;
+    margin-top: 275px;
+    width: 425px;
+    position: absolute;
+}
+
+.currentM {
+    font-size: 25px;
+    margin-top: 325px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+
+.intendedM {
+    font-size: 25px;
+    margin-top: 375px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+
+.comment {
+    font-size: 25px;
+    margin-top: 425px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
 }
