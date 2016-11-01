@@ -35,6 +35,14 @@ header {
     width: 300px;
     text-align: right;
     position: absolute;
+    display: inline-block;
+}
+.studentName{
+    font-size: 20px;
+    margin-top: 130px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
 }
 .phone {
     font-size: 25px;
@@ -44,7 +52,13 @@ header {
     position: absolute;
     text-align: right;
 }
-
+.phoneNumber{
+    font-size: 20px;
+    margin-top: 175px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
 .vip {
     font-size: 25px;
     margin-top: 225px;
@@ -52,6 +66,13 @@ header {
     width: 300px;
     position: absolute;
     text-align: right;
+}
+.idNumber{
+    font-size: 20px;
+    margin-top: 225px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
 }
 /*label for dropdown selection*/
 .control-label {
@@ -80,6 +101,13 @@ header {
     text-align: right;
     padding: 0px;
 }
+.currentMajor{
+    font-size: 20px;
+    margin-top: 325px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
 
 .intendedM {
     font-size: 25px;
@@ -90,7 +118,13 @@ header {
     text-align: right;
     padding: 0px;
 }
-
+.intendedMajor{
+    font-size: 20px;
+    margin-top: 375px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
 .comment {
     font-size: 25px;
     margin-top: 425px;
@@ -99,4 +133,11 @@ header {
     position: absolute;
     text-align: right;
     padding: 0px;
+}
+.otherComments{
+    font-size: 20px;
+    margin-top: 425px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
 }
