@@ -10,6 +10,21 @@ header {
     color: #ffffff;
 }
 
+.loginClick {
+    margin-left: 1350px;
+    text-decoration: underline;
+}
+#label {
+    z-index: 101;
+    color: black;
+}
+
+.container {
+    margin-left: 1125px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
 /*div holding all input fields*/
 .submission-fields {
     height: 600px;
@@ -17,17 +32,10 @@ header {
     margin-top: 100px;
     padding-left: 300px;
     padding-right: 100px;
-    border-style: solid;
     text-align: left;
 }
 
-.login {
-    text-align: right;
-    text-decoration: underline;
-    margin-right: 100px;
-    margin-bottom: 20px;
-}
-
+/*label for Name*/
 .Name {
     font-size: 25px;
     margin-top: 125px;
@@ -37,13 +45,17 @@ header {
     position: absolute;
     display: inline-block;
 }
-.studentName{
+
+/*for input text field by Name*/
+.studentName {
     font-size: 20px;
     margin-top: 130px;
     margin-left: 320px;
     width: 325px;
     position: absolute;
 }
+
+/*label for phone number*/
 .phone {
     font-size: 25px;
     margin-top: 175px;
@@ -52,13 +64,17 @@ header {
     position: absolute;
     text-align: right;
 }
-.phoneNumber{
+
+/*for input text field by Phone Number*/
+.phoneNumber {
     font-size: 20px;
     margin-top: 175px;
     margin-left: 320px;
     width: 325px;
     position: absolute;
 }
+
+/*label for VIP ID*/
 .vip {
     font-size: 25px;
     margin-top: 225px;
@@ -67,7 +83,9 @@ header {
     position: absolute;
     text-align: right;
 }
-.idNumber{
+
+/*for input text field by VIP ID */
+.idNumber {
     font-size: 20px;
     margin-top: 225px;
     margin-left: 320px;
@@ -88,10 +106,11 @@ header {
 .dropdown {
     margin-left: 320px;
     margin-top: 275px;
-    width: 425px;
+    width: 360px;
     position: absolute;
 }
 
+/*label for current major*/
 .currentM {
     font-size: 25px;
     margin-top: 325px;
@@ -101,7 +120,9 @@ header {
     text-align: right;
     padding: 0px;
 }
-.currentMajor{
+
+/*for input text field by current major*/
+.currentMajor {
     font-size: 20px;
     margin-top: 325px;
     margin-left: 320px;
@@ -109,6 +130,7 @@ header {
     position: absolute;
 }
 
+/*label for intended major*/
 .intendedM {
     font-size: 25px;
     margin-top: 375px;
@@ -118,13 +140,17 @@ header {
     text-align: right;
     padding: 0px;
 }
-.intendedMajor{
+
+/*for text field next to intended major*/
+.intendedMajor {
     font-size: 20px;
     margin-top: 375px;
     margin-left: 320px;
     width: 325px;
     position: absolute;
 }
+
+/*label for comments*/
 .comment {
     font-size: 25px;
     margin-top: 425px;
@@ -134,7 +160,9 @@ header {
     text-align: right;
     padding: 0px;
 }
-.otherComments{
+
+/*for text field next to comments*/
+.otherComments {
     font-size: 20px;
     margin-top: 425px;
     margin-left: 320px;
