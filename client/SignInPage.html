@@ -17,35 +17,49 @@
 
   <div class="submission-fields">
 
-  <div class="form-group row">
+    <div class="form-group row1">
       <label for="reason_for_visit" class="col-xs-2 col-form-label"> Reason for visit: </label>
 
-      <div class="form-group row">
-           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div class="form-group row2">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Choose One
                <span class="caret"></span>
             </button>
+
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><a href="#">I need assitance preparing for my major/deparmental advising</a></li>
-            <li><a href="#">I want to add a double major/second degree</a></li>
-            <li><a href="#">I want to chane my major</a></li>
-            <li><a href="#">Other</a></li>
+                <li><a href="#">I need assitance preparing for my major/deparmental advising</a></li>
+                <li><a href="#">I want to add a double major/second degree</a></li>
+                <li><a href="#">I want to chane my major</a></li>
+                <li><a href="#">Other</a></li>
             </ul>
-       </div>
+        </div>
+    </div>
 
- </div>
 
-
-  <div class="form-group row">
+    <div class="form-group row">
       <div class="form-check">
         <label class="form-check-label">
           <input type="checkbox" class="form-check-input">
             Opt in for text service
         </label>
-          <button class="btn btn-secondary" type="submit"> Submit </button>
+
+          <button>Submit</button>
+          <div class="alert alert-success alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              Sucess! You have been added to the WaitList.
+          </div>
       </div>
-  </div>
+    </div>
+
+    <script>
+      <!--Displays an alert message when the submit button is clicked-->
+      $(document).ready(function(){
+          $('button').click(function(){
+              $('.alert').show()
+          })
+      });
+    </script>
 
   </div>
- 
+
 </body>
