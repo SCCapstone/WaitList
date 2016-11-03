@@ -1,38 +1,66 @@
+
 <head>
   <title>Wait List</title>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
   <header>
-    <h1>Uninversity Advising Center</h1>
+    
 
-    <div ng-app="login" ng-controller="myCtrl">  
 
-    <h4 class="loginClick" ng-click="loginFunc()">Login</h4>
 
-      <div class="container" ng-show="showLogin">
+ <table  style="width:80%" > 
+<tr bgcolor="#500F0F">
+    <th><img src="usc_logo.png" style="width:70px;height:60px;"></th> 
+	<th><h1 align="left"> <font color="white"> Uninversity Advising Center </font></h1>
+</th>
+
+
+   
+<th>
+  
+<div ng-app="login" ng-controller="myCtrl">  
+
+    <h4 class="loginClick" ng-click="loginFunc()"><font color="white">Login</font></h4>
+
+ 
+
+</th> 
+
+</tr> 
+</table>
+     
+<div class="container" ng-show="showLogin">
         <div class="col-md-4 center">
           <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title"><strong>Login</strong></h3></div>
+            
+<div class="panel-heading"><h3 class="panel-title"><strong>Login</strong></h3></div>
               <div class="panel-body">
-                <form role="form">
+                
+<form role="form">
                   <div class="form-group">
                     <label id="label" for="inputEmail">Email</label>
-                      <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter email">
+                      
+<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter email">
                   </div>
-                  <div class="form-group">
+                  
+<div class="form-group">
                     <label id="label" for="inputPassword">Password   <a href="#">(forgot password)</a></label>
-                      <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
+                      
+<input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
                   </div>
-                    <button id="submit" type="submit" class="btn btn-sm btn-default">Login</button>
+                    
+<button id="submit" type="submit" class="btn btn-sm btn-default">Login</button>
                 </form>
               </div>
             </div>
@@ -42,48 +70,71 @@
   </header>
 
 
-  <div class="submission-fields" ng-app="WaitList">
+  
+<div class="submission-fields" ng-app="WaitList">
     <label class="Name" for="studentName">Name :</label>
-      <div class="studentName">
+      
+<div class="studentName">
         <input type = "text" size = "30" name = "studentName">
       </div>
-    <label class="phone" for="phoneNumber">Phone Number :</label>
-      <div class="phoneNumber">
-        <input type = "text" size = "30" name = "phoneNumber">
+    
+<label class="phone" for="phoneNumber">Phone Number :</label>
+      
+<div class="phoneNumber">
+        
+<input type = "text" size = "30" name = "phoneNumber">
       </div>
-    <label class="vip" for="idNumber">VIP ID/USC ID :</label>
-      <div class="idNumber">
+    
+<label class="vip" for="idNumber">VIP ID/USC ID :</label>
+      
+<div class="idNumber">
         <input type = "text" size = "30" name = "idNumber">
       </div>
-    <label class="control-label col-sm-2" for="dropSelect">Reason for Visit :</label>
-      <div class="dropdown" id="dropSelect">
+    
+<label class="control-label col-sm-2" for="dropSelect">Reason for Visit :</label>
+      
+<div class="dropdown" id="dropSelect">
         <select class="form-control">
-          <option>Select a reason </option>
-          <option>I need assitance preparing for my major/departmental advising.</option>
-          <option>I want to add a double major/second degree.</option>
-          <option>I want to change my major.</option>
+          
+<option>Select a reason </option>
+          
+<option>I need assitance preparing for my major/departmental advising.</option>
+          
+<option>I want to add a double major/second degree.</option>
+          
+<option>I want to change my major.</option>
         </select>
       </div>
-    <label class="currentM" for="currentMajor">Current Major :</label>
+    
+<label class="currentM" for="currentMajor">Current Major :</label>
       <div class="currentMajor">
-        <input type = "text" size = "30" name = "currentMajor">
+       
+ <input type = "text" size = "30" name = "currentMajor">
       </div>
-    <label class="intendedM" for="intendedMajor">Intended Major :</label>
+    
+<label class="intendedM" for="intendedMajor">Intended Major :</label>
       <div class="intendedMajor">
-        <input type = "text" size = "30" name = "intendedMajor">
+        
+<input type = "text" size = "30" name = "intendedMajor">
       </div>
     <label class="comment" for="otherComments">Comments :</label>
-      <div class="otherComments">
+      
+<div class="otherComments">
         <input type = "text" size = "30" name = "otherComments">
 
       </div>
        
+
 <form action="demo_form.asp" method="get">
-  <input type="checkbox" name="optional" value="Opt"> Opt in for text service<br>
-  <input type="submit" value="Submit">
+  
+<input type="checkbox" name="optional" value="Opt"> Opt in for text service<br>
+  
+<input type="submit" value="Submit">
 </form>
     </div>
-    <p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p>
     
+<p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p>
+    
+
 
 </body>
