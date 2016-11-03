@@ -171,3 +171,19 @@ header {
     width: 325px;
     position: absolute;
 }
+
+#disclaimer {
+    font-size: 15px;
+    margin-left: -175px;
+}
+
+#submition {
+    font-size: 15px;
+}
+#checkbox {
+    margin-left: -175px;
+}
+
+#submit {
+    margin-left: 275px;
+}
