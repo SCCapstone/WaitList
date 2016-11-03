@@ -1,0 +1,171 @@
+/*Header of page*/
+header {
+    position: fixed;
+    padding-left: 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background-color: #73000a;
+    color: #ffffff;
+}
+
+.loginClick {
+    margin-left: 1350px;
+    text-decoration: underline;
+}
+#label {
+    z-index: 101;
+    color: black;
+}
+
+.container {
+    margin-left: 1125px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+/*div holding all input fields*/
+.submission-fields {
+    height: 600px;
+    margin: 20px;
+    margin-top: 100px;
+    padding-left: 300px;
+    padding-right: 100px;
+    text-align: left;
+}
+
+/*label for Name*/
+.Name {
+    font-size: 25px;
+    margin-top: 125px;
+    height: 40px;
+    width: 300px;
+    text-align: right;
+    position: absolute;
+    display: inline-block;
+}
+
+/*for input text field by Name*/
+.studentName {
+    font-size: 20px;
+    margin-top: 130px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
+
+/*label for phone number*/
+.phone {
+    font-size: 25px;
+    margin-top: 175px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+}
+
+/*for input text field by Phone Number*/
+.phoneNumber {
+    font-size: 20px;
+    margin-top: 175px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
+
+/*label for VIP ID*/
+.vip {
+    font-size: 25px;
+    margin-top: 225px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+}
+
+/*for input text field by VIP ID */
+.idNumber {
+    font-size: 20px;
+    margin-top: 225px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
+/*label for dropdown selection*/
+.control-label {
+    font-size: 25px;
+    margin-top: 275px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+/*drop down selection*/
+.dropdown {
+    margin-left: 320px;
+    margin-top: 275px;
+    width: 360px;
+    position: absolute;
+}
+
+/*label for current major*/
+.currentM {
+    font-size: 25px;
+    margin-top: 325px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+
+/*for input text field by current major*/
+.currentMajor {
+    font-size: 20px;
+    margin-top: 325px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
+
+/*label for intended major*/
+.intendedM {
+    font-size: 25px;
+    margin-top: 375px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+
+/*for text field next to intended major*/
+.intendedMajor {
+    font-size: 20px;
+    margin-top: 375px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
+
+/*label for comments*/
+.comment {
+    font-size: 25px;
+    margin-top: 425px;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    text-align: right;
+    padding: 0px;
+}
+
+/*for text field next to comments*/
+.otherComments {
+    font-size: 20px;
+    margin-top: 425px;
+    margin-left: 320px;
+    width: 325px;
+    position: absolute;
+}
