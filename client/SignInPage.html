@@ -12,7 +12,8 @@
 
 <body>
   <header>
-    <h1>Uninversity Advising Center</h1>
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png"> 
+	  <h1 id="heading" align="justify"> University Advising Center</h1> 
 
     <div ng-app="login" ng-controller="myCtrl">  
 
@@ -32,7 +33,7 @@
                     <label id="label" for="inputPassword">Password   <a href="#">(forgot password)</a></label>
                       <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
                   </div>
-                    <button id="submit" type="submit" class="btn btn-sm btn-default">Login</button>
+                    <button type="submit" class="btn btn-sm btn-default">Login</button>
                 </form>
               </div>
             </div>
@@ -55,7 +56,7 @@
       <div class="idNumber">
         <input type = "text" size = "30" name = "idNumber">
       </div>
-    <label class="control-label col-sm-2" for="dropSelect">Reason for Visit :</label>
+    <label class="reason"" for="dropSelect">Reason for Visit :</label>
       <div class="dropdown" id="dropSelect">
         <select class="form-control">
           <option>Select a reason </option>
@@ -75,15 +76,13 @@
     <label class="comment" for="otherComments">Comments :</label>
       <div class="otherComments">
         <input type = "text" size = "30" name = "otherComments">
-
       </div>
-       
-<form action="demo_form.asp" method="get">
-  <input type="checkbox" name="optional" value="Opt"> Opt in for text service<br>
-  <input type="submit" value="Submit">
-</form>
-    </div>
-    <p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p>
-    
-
+      <div class="textSelect">
+        <form action="demo_form.asp" method="get" id="submition">
+          <input type="checkbox" name="optional" value="Opt"> Opt in for text service<br> <br>
+          <p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p>
+          <input id="submit" type="submit" value="Submit">
+        </form>
+      </div>
+  </div>
 </body>
