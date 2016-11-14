@@ -1,6 +1,6 @@
 /*Header of page*/
 header {
-    position: absolute;
+    position: relative;
     padding-left: 15px;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@ header {
     height: 100px;
 }
 .loginClick {
-    margin-left: 1350px;
+    margin-left: 1175px;
     text-decoration: underline;
 }
 #label {
@@ -38,10 +38,10 @@ header {
 .submission-fields {
     height: 600px;
     margin: 20px;
-    margin-top: 100px;
-    padding-left: 360px;
-    padding-right: 100px;
+    margin-top: 0px;
+    padding-left: 340px;
     text-align: left;
+    
 }
 
 /*label for Name*/
@@ -51,146 +51,158 @@ header {
     height: 40px;
     width: 300px;
     text-align: right;
-    position: absolute;
+    position: relative;
     display: inline-block;
+    
 }
 
 /*for input text field by Name*/
 .studentName {
     font-size: 20px;
-    margin-top: 130px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;
+    position: relative;
+    
 }
 
 /*label for phone number*/
 .phone {
     font-size: 25px;
-    margin-top: 175px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
+    
 }
 
 /*for input text field by Phone Number*/
 .phoneNumber {
     font-size: 20px;
-    margin-top: 175px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;
+    position: relative;
+    
 }
 
 /*label for VIP ID*/
 .vip {
     font-size: 25px;
-    margin-top: 225px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
+    
 }
 
 /*for input text field by VIP ID */
 .idNumber {
     font-size: 20px;
-    margin-top: 225px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;   
+    position: relative; 
+      
 }
 /*label for dropdown selection*/
 .reason {
     font-size: 25px;
-    margin-top: 275px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
     padding: 0px;
+    
 }
 /*drop down selection*/
 .dropdown {
     margin-left: 320px;
-    margin-top: 275px;
+    margin-top: -45px;
     height: 40px;
     width: 360px;
-    position: absolute;
+    position: relative;
+    
 }
 
 /*label for current major*/
 .currentM {
     font-size: 25px;
-    margin-top: 325px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
-    padding: 0px;
+    
 }
 
 /*for input text field by current major*/
 .currentMajor {
-    font-size: 20px;
-    margin-top: 325px;
+     font-size: 20px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;
-    float: left;
+    position: relative; 
+      
 }
 
 /*label for intended major*/
 .intendedM {
     font-size: 25px;
-    margin-top: 375px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
-    padding: 0px;
+    
 }
 
 /*for text field next to intended major*/
 .intendedMajor {
     font-size: 20px;
-    margin-top: 375px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;
+    position: relative; 
+      
 }
 
 /*label for comments*/
 .comment {
     font-size: 25px;
-    margin-top: 425px;
+    margin-top: 20px;
     height: 40px;
     width: 300px;
-    position: absolute;
+    position: relative;
     text-align: right;
-    padding: 0px;
+    
 }
 
 /*for text field next to comments*/
 .otherComments {
     font-size: 20px;
-    margin-top: 425px;
+    margin-top: -45px;
     margin-left: 320px;
     width: 325px;
-    position: absolute;
+    position: relative; 
+      
 }
 
 .textSelect {
     font-size: 15px;
-    margin-top: 480px;
+    margin-top: 20px;
     margin-left: 225px;
     height: 40px;
     width: 475px;
-    position: absolute;
+    position: relative;
     text-align: left;
+    
 }
 
 #submit {
     margin-left: 400px;
+    
 }
