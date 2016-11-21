@@ -1,208 +1,79 @@
-/*Header of page*/
-header {
-    position: relative;
-    padding-left: 15px;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background-color: #73000a;
-    color: #ffffff;
+.header
+{
+    background-color:#73000a;
+    padding: 1em 2em;
+    #margin-bottom:1em;
+
+}
+.nav
+{
+    background-color: #ccc;
+    padding: 1em 2em;
+    margin-bottom: 1em;
+}
+.col1
+{
+
+    border-style: solid;
+    float: left;
+    margin-left: 15%;
+    width: 50%;
+    margin-top: 5%;
 }
 
-#heading {
-    margin-top: -70px;
-    margin-left: 120px;
-}
+.form-row
+{
 
-#logo {
-    width: 110px;
-    height: 100px;
-}
-.loginClick {
-    margin-left: 1175px;
-    text-decoration: underline;
-}
-#label {
-    z-index: 101;
-    color: black;
-}
-
-.container {
-    margin-left: 1100px;
-    margin-top: 30px;
-    margin-right: 30px;
-}
-
-/*div holding all input fields*/
-.submission-fields {
-    height: 600px;
-    margin: 20px;
-    margin-top: 0px;
-    padding-left: 340px;
-    text-align: left;
-    
-}
-
-/*label for Name*/
-.Name {
-    font-size: 25px;
-    margin-top: 125px;
-    height: 40px;
-    width: 300px;
+    margin-top: 1%;
+    #text-align: center;
     text-align: right;
-    position: relative;
+    margin-bottom: 1%;
+    #padding: 5% 5%;
+}
+.form-row > label span
+{
+    #display: inline-block;
+    #color: red;
+    #box-sizing: border-box;
+    #width: 50%;
+    #text-align: center;
+    #padding-right: 1%;
+}
+
+input
+{
+    box-sizing: border-box;
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.08);
+    width: 300px;
+    padding: 1px 1px;
+}
+.form-row .form-checkbox input
+{
+    #margin-left: 1%;
+    #margin-right: 100%;
+    width: auto;
+    vertical-align: top;
+
+}
+.form-row .form-checkbox span
+{
+    font-size: 75%;
+    font-weight: normal;
     display: inline-block;
-    
-}
-
-/*for input text field by Name*/
-.studentName {
-    font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative;
-    
-}
-
-/*label for phone number*/
-.phone {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    
-}
-
-/*for input text field by Phone Number*/
-.phoneNumber {
-    font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative;
-    
-}
-
-/*label for VIP ID*/
-.vip {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    
-}
-
-/*for input text field by VIP ID */
-.idNumber {
-    font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative; 
-      
-}
-/*label for dropdown selection*/
-.reason {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    padding: 0px;
-    
-}
-/*drop down selection*/
-.dropdown {
-    margin-left: 320px;
-    margin-top: -45px;
-    height: 40px;
-    width: 360px;
-    position: relative;
-    
-}
-
-/*label for current major*/
-.currentM {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    
-}
-
-/*for input text field by current major*/
-.currentMajor {
-     font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative; 
-      
-}
-
-/*label for intended major*/
-.intendedM {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    
-}
-
-/*for text field next to intended major*/
-.intendedMajor {
-    font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative; 
-      
-}
-
-/*label for comments*/
-.comment {
-    font-size: 25px;
-    margin-top: 20px;
-    height: 40px;
-    width: 300px;
-    position: relative;
-    text-align: right;
-    
-}
-
-/*for text field next to comments*/
-.otherComments {
-    font-size: 20px;
-    margin-top: -45px;
-    margin-left: 320px;
-    width: 325px;
-    position: relative; 
-      
-}
-
-.textSelect {
-    font-size: 15px;
-    margin-top: 20px;
-    margin-left: 225px;
-    height: 40px;
-    width: 475px;
-    position: relative;
     text-align: left;
-    
+    #margin-right:80%;
 }
-
-#submit {
-    margin-left: 400px;
-    
+#logo
+{
+    float: left;
+    width: 9%;
+    height: 8%;
+}
+#heading
+{
+color: white;
+}
+#dropdown
+{
+    width: 56%
 }
