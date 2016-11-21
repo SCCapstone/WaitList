@@ -1,89 +1,83 @@
 <head>
-  <title>Wait List</title>
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Wait List</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <h1>Uninversity Advising Center</h1>
-
-    <div ng-app="login" ng-controller="myCtrl">  
-
-    <h4 class="loginClick" ng-click="loginFunc()">Login</h4>
-
-      <div class="container" ng-show="showLogin">
-        <div class="col-md-4 center">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title"><strong>Login</strong></h3></div>
-              <div class="panel-body">
-                <form role="form">
-                  <div class="form-group">
-                    <label id="label" for="inputEmail">Email</label>
-                      <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter email">
-                  </div>
-                  <div class="form-group">
-                    <label id="label" for="inputPassword">Password   <a href="#">(forgot password)</a></label>
-                      <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Password">
-                  </div>
-                    <button id="submit" type="submit" class="btn btn-sm btn-default">Login</button>
-                </form>
-              </div>
+    <div class="Waitlist">
+        <div class="header">
+            <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png">
+            <h1 id="heading"> University Advising Center</h1>
+        </div>
+        <div class="nav">
+        </div>
+        <div class="content">
+            <div class="col1">
+                <div class="form-row">
+                    <label>
+                        <span>NAME:</span>
+                        <input type="text" name="name">
+                        </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Phone Number:</span>
+                        <input type="tel" name="phone-number">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>VIP/USC ID:</span>
+                        <input type="number" name="ID">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Reason for visit:</span>
+                        <select id = "dropdown">
+                            <option>Select a reason </option>
+                            <option>I need assistance preparing for my major/departmental advising.</option>
+                            <option>I want to add a double major/second degree.</option>
+                            <option>I want to change my major.</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Current Major:</span>
+                        <input type="text" name="current-major">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Intended Major:</span>
+                        <input type="text" name="intended-major">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Comments:</span>
+                        <input type="text" name="comments">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="check-box" checked>
+                        <span>opt for text service</span>
+                    </label>
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="form-row">
+                    <span><p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p></span>
+                </div>
             </div>
-          </div>
-       </div>
+        </div>
     </div>
-  </header>
-
-
-  <div class="submission-fields" ng-app="WaitList">
-    <label class="Name" for="studentName">Name :</label>
-      <div class="studentName">
-        <input type = "text" size = "30" name = "studentName">
-      </div>
-    <label class="phone" for="phoneNumber">Phone Number :</label>
-      <div class="phoneNumber">
-        <input type = "text" size = "30" name = "phoneNumber">
-      </div>
-    <label class="vip" for="idNumber">VIP ID/USC ID :</label>
-      <div class="idNumber">
-        <input type = "text" size = "30" name = "idNumber">
-      </div>
-    <label class="control-label col-sm-2" for="dropSelect">Reason for Visit :</label>
-      <div class="dropdown" id="dropSelect">
-        <select class="form-control">
-          <option>Select a reason </option>
-          <option>I need assitance preparing for my major/departmental advising.</option>
-          <option>I want to add a double major/second degree.</option>
-          <option>I want to change my major.</option>
-        </select>
-      </div>
-    <label class="currentM" for="currentMajor">Current Major :</label>
-      <div class="currentMajor">
-        <input type = "text" size = "30" name = "currentMajor">
-      </div>
-    <label class="intendedM" for="intendedMajor">Intended Major :</label>
-      <div class="intendedMajor">
-        <input type = "text" size = "30" name = "intendedMajor">
-      </div>
-    <label class="comment" for="otherComments">Comments :</label>
-      <div class="otherComments">
-        <input type = "text" size = "30" name = "otherComments">
-
-      </div>
-       
-<form action="demo_form.asp" method="get">
-  <input type="checkbox" name="optional" value="Opt"> Opt in for text service<br>
-  <input type="submit" value="Submit">
-</form>
-    </div>
-    <p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p>
-    
-
 </body>
