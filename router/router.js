@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 if(Meteor.isClient) {
   Router.route('/', function() {
     this.render('home');
@@ -11,3 +12,5 @@ if(Meteor.isClient) {
     this.render('adminPage');
   });
 }
+=======
+>>>>>>> refs/remotes/origin/master
