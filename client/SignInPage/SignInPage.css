@@ -2,18 +2,34 @@
 {
     background-color:#73000a;
     padding: 1em 2em;
-    #margin-bottom:1em;
 
 }
+
+.header h4 
+{
+    margin-left: 85%;
+    color: #ccc;
+    text-decoration: underline;
+}
+
+a
+{
+    color: #ccc;
+}
+a:hover 
+{
+    color: #ccc;
+}
+
 .nav
 {
     background-color: #ccc;
     padding: 1em 2em;
     margin-bottom: 1em;
 }
+
 .col1
 {
-
     border-style: solid;
     float: left;
     margin-left: 15%;
@@ -23,21 +39,9 @@
 
 .form-row
 {
-
     margin-top: 1%;
-    #text-align: center;
     text-align: right;
     margin-bottom: 1%;
-    #padding: 5% 5%;
-}
-.form-row > label span
-{
-    #display: inline-block;
-    #color: red;
-    #box-sizing: border-box;
-    #width: 50%;
-    #text-align: center;
-    #padding-right: 1%;
 }
 
 input
@@ -47,33 +51,40 @@ input
     width: 300px;
     padding: 1px 1px;
 }
+
 .form-row .form-checkbox input
 {
-    #margin-left: 1%;
-    #margin-right: 100%;
     width: auto;
     vertical-align: top;
-
 }
+
 .form-row .form-checkbox span
 {
     font-size: 75%;
     font-weight: normal;
     display: inline-block;
     text-align: left;
-    #margin-right:80%;
 }
+
 #logo
 {
     float: left;
     width: 9%;
     height: 8%;
 }
+
 #heading
 {
 color: white;
 }
+
 #dropdown
 {
     width: 56%
+}
+
+#disclaimer 
+{
+    margin-left: 60%;
+    text-align: left;
 }

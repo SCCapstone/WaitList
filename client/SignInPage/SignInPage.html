@@ -11,12 +11,13 @@
 </head>
 
 <body>
+  </body>
+    <template name="home">
     <div class="Waitlist">
         <div class="header">
             <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png">
-            <h1 id="heading"> University Advising Center</h1>
-        </div>
-        <div class="nav">
+            <h1 id="heading">University Advising Center</h1>
+            <h4><a href="/login">Login</a></h4>
         </div>
         <div class="content">
             <div class="col1">
@@ -72,12 +73,12 @@
                         <input type="checkbox" name="check-box" checked>
                         <span>opt for text service</span>
                     </label>
-                    <button type="submit">Submit</button>
+                    <a class="btn btn-default" href="/adminPage" role="button">Submit</a>
                 </div>
-                <div class="form-row">
+                <div class="form-row" id="disclaimer">
                     <span><p>*Disclaimer. This service uses a text messaging system to alert you of estimated waiting times and successful sign up. Messaging and data rates may apply when using this service.</p></span>
                 </div>
             </div>
         </div>
     </div>
-</body>
+    </template>
