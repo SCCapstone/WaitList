@@ -1,23 +1,44 @@
 <head>
-    <title>Wait List</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Wait List</title>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  </body>
-    <template name="adminPage">
-    <div class="Waitlist">
-        <div class="header">
-            <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png">
-            <h1 id="heading"> University Advising Center</h1>
-            <h4><a href="/">Logout</a></h4>
-        </div>
-    </div>
-    </template>
+  <header>
+    
+
+
+
+ <table  style="width:80%" > 
+<tr bgcolor="#500F0F">
+    <th><img src="usc_logo.png" style="width:70px;height:60px;"></th> 
+	<th><h1 align="left"> <font color="white"> Uninversity Advising Center </font></h1>
+</th>
+<th>
+  
+<div ng-app="logout" ng-controller="myCtrl">  
+
+    <h4 class="logoutClick" ng-click="logoutFunc()"><font color="white">Logout</font></h4>
+
+ 
+
+</th> 
+</table>
+</header>
+
+<font size = "7">Students Informations: </font>
+
+<div style="height:700px;width:1535px;overflow:auto;border:8px solid black;background-color:lightgray;padding:2%">Add Data in side here - including scroll boxes.</div>
+</div>
+
+
+</body>
