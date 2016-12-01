@@ -10,4 +10,6 @@ if(Meteor.isClient) {
       Router.route('/adminPage', function () {
         this.render('adminPage');
       });
+
+
 }

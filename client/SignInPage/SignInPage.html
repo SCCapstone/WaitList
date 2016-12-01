@@ -15,11 +15,18 @@
     <template name="home">
     <div class="Waitlist">
         <div class="header">
-            <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png">
+            <a href="/">
+                <img id="logo" src="https://cloud.githubusercontent.com/assets/21236079/19955963/2e41f8b0-a15d-11e6-83da-41b0fa4c2cd0.png">
+            </a>
             <h1 id="heading">University Advising Center</h1>
             <h4><a href="/login">Login</a></h4>
         </div>
         <div class="content">
+            <div class="currentInfo">
+                <h3> Welcome to the Advising Center. The current wait time is: </h3>
+                <br>
+                <h3> Please fill out the form below to be added to the list.</h3>
+            </div>
             <div class="col1">
                 <div class="form-row">
                     <label>
@@ -68,11 +75,13 @@
                         <input type="text" name="comments">
                     </label>
                 </div>
+
                 <div class="form-row">
                     <label class="form-checkbox">
                         <input type="checkbox" name="check-box" checked>
-                        <span>opt for text service</span>
+                        <span>opt in for text service</span>
                     </label>
+                    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
                     <a class="btn btn-default" href="/adminPage" role="button">Submit</a>
                 </div>
                 <div class="form-row" id="disclaimer">
