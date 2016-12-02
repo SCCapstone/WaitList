@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/myrepo.iml" filepath="$PROJECT_DIR$/.idea/myrepo.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/WAITLIST.iml" filepath="$PROJECT_DIR$/.idea/WAITLIST.iml" />
+>>>>>>> master
     </modules>
   </component>
 </project>
