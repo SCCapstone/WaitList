@@ -24,3 +24,6 @@ iron:router
 accounts-ui
 blaze-html-templates
 twbs:bootstrap
+aldeed:autoform
+aldeed:collection2
+meteortoys:allthings
