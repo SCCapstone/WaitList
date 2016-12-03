@@ -11,13 +11,13 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <td style="width: 85px">Name</td>
-                        <td style="width: 85px">Phone Number</td>
-                        <td style="width: 85px">VIP ID/USC ID</td>
-                        <td style="width: 85px">Reason for Visit</td>
-                        <td style="width: 85px">Current Major</td>
-                        <td style="width: 85px">Intended Major</td>
-                        <td style="width: 85px">Comments</td>
+                        <td style="width: 150px">Name</td>
+                        <td style="width: 150px">Phone Number</td>
+                        <td style="width: 150px">VIP ID/USC ID</td>
+                        <td style="width: 150px">Reason for Visit</td>
+                        <td style="width: 150px">Current Major</td>
+                        <td style="width: 150px">Intended Major</td>
+                        <td style="width: 150px">Comments</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,71 +51,71 @@
 </template>
 
 <template name="listName">
-    <tr>
-        {{#each student_name}}
+    {{#each student_name}}
+        <tr>
             <td>
                 {{Name}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listNumber">
-    <tr>
-        {{#each student_number}}
+    {{#each student_number}}
+        <tr>
             <td>
                 {{PhoneNumber}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listVIP">
-    <tr>
-        {{#each student_ID}}
+    {{#each student_ID}}
+        <tr>
             <td>
                 {{VipID}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listReason">
-    <tr>
-        {{#each student_Reason}}
+    {{#each student_Reason}}
+        <tr>
             <td>
                 {{ReasonForVisit}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listCurrent">
-    <tr>
-        {{#each student_Current}}
+    {{#each student_Current}}
+        <tr>
             <td>
                 {{CurrentMajor}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listIntended">
-    <tr>
-        {{#each student_Intended}}
+    {{#each student_Intended}}
+        <tr>
             <td>
                 {{IntendedMajor}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
 
 <template name="listComments">
-    <tr>
-        {{#each student_Comments}}
+    {{#each student_Comments}}
+        <tr>
             <td>
                 {{Comments}}
             </td>
-        {{/each}}
-    </tr>
+        </tr>
+    {{/each}}
 </template>
