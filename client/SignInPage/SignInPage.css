@@ -1,111 +1,44 @@
 .header
 {
     background-color:#73000a;
-    padding: 1em 2em;
-
+    padding: 2.5em 2em;
+    margin-bottom: 3em;
 }
 
-.header h4 
+.header h4
 {
     margin-left: 80%;
     color: #ccc;
     text-decoration: underline;
 }
-a
-{
-    color: #ccc;
-}
-a:hover 
-{
-    color: #ccc;
-}
 
-.nav
-{
-    background-color: #ccc;
-    padding: 1em 2em;
-    margin-bottom: 1em;
-}
-
-.currentInfo
-{
-    float: top;
-    margin-top: 1%;
-    text-align: center;
-    padding: 1px;
-}
-
-.col1
-{
-    border-style: solid;
-    float: top;
-    margin-left: 8.5%;
-    width: 85%;
-    margin-top: 1%;
-    text-align: right;
-}
-
-.form-row
-{
-    margin-top: 1%;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-bottom: 1%;
-}
-
-input
-{
-    box-sizing: border-box;
-    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.08);
-    width: 300px;
-    padding: 1px 1px;
-}
-
-.form-row .form-checkbox input
-{
-    width: auto;
-    vertical-align: top;
-}
-
-.form-row .form-checkbox span
-{
-    font-size: 75%;
-    font-weight: normal;
-    display: inline-block;
-    text-align: left;
+.img-responsive {
+    float: left;
+    width: 20%;
+    height: auto;
 }
 
 .studentContainer
+ {
+     float: left;
+     margin-left: 8.5%;
+     width: 85%;
+     margin-top: 1%;
+ }
+
+#adminHeaders
 {
-    border-style: solid;
-    float: left;
-    margin-left: 8.5%;
-    width: 85%;
-    margin-top: 5%;
+    font-weight: bold;
 }
 
 #logo
 {
     float: left;
     width: 9%;
-    height: 8%;
+    height: auto;
 }
 
 #heading
 {
-color: white;
+    color: white;
 }
-
-#dropdown
-{
-    width: 56%
-}
-
-#disclaimer 
-{
-    margin-left: 60%;
-    text-align: left;
-}
-
-
-
