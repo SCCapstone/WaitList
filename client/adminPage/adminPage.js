@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import '../imports/startup/accounts-config.js';
-=======
 import '../../imports/AdminUI/admin.js';
 
 Template.listName.student_name = function () {
@@ -30,4 +27,3 @@ Template.listIntended.student_Intended = function () {
 Template.listComments.student_Comments = function () {
     return Students.find();
 }
->>>>>>> refs/remotes/origin/master
