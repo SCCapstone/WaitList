@@ -39,6 +39,16 @@ StudentSchema = new SimpleSchema({
     Comments: {
         type: String,
         max: 300
+    },
+    Disclaimer: {
+        type: Boolean,
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "boolean-checkbox",
+            }
+        },
+        label: "Opt in for text service"
     }
 });
 
