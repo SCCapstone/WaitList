@@ -1,4 +1,7 @@
  <body>
+{{> header}}
+ </body>
+<template name="header">
  <header>
      <div class="Waitlist">
          <div class="header">
@@ -6,11 +9,9 @@
                 <img class="img-responsive" id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center</h1>
-
+             {{> loginButtons}}
              <h4></h4>
          </div>
      </div>
  </header>
-
- </body>
-
+</template>

@@ -28,4 +28,3 @@ aldeed:autoform               # For form creation
 aldeed:collection2            # For form creation
 twbs:bootstrap                # Formatting with bootstrap
 meteortoys:allthings          # Tool for testing purposes
-useraccounts:bootstrap

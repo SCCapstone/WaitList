@@ -1,1 +1,1 @@
-import '../../imports/AdminUI/admin.js';
+import '../imports/startup/accounts-config.js';
