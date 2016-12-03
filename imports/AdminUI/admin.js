@@ -1,7 +1,6 @@
-/**
 import { Template } from 'meteor/templating';
 
-import { students } from '../api/students.js';
-*/
+import { Students } from '../api/students.js';
 
 import './admin.html';
+

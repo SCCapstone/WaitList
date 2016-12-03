@@ -10,36 +10,112 @@
 
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>VIP ID/USC ID</th>
-                    <th>Current Status</th>
-                </tr>
+                    <tr>
+                        <td style="width: 85px">Name</td>
+                        <td style="width: 85px">Phone Number</td>
+                        <td style="width: 85px">VIP ID/USC ID</td>
+                        <td style="width: 85px">Reason for Visit</td>
+                        <td style="width: 85px">Current Major</td>
+                        <td style="width: 85px">Intended Major</td>
+                        <td style="width: 85px">Comments</td>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>John Doe</td>
-                    <td>999-999-9999</td>
-                    <td>12345678</td>
-                    <td> Undergrad </td>
-                </tr>
-                <tr>
-                    <td>Mary May</td>
-                    <td>999-999-9999</td>
-                    <td>12345678</td>
-                    <td> Undergrad </td>
-                </tr>
-                <tr>
-                    <td>July Rain</td>
-                    <td>999-999-9999</td>
-                    <td>12345678</td>
-                    <td> Undergrad </td>
-                </tr>
+                        <tr>
+                            <td>
+                                {{> listName}}
+                            </td>
+                            <td>
+                                {{> listNumber}}
+                            </td>
+                            <td>
+                                {{> listVIP}}
+                            </td>
+                            <td>
+                                {{> listReason}}
+                            </td>
+                            <td>
+                                {{> listCurrent}}
+                            </td>
+                            <td>
+                                {{> listIntended}}
+                            </td>
+                            <td>
+                                {{> listComments}}
+                            </td>
+                        </tr>
                 </tbody>
             </table>
         </div>
-
     </div>
+</template>
 
+<template name="listName">
+    <tr>
+        {{#each student_name}}
+            <td>
+                {{Name}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listNumber">
+    <tr>
+        {{#each student_number}}
+            <td>
+                {{PhoneNumber}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listVIP">
+    <tr>
+        {{#each student_ID}}
+            <td>
+                {{VipID}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listReason">
+    <tr>
+        {{#each student_Reason}}
+            <td>
+                {{ReasonForVisit}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listCurrent">
+    <tr>
+        {{#each student_Current}}
+            <td>
+                {{CurrentMajor}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listIntended">
+    <tr>
+        {{#each student_Intended}}
+            <td>
+                {{IntendedMajor}}
+            </td>
+        {{/each}}
+    </tr>
+</template>
+
+<template name="listComments">
+    <tr>
+        {{#each student_Comments}}
+            <td>
+                {{Comments}}
+            </td>
+        {{/each}}
+    </tr>
 </template>
