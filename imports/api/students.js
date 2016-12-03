@@ -53,3 +53,8 @@ StudentSchema = new SimpleSchema({
 });
 
 Students.attachSchema(StudentSchema);
+
+
+
+
+
