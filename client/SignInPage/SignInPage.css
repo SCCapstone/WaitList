@@ -27,19 +27,29 @@ a:hover
     margin-bottom: 1em;
 }
 
+.currentInfo
+{
+    float: top;
+    margin-top: 1%;
+    text-align: center;
+    padding: 1px;
+}
+
 .col1
 {
     border-style: solid;
-    float: left;
-    margin-left: 15%;
-    width: 50%;
-    margin-top: 5%;
+    float: top;
+    margin-left: 8.5%;
+    width: 85%;
+    margin-top: 1%;
+    text-align: right;
 }
 
 .form-row
 {
     margin-top: 1%;
-    text-align: right;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-bottom: 1%;
 }
 
@@ -65,6 +75,15 @@ input
     text-align: left;
 }
 
+.studentContainer
+{
+    border-style: solid;
+    float: left;
+    margin-left: 8.5%;
+    width: 85%;
+    margin-top: 5%;
+}
+
 #logo
 {
     float: left;
@@ -87,3 +106,5 @@ color: white;
     margin-left: 60%;
     text-align: left;
 }
+
+
