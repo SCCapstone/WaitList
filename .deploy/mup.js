@@ -8,7 +8,7 @@ module.exports = {
       // password:
       // or leave blank for authenticate from ssh-agent
       opts: {
-          port: 22,
+          port: 222,
       },
     }
   },
