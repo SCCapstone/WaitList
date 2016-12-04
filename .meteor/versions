@@ -23,7 +23,6 @@ caching-compiler@1.0.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
-coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
 ddp-common@1.2.6
@@ -85,8 +84,6 @@ modules-runtime@0.7.6_1
 momentjs:moment@2.10.6
 mongo@1.1.12_1
 mongo-id@1.0.5
-mrt:moment@2.8.1
-mrt:twilio-meteor@1.1.0
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
 npm-bcrypt@0.9.1_1
@@ -106,7 +103,6 @@ service-configuration@1.0.10
 session@1.1.6
 sha@1.0.8
 shell-server@0.2.1
-softwarerero:accounts-t9n@1.3.6
 spacebars@1.0.13
 spacebars-compiler@1.0.13
 srp@1.0.9
@@ -119,7 +115,5 @@ twbs:bootstrap@3.3.6
 ui@1.0.12
 underscore@1.0.9
 url@1.0.10
-useraccounts:bootstrap@1.14.2
-useraccounts:core@1.14.2
 webapp@1.3.11_1
 webapp-hashing@1.0.9
