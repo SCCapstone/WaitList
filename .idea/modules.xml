@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CSCE490.iml" filepath="$PROJECT_DIR$/.idea/CSCE490.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/myrepo.iml" filepath="$PROJECT_DIR$/.idea/myrepo.iml" />
     </modules>
   </component>
 </project>
