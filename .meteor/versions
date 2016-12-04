@@ -84,6 +84,8 @@ modules-runtime@0.7.6_1
 momentjs:moment@2.10.6
 mongo@1.1.12_1
 mongo-id@1.0.5
+mrt:moment@2.8.1
+mrt:twilio-meteor@1.1.0
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
 npm-bcrypt@0.9.1_1
