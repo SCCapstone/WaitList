@@ -12,12 +12,19 @@
     text-decoration: underline;
 }
 
-.img-responsive {
+.img-responsive 
+{
     float: left;
     width: 20%;
     height: auto;
 }
 
+.Login 
+{
+    with: 20%;
+    margin-left: 80%;
+    color: #ccc;
+}
 .studentContainer
  {
      float: left;
@@ -30,7 +37,6 @@
 {
     font-weight: bold;
 }
-
 #logo
 {
     float: left;
