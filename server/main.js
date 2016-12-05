@@ -12,7 +12,7 @@ Meteor.methods({
         twilio.sendSms({
             to: '+18431111111', // Any number Twilio can deliver to
             from: '+18032239994', // A number you bought from Twilio and can use for outbound communication
-            body: 'Youve been added to the waitlist' // body of the SMS message
+            body: 'You have been added to the waitlist' // body of the SMS message
         }, function (err, responseData) { //this function is executed when a response is received from Twilio
             if (!err) { // "err" is an error received during the request, if any
                 // "responseData" is a JavaScript object containing data received from Twilio.
