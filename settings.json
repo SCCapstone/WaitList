@@ -1,0 +1,8 @@
+{
+  "galaxy.meteor.com":{
+    "env":{
+      "ROOT_URL": "http://waitlistwehere.meteor.com",
+      "MONGO_URL": "mongodb://waitlistAdmin:waitlist1@ds119618.mlab.com:19618/waitlist_mongodb"
+    }
+  }
+}
