@@ -1,5 +1,7 @@
 import '../../imports/AdminUI/admin.js';
 
+
+
 Template.listName.student_name = function () {
     return Students.find();
 }
