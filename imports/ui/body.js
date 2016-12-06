@@ -9,4 +9,8 @@ Accounts.config({
     forbidClientAccountCreation : true
 });
 
+Accounts.createUser({
 
+        email: 'admin@email.com',
+        password: 'asdfasdf',
+    });
