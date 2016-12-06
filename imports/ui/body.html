@@ -1,4 +1,7 @@
  <body>
+    {{> header}}
+ </body>
+<template name="header">
  <header>
      <div class="Waitlist">
          <div class="header">
@@ -8,9 +11,15 @@
              <h1 id="heading">University Advising Center</h1>
 
              <h4>{{> loginButtons}}</h4>
+             <div class="Login">
+                {{#if currentUser}}
+                    <h3>replaced words</h3>
+                {{else}}
+                     {{> loginButtons}}
+                {{/if}}
+             </div>
+             <h4></h4>
          </div>
      </div>
  </header>
-
- </body>
-
+</template>
