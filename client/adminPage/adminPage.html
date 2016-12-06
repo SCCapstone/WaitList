@@ -23,6 +23,7 @@
                         <td style="width: 150px">Current Major</td>
                         <td style="width: 150px">Intended Major</td>
                         <td style="width: 150px">Comments</td>
+                        <td style="width: 150px"></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,9 @@
                             </td>
                             <td>
                                 {{> listComments}}
+                            </td>
+                            <td>
+                                {{> listDisclaimer}}
                             </td>
                         </tr>
 
@@ -133,5 +137,15 @@
             </td>
         </tr>
         <br>
+    {{/each}}
+</template>
+
+<template name="listDisclaimer">
+    {{#each student_Disclaimer}}
+        <tr>
+            <td>
+               <i class="glyphicon glyphicon-trash"></i>
+            </td>
+        </tr>
     {{/each}}
 </template>
