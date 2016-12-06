@@ -1,5 +1,6 @@
 import '../../imports/AdminUI/admin.js';
 
+
 Template.listName.student_name = function () {
     return Students.find();
 }
@@ -27,3 +28,13 @@ Template.listIntended.student_Intended = function () {
 Template.listComments.student_Comments = function () {
     return Students.find();
 }
+
+Template.listDisclaimer.student_Disclaimer = function () {
+    return Students.find();
+}
+
+Template.listDisclaimer.events({
+    'click .glyphicon'() {
+        Students.remove(this._id);
+    }
+}) 
