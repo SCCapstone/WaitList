@@ -1,5 +1,5 @@
  <body>
-{{> header}}
+    {{> header}}
  </body>
 <template name="header">
  <header>
@@ -9,13 +9,13 @@
                 <img class="img-responsive" id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center</h1>
-             <div class="Login">
-                {{#if currentUser}}
-                    <h3>replaced words</h3>
-                {{else}}
-                     {{> loginButtons}}
-                {{/if}}
-             </div>
+                    <div class="Login">
+
+
+
+                         {{> loginButtons}}
+
+                    </div>
              <h4></h4>
          </div>
      </div>

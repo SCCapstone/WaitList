@@ -1,5 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
+
+
 Students = new Mongo.Collection('students');
 
 StudentSchema = new SimpleSchema({
@@ -28,18 +30,22 @@ StudentSchema = new SimpleSchema({
             }
         }
     },
+
     CurrentMajor: {
         type: String,
         max: 30
     },
+
     IntendedMajor: {
         type: String,
         max: 30
     },
+
     Comments: {
         type: String,
         max: 300
     },
+
     Disclaimer: {
         type: Boolean,
         optional: true,

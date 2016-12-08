@@ -20,6 +20,7 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 
+insecure
 accounts-password             # For setting up user accounts
 iron:router                   # For routing to other pages
 accounts-ui                   # For setting up user accounts
@@ -30,3 +31,5 @@ meteortoys:allthings          # Tool for testing purposes
 useraccounts:bootstrap
 mrt:twilio-meteor
 mrt:moment
+accounts-base
+email
