@@ -34,6 +34,12 @@ Template.listDisclaimer.student_Disclaimer = function () {
 
 Template.listDisclaimer.events({
     'click .glyphicon'() {
-        Students.remove(this._id);
+        var r = confirm("Are you sure you want to remove this student?");
+        if (r == true) {
+            Students.remove(this._id);
+        }
+        else{
+            
+        };
     }
-}) 
+})
