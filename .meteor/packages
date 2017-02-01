@@ -32,3 +32,5 @@ mrt:moment
 mrt:twilio-meteor
 accounts-base
 email
+practicalmeteor:mocha
+hwillson:stub-collections
