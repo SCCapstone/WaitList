@@ -9,7 +9,7 @@ Template.buttonSelections.events({
         Students.remove(this._id);
     }
 })
-
+/*
 Template.adminPage.events({
     'click .accordion-toggle'(event) {
         var span = $('.glyphicon');
@@ -18,6 +18,12 @@ Template.adminPage.events({
         else
             span.removeClass('glyphicon-minus').addClass('glyphicon-plus');
         //$(event.target).find('span').toggleClass('glyphicon-plus glyphicon-minus');
+    }
+})*/
+
+Template.expandButton.events({
+    'click #expandBtn'(event, temp) {
+        temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
     }
 })
 
