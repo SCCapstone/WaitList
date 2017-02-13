@@ -1,39 +1,28 @@
-import '../../imports/AdminUI/admin.js';
+import '../../imports/api/students.js';
 
-Template.listName.student_name = function () {
+Template.adminPage.student = function() {
     return Students.find();
 }
 
-Template.listNumber.student_number = function () {
-    return Students.find();
-}
-
-Template.listVIP.student_ID = function () {
-    return Students.find();
-}
-
-Template.listReason.student_Reason = function () {
-    return Students.find();
-}
-
-Template.listCurrent.student_Current = function () {
-    return Students.find();
-}
-
-Template.listIntended.student_Intended = function () {
-    return Students.find();
-}
-
-Template.listComments.student_Comments = function () {
-    return Students.find();
-}
-
-Template.listDisclaimer.student_Disclaimer = function () {
-    return Students.find();
-}
-
-Template.listDisclaimer.events({
-    'click .glyphicon'() {
+Template.buttonSelections.events({
+    'click .glyphicon-trash'() {
         Students.remove(this._id);
     }
-}) 
+})
+
+Template.adminPage.events({
+    'click .accordion-toggle'(event) {
+        var span = $('.glyphicon');
+        if(span.hasClass('glyphicon-plus')) 
+            span.removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        else
+            span.removeClass('glyphicon-minus').addClass('glyphicon-plus');
+        //$(event.target).find('span').toggleClass('glyphicon-plus glyphicon-minus');
+    }
+})
+
+Template.editModal.helpers({
+  '#edit-form'() {
+    return this._id;
+  }
+});

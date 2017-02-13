@@ -7,12 +7,12 @@ Students = new Mongo.Collection('students');
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
-        max: 200
+        max: 50
     },
 
     PhoneNumber: {
         type: String,
-        max: 20
+        max: 10
 
     },
 
@@ -43,7 +43,8 @@ StudentSchema = new SimpleSchema({
 
     Comments: {
         type: String,
-        max: 300
+        max: 300, 
+        optional: true
     },
 
     Disclaimer: {
@@ -55,6 +56,16 @@ StudentSchema = new SimpleSchema({
             }
         },
         label: "Opt in for text service"
+    },
+    createdAt: {
+        type: Date,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+        autoValue:function(){ 
+            return new Date(); 
+        }
     }
 });
 

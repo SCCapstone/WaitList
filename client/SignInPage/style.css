@@ -51,3 +51,40 @@
     color: white;
     
 }
+
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.info {
+	background-color: black;
+	background: black;
+	color: white;
+}
+
+#inner-heading {
+	background-color: black;
+}
+
+#top-heading {
+	background-color: black;
+	color: white;
+}
+.glyphicon-arrow-down {
+    color: #DA1010;
+}
+
+.glyphicon-arrow-up {
+    color: #4AFC37;
+}

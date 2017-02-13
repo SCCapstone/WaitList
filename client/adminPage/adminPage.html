@@ -1,149 +1,115 @@
 <body>
-     {{header}}
      {{adminPage}}
 </body>
 
 <template name="adminPage">
-<!--
-<head>
-    <title>Wait List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
--->
-    <div class="studentContainer">
-        <div class="studentQueue">
-
-            <table class="table">
-                <thead>
-                    <tr id="adminHeaders">
-                        <td style="width: 150px">Name</td>
-                        <td style="width: 150px">Phone Number</td>
-                        <td style="width: 150px">VIP ID/USC ID</td>
-                        <td style="width: 150px">Reason for Visit</td>
-                        <td style="width: 150px">Current Major</td>
-                        <td style="width: 150px">Intended Major</td>
-                        <td style="width: 150px">Comments</td>
-                        <td style="width: 150px"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>
-                                {{> listName}}
-                            </td>
-                            <td>
-                                {{> listNumber}}
-                            </td>
-                            <td>
-                                {{> listVIP}}
-                            </td>
-                            <td>
-                                {{> listReason}}
-                            </td>
-                            <td>
-                                {{> listCurrent}}
-                            </td>
-                            <td>
-                                {{> listIntended}}
-                            </td>
-                            <td>
-                                {{> listComments}}
-                            </td>
-                            <td>
-                                {{> listDisclaimer}}
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Students Waiting</div>
+                    <div class="panel-body">
+                        <table class="table table-condensed table-striped" id="outer-table">
+    				        <thead id="top-heading">
+                                <tr>
+                                    <th></th>
+                                    <th >Name</th>
+                                    <th >Phone Number</th>
+                                    <th >VIP ID/USC ID</th>
+                                    <th >Current Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each student}}
+                                    <tr data-toggle="collapse" data-target="#{{this._id}}" class="accordion-toggle">
+                                        <td>{{> expandButton}}</td>
+                                        <td>{{Name}}</td>
+                                        <td>{{PhoneNumber}}</td>
+                                        <td>{{VipID}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" class="hiddenRow">
+                                            <div class="accordian-body collapse" id="{{this._id}}">
+                                                <table class="table table-striped">
+                                                    <thead id="innter-table">
+                                                        <tr class="info">
+                                                            <th id="inner-heading">Reason for Visit</th>
+                                                            <th id="inner-heading">Current Major</th>
+                                                            <th id="inner-heading">Intended Major</th>
+                                                            <th id="inner-heading">Comments</th>
+                                                            <th id="inner-heading">Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{{ReasonForVisit}}</td>
+                                                            <td>{{CurrentMajor}}</td>
+                                                            <td>{{IntendedMajor}}</td>
+                                                            <td>{{Comments}}</td>
+                                                            <td>{{> buttonSelections}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                {{> editModal}}
+            </div>
         </div>
     </div>
 </template>
 
-
-<template name="listName">
-    {{#each student_name}}
-        <tr>
-            <td>
-                {{Name}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
+<template name="expandButton">
+    <button class="btn btn-default btn-xs btn-circle">
+        <span id="expand" class="glyphicon glyphicon-plus"></span>
+    </button>
 </template>
 
-<template name="listNumber">
-    {{#each student_number}}
-        <tr>
-            <td>
-                {{PhoneNumber}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
+<template name="buttonSelections">
+    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" contenteditable="false">
+        <span class="glyphicon glyphicon-edit"></span>
+    </button>
+    <button class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-trash"></span>
+    </button>
+    <button class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+    </button>
+    <button class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+    </button>
 </template>
 
-<template name="listVIP">
-    {{#each student_ID}}
-        <tr>
-            <td>
-                {{VipID}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
+<template name="editModal">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true" >×   </span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                 <h4 class="modal-title" id="myModalLabel">Edit Student info</h4>
+                </div>
+                <div class="modal-body">
+                    {{>quickForm id="edit-form" collection="Students" type="update" template="bootstrap3" label-class="col-sm-3" doc=this omitFields="Disclaimer"}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </template>
 
-<template name="listReason">
-    {{#each student_Reason}}
-        <tr>
-            <td>
-                {{ReasonForVisit}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listCurrent">
-    {{#each student_Current}}
-        <tr>
-            <td>
-                {{CurrentMajor}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listIntended">
-    {{#each student_Intended}}
-        <tr>
-            <td>
-                {{IntendedMajor}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listComments">
-    {{#each student_Comments}}
-        <tr>
-            <td>
-                {{Comments}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listDisclaimer">
-    {{#each student_Disclaimer}}
-        <tr>
-            <td>
-               <i class="glyphicon glyphicon-trash"></i>
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
