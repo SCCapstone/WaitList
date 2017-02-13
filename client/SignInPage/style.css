@@ -1,8 +1,17 @@
 .header
 {
-    background-color:#73000a;
+    background: repeating-linear-gradient(
+    -45deg,
+    #73000a,
+    #73000a 2.5px,
+    #90000a 2.5px,
+    #90000a 5px
+
+
+    );
     padding: 2.5em 2em;
     margin-bottom: 3em;
+    height: 140px;
 }
 
 .header h4
