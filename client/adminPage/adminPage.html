@@ -20,7 +20,7 @@
                             </thead>
                             <tbody>
                                 {{#each student}}
-                                    <tr data-toggle="collapse" data-target="#{{this._id}}" class="accordion-toggle">
+                                    <tr  class="accordion-toggle">
                                         <td>{{> expandButton}}</td>
                                         <td>{{Name}}</td>
                                         <td>{{PhoneNumber}}</td>
@@ -64,7 +64,7 @@
 </template>
 
 <template name="expandButton">
-    <button class="btn btn-default btn-xs btn-circle">
+    <button class="btn btn-default btn-xs btn-circle" data-toggle="collapse" data-target="#{{this._id}}" id="expandBtn">
         <span id="expand" class="glyphicon glyphicon-plus"></span>
     </button>
 </template>
