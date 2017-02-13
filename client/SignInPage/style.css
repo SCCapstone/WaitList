@@ -1,14 +1,14 @@
 .header
 {
-    background: repeating-linear-gradient(
-    -45deg,
-    #73000a,
-    #73000a 2.5px,
-    #90000a 2.5px,
-    #90000a 5px
-
-
-    );
+    min-height:150px;
+    margin: 0;
+    background: repeating-linear-gradient(90deg, transparent 0px, transparent 2px, #111 2px, #111 4px),
+    repeating-linear-gradient(-45deg, #242424 0px, #242424 2.5px, #111 2.5px, #111 5px);
+    /*-45deg,
+    red,
+    black 2.5px,
+    blue 2.5 px,
+    white 5px*/
     padding: 2.5em 2em;
     margin-bottom: 3em;
     height: 140px;
