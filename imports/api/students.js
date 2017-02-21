@@ -38,6 +38,7 @@ StudentSchema = new SimpleSchema({
 
     IntendedMajor: {
         type: String,
+        optional: true,
         max: 30
     },
 
