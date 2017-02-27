@@ -1,5 +1,9 @@
 import '../../imports/api/students.js';
 
+Meteor.publish('allStudents',function(){
+    return Students.find();
+});
+
 Template.adminPage.student = function() {
     return Students.find();
 }
