@@ -1,7 +1,7 @@
 import '../../imports/api/students.js';
 
-Meteor.publish('allStudents',function(){
-    return Students.find();
+Template.adminPage.onCreated(function (){
+    Meteor.subscribe('allStudents');
 });
 
 Template.adminPage.student = function() {
