@@ -1,5 +1,9 @@
 import '../../imports/api/students.js';
 
+Template.adminPage.onCreated(function (){
+    Meteor.subscribe('allStudents');
+});
+
 Template.adminPage.student = function() {
     return Students.find({}, {sort: {createdAt: 1}});
 }
