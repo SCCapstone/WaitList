@@ -20,7 +20,7 @@
                             </thead>
                             <tbody>
                                 {{#each student}}
-                                    <tr  class="accordion-toggle"> <!--mainRow if want whole row to change green-->
+                                    <tr  class="accordion-toggle mainRow"> <!--mainRow if want whole row to change green-->
                                         <td>{{> expandButton}}</td>
                                         <td>{{Name}}</td>
                                         <td>{{PhoneNumber}}</td>
@@ -68,19 +68,19 @@
 </template>
 
 <template name="buttonSelections">
-    {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
+    {{#afModal class="btn btn-primary btn-sm" formId="editStudent" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
         <span class="glyphicon glyphicon-edit"></span>
     {{/afModal}}
-    {{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Studen" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
+    {{#afModal class="btn btn-danger btn-sm" formId="deleteStudent" collection="Students" title="Delete Student" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-trash"></span>
     {{/afModal}}
-    <button class="btn btn-default btn-sm">
+    <button class="btn btn-default btn-sm move">
         <span class="glyphicon glyphicon-arrow-down"></span>
     </button>
     <button class="btn btn-default btn-sm check-in">
         <span class="glyphicon glyphicon-log-in"> Check-In</span>
     </button>
-    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
+    {{#afModal class="btn btn-warning btn-sm" formId="doneStudent" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-log-out"> Check-Out</span>
     {{/afModal}}
 </template>
