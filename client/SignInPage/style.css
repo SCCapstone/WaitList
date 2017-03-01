@@ -1,0 +1,103 @@
+.header
+{
+   background-color: rgb(32, 32, 32);
+    background-image: linear-gradient(to right, #73000a, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, #73000a), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+    background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
+    background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
+    padding: 2.5em 2em;
+    margin-bottom: 3em;
+    height: 140px;
+}
+
+.header h4
+{
+    margin-left: 80%;
+    color: white;
+    text-decoration: underline;
+}
+
+.img-responsive 
+{
+    float: left;
+    width: 20%;
+    height: auto;
+}
+
+.header a {
+    color: white;
+}
+
+.header .accounts-dialog a {
+    color: #262626;
+}
+.Login
+{
+    width: 20%;
+    margin-left: 80%;
+    color: white;
+}
+
+.studentContainer
+{
+    float: left;
+    margin-left: 8.5%;
+    width: 85%;
+    margin-top: 1%;
+}
+
+#adminHeaders
+{
+    font-weight: bold;
+}
+
+#logo
+{
+    float: left;
+    width: 9%;
+    height: auto;
+}
+
+#heading
+{
+    color: white;
+    
+}
+
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.info {
+	background-color: black;
+	background: black;
+	color: white;
+}
+
+#inner-heading {
+	background-color:#73000a;
+    width: 35px;
+}
+
+#top-heading {
+	background-color: black;
+	color: white;
+    width: 35px;
+}
+.glyphicon-arrow-down {
+    color: blue;
+}
+
+.yesButton{
+    margin-left: 200px;
+}

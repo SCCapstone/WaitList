@@ -1,9 +1,9 @@
 <body>
-     {{header}}
      {{adminPage}}
 </body>
 
 <template name="adminPage">
+<<<<<<< HEAD
     <div class="studentContainer">
         <div class="studentQueue">
 
@@ -49,95 +49,86 @@
                         </tr>
                 </tbody>
             </table>
+=======
+    <div class="container">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Students Waiting</div>
+                    <div class="panel-body">
+                        <table class="table table-condensed table-striped" id="outer-table">
+    				        <thead id="top-heading">
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                                    <th>VIP ID/USC ID</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each student}}
+                                    <tr  class="accordion-toggle mainRow"> <!--mainRow if want whole row to change green-->
+                                        <td>{{> expandButton}}</td>
+                                        <td>{{Name}}</td>
+                                        <td>{{PhoneNumber}}</td>
+                                        <td>{{VipID}}</td>
+                                        <td class="selectionChange">{{> buttonSelections}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" class="hiddenRow">
+                                            <div class="accordian-body collapse" id="{{this._id}}">
+                                                <table class="table table-striped">
+                                                    <thead id="innter-table">
+                                                        <tr class="info">
+                                                            <th id="inner-heading">Reason for Visit</th>
+                                                            <th id="inner-heading">Current Major</th>
+                                                            <th id="inner-heading">Intended Major</th>
+                                                            <th id="inner-heading">Comments</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>{{ReasonForVisit}}</td>
+                                                            <td>{{CurrentMajor}}</td>
+                                                            <td>{{IntendedMajor}}</td>
+                                                            <td>{{Comments}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                             {{> autoformModals}}
+                        </table>
+                    </div>
+            </div>
+>>>>>>> master
         </div>
     </div>
 </template>
 
-
-<template name="listName">
-    {{#each student_name}}
-        <tr>
-            <td>
-                {{Name}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
+<template name="expandButton">
+    <button class="btn btn-default btn-xs btn-circle" data-toggle="collapse" data-target="#{{this._id}}" id="expandBtn">
+        <span id="expand" class="glyphicon glyphicon-plus"></span>
+    </button>
 </template>
 
-<template name="listNumber">
-    {{#each student_number}}
-        <tr>
-            <td>
-                {{PhoneNumber}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listVIP">
-    {{#each student_ID}}
-        <tr>
-            <td>
-                {{VipID}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listReason">
-    {{#each student_Reason}}
-        <tr>
-            <td>
-                {{ReasonForVisit}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listCurrent">
-    {{#each student_Current}}
-        <tr>
-            <td>
-                {{CurrentMajor}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listIntended">
-    {{#each student_Intended}}
-        <tr>
-            <td>
-                {{IntendedMajor}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listComments">
-    {{#each student_Comments}}
-        <tr>
-            <td>
-                {{Comments}}
-            </td>
-        </tr>
-        <br>
-    {{/each}}
-</template>
-
-<template name="listDisclaimer">
-    {{#each student_Disclaimer}}
-        <tr>
-            <td>
-               <i class="glyphicon glyphicon-trash"></i>
-            </td>
-        </tr>
-        <br>
-    {{/each}}
+<template name="buttonSelections">
+    {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
+        <span class="glyphicon glyphicon-edit"></span>
+    {{/afModal}}
+    {{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Student" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
+        <span class="glyphicon glyphicon-trash"></span>
+    {{/afModal}}
+    <button class="btn btn-default btn-sm move">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+    </button>
+    <button class="btn btn-default btn-sm check-in">
+        <span class="glyphicon glyphicon-log-in"> Check-In</span>
+    </button>
+    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
+        <span class="glyphicon glyphicon-log-out"> Check-Out</span>
+    {{/afModal}}
 </template>
