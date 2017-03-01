@@ -1,28 +1,27 @@
 import '../../imports/api/students.js';
 
+Template.adminPage.onCreated(function (){
+    Meteor.subscribe('allStudents');
+});
+
 Template.adminPage.student = function() {
-    return Students.find();
-}
+    return Students.find({}, {sort: {rank: 1, secondRank: 1}});
+};
 
 Template.buttonSelections.events({
-    'click .glyphicon-trash'() {
-        Students.remove(this._id);
-    }
-})
+  'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
+       $(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
+   },
+   'click .check-in, dblclick .glyphicon-log-in' (e) {
+       $(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
+   },
+   'click .move'(){
+       Students.update(this._id, {$inc: {rank: 1}});
+   }
+});
 
-Template.adminPage.events({
-    'click .accordion-toggle'(event) {
-        var span = $('.glyphicon');
-        if(span.hasClass('glyphicon-plus')) 
-            span.removeClass('glyphicon-plus').addClass('glyphicon-minus');
-        else
-            span.removeClass('glyphicon-minus').addClass('glyphicon-plus');
-        //$(event.target).find('span').toggleClass('glyphicon-plus glyphicon-minus');
+Template.expandButton.events({
+    'click #expandBtn'(event, temp) {
+        temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
     }
-})
-
-Template.editModal.helpers({
-  '#edit-form'() {
-    return this._id;
-  }
 });

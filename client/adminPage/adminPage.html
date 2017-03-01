@@ -12,20 +12,20 @@
     				        <thead id="top-heading">
                                 <tr>
                                     <th></th>
-                                    <th >Name</th>
-                                    <th >Phone Number</th>
-                                    <th >VIP ID/USC ID</th>
-                                    <th >Current Status</th>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                                    <th>VIP ID/USC ID</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {{#each student}}
-                                    <tr data-toggle="collapse" data-target="#{{this._id}}" class="accordion-toggle">
+                                    <tr  class="accordion-toggle mainRow"> <!--mainRow if want whole row to change green-->
                                         <td>{{> expandButton}}</td>
                                         <td>{{Name}}</td>
                                         <td>{{PhoneNumber}}</td>
                                         <td>{{VipID}}</td>
-                                        <td></td>
+                                        <td class="selectionChange">{{> buttonSelections}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="12" class="hiddenRow">
@@ -37,7 +37,6 @@
                                                             <th id="inner-heading">Current Major</th>
                                                             <th id="inner-heading">Intended Major</th>
                                                             <th id="inner-heading">Comments</th>
-                                                            <th id="inner-heading">Actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -46,7 +45,6 @@
                                                             <td>{{CurrentMajor}}</td>
                                                             <td>{{IntendedMajor}}</td>
                                                             <td>{{Comments}}</td>
-                                                            <td>{{> buttonSelections}}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -55,61 +53,39 @@
                                     </tr>
                                 {{/each}}
                             </tbody>
+                             {{> autoformModals}}
                         </table>
                     </div>
-                {{> editModal}}
             </div>
         </div>
     </div>
 </template>
 
 <template name="expandButton">
-    <button class="btn btn-default btn-xs btn-circle">
+    <button class="btn btn-default btn-xs btn-circle" data-toggle="collapse" data-target="#{{this._id}}" id="expandBtn">
         <span id="expand" class="glyphicon glyphicon-plus"></span>
     </button>
 </template>
 
 <template name="buttonSelections">
-    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal" contenteditable="false">
+    {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info"
+               omitFields="Comments,Disclaimer" operation="update" doc=_id}}
         <span class="glyphicon glyphicon-edit"></span>
-    </button>
-    <button class="btn btn-default btn-sm">
+    {{/afModal}}
+    {{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Student"
+               prompt="This student is about to be removed from the wait list. Are you sure you want to do this?"
+               operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-trash"></span>
-    </button>
-    <button class="btn btn-default btn-sm">
+    {{/afModal}}
+    <button class="btn btn-default btn-sm move">
         <span class="glyphicon glyphicon-arrow-down"></span>
     </button>
-    <button class="btn btn-default btn-sm">
-        <span class="glyphicon glyphicon-arrow-up"></span>
+    <button class="btn btn-default btn-sm check-in">
+        <span class="glyphicon glyphicon-log-in"> Check-In</span>
     </button>
+    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done"
+               buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done."
+               operation="remove" doc=_id}}
+        <span class="glyphicon glyphicon-log-out"> Check-Out</span>
+    {{/afModal}}
 </template>
-
-<template name="editModal">
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-        <div class="modal-dialog">
-            <div class="modal-content"></div>
-        </div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true" >×   </span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                 <h4 class="modal-title" id="myModalLabel">Edit Student info</h4>
-                </div>
-                <div class="modal-body">
-                    {{>quickForm id="edit-form" collection="Students" type="update" template="bootstrap3" label-class="col-sm-3" doc=this omitFields="Disclaimer"}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</template>
-
