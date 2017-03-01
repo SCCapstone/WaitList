@@ -6,7 +6,7 @@ Template.adminPage.onCreated(function (){
 
 Template.adminPage.student = function() {
     return Students.find({}, {sort: {rank: 1, secondRank: 1}});
-}
+};
 
 Template.buttonSelections.events({
   'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
@@ -18,10 +18,10 @@ Template.buttonSelections.events({
    'click .move'(){
        Students.update(this._id, {$inc: {rank: 1}});
    }
-})
+});
 
 Template.expandButton.events({
     'click #expandBtn'(event, temp) {
         temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
     }
-})
+});

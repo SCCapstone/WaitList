@@ -22,6 +22,7 @@ caching-compiler@1.0.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
+cleandersonlobo:sweetalert2@1.1.0
 coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
