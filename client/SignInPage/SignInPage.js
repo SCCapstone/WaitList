@@ -6,7 +6,7 @@ if(Meteor.isClient){
         "submit #student-form": function() {
             Meteor.call("sendSMS");
             // alert("You have been added to the WaitList");
-            swal("Success!", "You have been added to the WaitList!", "success")
+            swal("Success!", "You have been added to the WaitList", "success")
         }
 })
 };
