@@ -5,7 +5,7 @@ Template.adminPage.onCreated(function (){
 });
 
 Template.adminPage.student = function() {
-    return Students.find({}, {sort: {createdAt: 1}});
+    return Students.find({}, {sort: {rank: 1, secondRank: 1}});
 }
 
 Template.buttonSelections.events({
@@ -16,7 +16,7 @@ Template.buttonSelections.events({
        $(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
    },
    'click .move'(){
-       Students.update({_id: this._id}, {$set: {createdAt: new Date()}});
+       Students.update(this._id, {$inc: {rank: 1}});
    }
 })
 

@@ -74,6 +74,26 @@ StudentSchema = new SimpleSchema({
         autoValue:function(){ 
             return new Date(); 
         }
+    },
+    rank: {
+        type: Number,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+        autoValue: function() {
+            return 1;
+        }
+    },
+    secondRank: {
+        type: Number,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+        autoValue: function() {
+            return 1;
+        }
     }
 });
 
