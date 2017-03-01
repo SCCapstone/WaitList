@@ -5,19 +5,18 @@ Template.adminPage.onCreated(function (){
 });
 
 Template.adminPage.student = function() {
-    return Students.find();
+    return Students.find({}, {sort: {rank: 1, secondRank: 1}});
 }
 
 Template.buttonSelections.events({
-  'dblclick .check-in, dblclick .glyphicon-log-in' (e) {
-        $(e.target).closest('.selectionChange').css({"background-color":"#16B804","color":"white"});
+  'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
+       $(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
-   'click .check-in, click .glyphicon-log-in' (e) {
-        $(e.target).closest('.selectionChange').css({"background-color":"#FAFAFA","color":"black"});
+   'click .check-in, dblclick .glyphicon-log-in' (e) {
+       $(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
    },
-   'click .btn-danger, click .glyphicon-trash'() {
-       var deleteChoice = Session.set(deleteChoice, Students.find(this._id));
-       return deleteChoice;
+   'click .move'(){
+       Students.update(this._id, {$inc: {rank: 1}});
    }
 })
 

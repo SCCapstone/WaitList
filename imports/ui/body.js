@@ -9,4 +9,4 @@ Accounts.config({
 Accounts.createUser({
         email: 'admin@email.com',
         password: 'asdfasdf',
-    });
+});
