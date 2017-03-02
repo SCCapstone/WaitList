@@ -17,17 +17,31 @@ standard-minifier-js@1.2.0    # JS minifier run for production mode
 es5-shim@4.6.14               # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
+<<<<<<< HEAD
 insecure
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
+=======
 
+>>>>>>> origin/master
+
+insecure
 accounts-password             # For setting up user accounts
 iron:router                   # For routing to other pages
 accounts-ui                   # For setting up user accounts
+<<<<<<< HEAD
 
+=======
+accounts-base                 # For setting up user accounts
+raix:handlebar-helpers
+>>>>>>> origin/master
 aldeed:autoform               # For form creation
 aldeed:collection2            # For form creation
 twbs:bootstrap                # Formatting with bootstrap
 meteortoys:allthings          # Tool for testing purposes
-useraccounts:bootstrap
 mrt:moment
 mrt:twilio-meteor
+email
+practicalmeteor:mocha
+hwillson:stub-collections
+yogiben:autoform-modals
+cleandersonlobo:sweetalert2
