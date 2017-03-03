@@ -6,6 +6,7 @@ Students = new Mongo.Collection('students');
 
 var rank = 0;
 
+
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
@@ -373,6 +374,7 @@ StudentSchema = new SimpleSchema({
                     return "waiting"
                 }
             }
+
     },
     
     rank: {
@@ -388,6 +390,7 @@ StudentSchema = new SimpleSchema({
                     return rank;
                 }
             }
+
     }
 });
 
@@ -395,9 +398,6 @@ SimpleSchema.messages({
   required: "This field is required",
   minString: "This field must be [min] digits",
 });
-
-
-Students.attachSchema(StudentSchema);
 
 Students.allow({
     insert: function () {
