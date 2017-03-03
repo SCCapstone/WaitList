@@ -1,0 +1,28 @@
+{
+  "name": "waitlist",
+  "version": "1.0.0",
+  "description": "Login for admin page email: admin@email.com password: asdfasdf",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "mongodb": "^2.2.24",
+    "npm": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCCapstone/WaitList.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SCCapstone/WaitList/issues"
+  },
+  "homepage": "https://github.com/SCCapstone/WaitList#readme"
+}
