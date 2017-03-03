@@ -376,7 +376,6 @@ StudentSchema = new SimpleSchema({
             }
 
     },
-    
     rank: {
         type: Number,
 
