@@ -6,6 +6,7 @@ Students = new Mongo.Collection('students');
 
 var rank = 0;
 
+
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
@@ -373,6 +374,7 @@ StudentSchema = new SimpleSchema({
                     return "waiting"
                 }
             }
+
     },
     rank: {
         type: Number,
@@ -387,6 +389,7 @@ StudentSchema = new SimpleSchema({
                     return rank;
                 }
             }
+
     }
 });
 
