@@ -359,6 +359,7 @@ StudentSchema = new SimpleSchema({
             denyInsert: true,
             optional: true
     },
+<<<<<<< HEAD
     
     currentStatus: {
         type: String,
@@ -385,6 +386,18 @@ StudentSchema = new SimpleSchema({
                     return rank;
                 }
             }
+
+=======
+    secondRank: {
+        type: Number,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+        autoValue: function() {
+            return 1;
+        }
+>>>>>>> parent of 5226453... securing db collection and adding default admin user if not found on app startup
     }
 });
 
@@ -393,6 +406,7 @@ SimpleSchema.messages({
   minString: "This field must be [min] digits",
 });
 
+<<<<<<< HEAD
 Students.allow({
     insert: function () {
         // the user must be logged in
@@ -409,3 +423,9 @@ Students.allow({
 });
 
 Students.attachSchema(StudentSchema);
+=======
+
+
+
+
+>>>>>>> parent of 5226453... securing db collection and adding default admin user if not found on app startup
