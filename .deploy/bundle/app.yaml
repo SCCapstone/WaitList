@@ -1,9 +1,0 @@
-runtime: nodejs
-env: flex
-threadsafe: true
-automatic_scaling:
-  max_num_instances: 1
-env_variables:
-  MONGO_URL: 'mongodb://waitlistAdmin:waitlist1@ds119618.mlab.com:19618/waitlist_mongodb'
-  ROOT_URL: 'https://rapid-notch-159417.appspot.com'
-  METEOR_SETTINGS: '{}'
