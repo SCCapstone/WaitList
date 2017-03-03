@@ -1,25 +1,9 @@
 .header
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    min-height:150px;
-    margin: 0;
-    background: repeating-linear-gradient(90deg, transparent 0px, transparent 2px, #111 2px, #111 4px),
-    repeating-linear-gradient(-45deg, #242424 0px, #242424 2.5px, #111 2.5px, #111 5px);
-    /*-45deg,
-    red,
-    black 2.5px,
-    blue 2.5 px,
-    white 5px*/
-=======
-   background-color: rgb(32, 32, 32);
-=======
     background-color: rgb(32, 32, 32);
->>>>>>> master
     background-image: linear-gradient(to right, #73000a, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, #73000a), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
     background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
     background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
->>>>>>> master
     padding: 2.5em 2em;
     margin-bottom: 3em;
     height: 140px;
