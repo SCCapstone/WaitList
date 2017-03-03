@@ -374,7 +374,20 @@ StudentSchema = new SimpleSchema({
                 }
             }
     },
-
+    countNumber: {
+        type: Number,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+      autoValue: function() {
+            countNumber = 1;
+          var totalCount = Students.find({countNumber:1}).count();
+          var waitTime = "Approximate Wait Time " + totalCount*15 +" Minutes";
+          document.getElementById("insert").innerHTML = waitTime;
+          return countNumber;
+      }
+    },
     rank: {
         type: Number,
             autoform: {
