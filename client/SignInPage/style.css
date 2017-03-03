@@ -30,11 +30,21 @@
 .header .accounts-dialog a {
     color: #262626;
 }
+
+#createAccount {
+    width: 20%;
+    margin-left: 70%;
+    color: white;
+    text-decoration: underline;
+    position: absolute;
+}
 .Login
 {
     width: 20%;
     margin-left: 80%;
+    margin-bottom: 10%;
     color: white;
+    position: absolute;
 }
 
 .studentContainer
