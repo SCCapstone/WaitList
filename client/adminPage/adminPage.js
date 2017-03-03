@@ -5,18 +5,20 @@ Template.adminPage.onCreated(function (){
 });
 
 Template.adminPage.student = function() {
-    return Students.find({}, {sort: {rank: 1, secondRank: 1}});
+    return Students.find({}, {sort: {createdAt: 1}});
 };
 
 Template.buttonSelections.events({
   'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
+       Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
        $(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
-   'click .check-in, dblclick .glyphicon-log-in' (e) {
+   'click .check-in, click .glyphicon-log-in' (event) {
+       Students.update(this._id, {$set: {currentStatus: "Waiting"}});
        $(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
    },
    'click .move'(){
-       Students.update(this._id, {$inc: {rank: 1}});
+       Students.update(this._id, {$set: {createdAt: new Date()}});
    }
 });
 
@@ -25,3 +27,7 @@ Template.expandButton.events({
         temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
     }
 });
+
+/*AutoForm.hooks({
+  myFormId: hooksObject
+});*/
