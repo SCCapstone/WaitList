@@ -329,7 +329,7 @@ StudentSchema = new SimpleSchema({
                 type: "boolean-checkbox",
             }
         },
-        label: "Opt in for text service *Disclaimer"
+        label: "Opt in for text service"
     },
    
     createdAt: {
@@ -374,7 +374,7 @@ StudentSchema = new SimpleSchema({
                 }
             }
     },
-
+    
     rank: {
         type: Number,
             autoform: {

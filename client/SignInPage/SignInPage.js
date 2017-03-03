@@ -22,10 +22,8 @@ if(Meteor.isClient){
     };*/
 };
 
- Template.home.count = function() {
+Template.home.count = function() {
         var count = Students.find().count();
         var waitTime = count*15;
         return waitTime;
     };
-
-
