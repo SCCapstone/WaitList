@@ -18,7 +18,6 @@ es5-shim@4.6.14               # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.5.8              # Enable ECMAScript2015+ syntax in app code
 shell-server@0.2.1            # Server-side component of the `meteor shell` command
 
-
 insecure
 accounts-password             # For setting up user accounts
 iron:router                   # For routing to other pages
@@ -29,10 +28,11 @@ aldeed:autoform               # For form creation
 aldeed:collection2            # For form creation
 twbs:bootstrap                # Formatting with bootstrap
 meteortoys:allthings          # Tool for testing purposes
-mrt:moment
-mrt:twilio-meteor
-email
-practicalmeteor:mocha
-hwillson:stub-collections
-yogiben:autoform-modals
-cleandersonlobo:sweetalert2
+mrt:moment                    
+mrt:twilio-meteor             # For twilio/SMS
+email                         # For emails
+practicalmeteor:mocha         # For behavioral testing   
+yogiben:autoform-modals       # For modals on admin page
+cleandersonlobo:sweetalert2   # For alert messages
+comerc:autoform-typeahead     # For selection on forms
+comerc:bs-typeahead           # For selection on forms
