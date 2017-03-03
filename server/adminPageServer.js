@@ -1,3 +1,3 @@
 Meteor.publish('allStudents',function(){
-    return Students.find();
+    return Students.find({active:true});
 });
