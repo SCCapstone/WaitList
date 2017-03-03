@@ -94,35 +94,10 @@ StudentSchema = new SimpleSchema({
         autoValue: function() {
             return 1;
         }
-    },
-    active: {
-        type: Boolean,
-        autoform: {
-            type: "hidden",
-            label: false
-        },
-        autoValue: function() {
-            return true;
-        }
     }
 });
 
 Students.attachSchema(StudentSchema);
-
-Students.allow({
-    insert: function () {
-        // the user must be logged in
-        return (Meteor.user() != null);
-    },
-    update: function (userId) {
-        // the user must be logged in
-        return (Meteor.user() != null);
-    },
-    remove: function (userId) {
-        // the user must be logged in
-        return (Meteor.user() != null);
-    }
-});
 
 
 
