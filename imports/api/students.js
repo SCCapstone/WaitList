@@ -4,6 +4,8 @@ import { Mongo } from 'meteor/mongo';
 
 Students = new Mongo.Collection('students');
 
+var rank = 0;
+
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
@@ -368,7 +370,21 @@ StudentSchema = new SimpleSchema({
             },
             autoValue: function() {
                 if (this.isInsert) {
-                    return "waiting"
+                    return "Waiting"
+                }
+            }
+    },
+
+    rank: {
+        type: Number,
+            autoform: {
+                type: "hidden",
+                label: false
+            },
+            autoValue: function() {
+                if (this.isInsert) {
+                    rank = rank + 1;
+                    return rank;
                 }
             }
     }
