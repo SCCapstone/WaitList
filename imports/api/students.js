@@ -3,7 +3,9 @@ import { Mongo } from 'meteor/mongo';
 
 
 Students = new Mongo.Collection('students');
+
 var rank = 0;
+
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
@@ -374,6 +376,7 @@ StudentSchema = new SimpleSchema({
     },
     rank: {
         type: Number,
+
             autoform: {
                 type: "hidden",
                 label: false
@@ -390,6 +393,24 @@ StudentSchema = new SimpleSchema({
 SimpleSchema.messages({
   required: "This field is required",
   minString: "This field must be [min] digits",
+});
+
+
+Students.attachSchema(StudentSchema);
+
+Students.allow({
+    insert: function () {
+        // the user must be logged in
+        return (Meteor.user() != null);
+    },
+    update: function (userId) {
+        // the user must be logged in
+        return (Meteor.user() != null);
+    },
+    remove: function (userId) {
+        // the user must be logged in
+        return (Meteor.user() != null);
+    }
 });
 
 Students.attachSchema(StudentSchema);
