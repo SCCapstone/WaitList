@@ -374,7 +374,19 @@ StudentSchema = new SimpleSchema({
                 }
             }
     },
-    
+
+    countNumber: {
+        type: Number,
+        autoform: {
+            type: "hidden",
+            label: false
+        },
+      autoValue: function() {
+            countNumber = 1;
+          return countNumber;
+      }
+    },
+
     rank: {
         type: Number,
             autoform: {
