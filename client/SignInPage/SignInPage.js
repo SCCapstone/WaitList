@@ -10,7 +10,7 @@ if(Meteor.isClient){
             var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;
             phoneNumber = "+1" + phoneNumber;
             var totalCount = Students.find({countNumber:1}).count();
-            var waitTime = "Approximate Wait Time " + totalCount*15 +" Minutes";
+            var waitTime = "Approximate Wait Time: " + totalCount*15 +" Minutes";
             if(textService == true) {
                 Meteor.call("sendSMS",phoneNumber);
             }
@@ -26,13 +26,6 @@ if(Meteor.isClient){
     };*/
 };
 
- Template.home.count = function() {
-        var count = Students.find().count();
-        var waitTime = count*15;
-        return waitTime;
-    };
-
-Template.home.onCreated(function(){
-    Meteor.subscribe('allStudents');
+Template.home.onCreated(function() {
+    Meteor.subscribe("allStudents");
 });
-

@@ -329,7 +329,7 @@ StudentSchema = new SimpleSchema({
                 type: "boolean-checkbox",
             }
         },
-        label: "Opt in for text service *Disclaimer"
+        label: "Opt in for text service"
     },
    
     createdAt: {
@@ -374,17 +374,19 @@ StudentSchema = new SimpleSchema({
                 }
             }
     },
+
     countNumber: {
         type: Number,
         autoform: {
             type: "hidden",
             label: false
         },
-      autoValue: function() {
+        autoValue: function() {
             countNumber = 1;
             return countNumber;
       }
     },
+
     rank: {
         type: Number,
             autoform: {
