@@ -381,9 +381,9 @@ StudentSchema = new SimpleSchema({
             type: "hidden",
             label: false
         },
-      autoValue: function() {
+        autoValue: function() {
             countNumber = 1;
-          return countNumber;
+            return countNumber;
       }
     },
 
