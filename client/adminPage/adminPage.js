@@ -8,9 +8,6 @@ Template.adminPage.student = function() {
     return Students.find({}, {sort: {createdAt: 1}});
 };
 
-Template.home.onCreated(function(){
-    Meteor.subscribe('allStudents');
-});
 
 Template.buttonSelections.events({
   'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
