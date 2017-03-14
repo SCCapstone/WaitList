@@ -19,7 +19,7 @@
 .img-responsive 
 {
     float: left;
-    width: 20%;
+    width: auto;
     height: auto;
 }
 
@@ -63,8 +63,12 @@
 #logo
 {
     float: left;
-    width: 9%;
-    height: auto;
+    width: 140px;
+    height:100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #heading

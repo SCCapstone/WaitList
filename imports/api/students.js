@@ -10,7 +10,17 @@ StudentSchema = new SimpleSchema({
     Name: {
         type: String,
         max: 50,
-        label: 'Name *'
+        label: 'Name *',
+        /*custom: function(){
+            if(this.Name.contains("-"))
+            {
+                SimpleSchema.messages("NO!!!!!!");
+                return;
+            }
+            else{
+                return;
+            }
+        }*/
     },
 
     PhoneNumber: {
@@ -405,6 +415,7 @@ StudentSchema = new SimpleSchema({
 SimpleSchema.messages({
   required: "This field is required",
   minString: "This field must be [min] digits",
+    expectedString: "- is not allowed",
 });
 
 Students.attachSchema(StudentSchema);
