@@ -26,12 +26,12 @@ StudentSchema = new SimpleSchema({
     PhoneNumber: {
         type: String,
         regEx: /^[0-9999999999]{10}$/,
-        //min: 10,
+        min: 10,
         max: 10,
         label: 'Phone Number *',
         autoform:
         {
-            placeholder: "ex. 8031234567"
+            placeholder: "example: 8031234567"
         },
         /*custom: function(){
           var phoneNumber = this.siblingField("PhoneNumber").value;
@@ -423,10 +423,11 @@ StudentSchema = new SimpleSchema({
 
 SimpleSchema.messages({
   required: "This field is required",
-  minString: "This field must be [min] digits",
+  "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
+    "minString USCID": "USC ID must be [min] characters",
     expectedString: "- is not allowed",
     "regEx":[
-        {msg: "Please use only numbers (803)-123-4567 is 8031234567 also include Area code"}
+        {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
     ]
 });
 
