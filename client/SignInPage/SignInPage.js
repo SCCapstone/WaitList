@@ -26,7 +26,7 @@ import '../../imports/api/students';
     };
 };*/
 
-Template.home.onCreated(function() {
+Template.home.onCreated(function() {//This is not needed,only for testing purposes to access databse from sign-in page
     Meteor.subscribe("allStudents");
 });
 
@@ -39,10 +39,10 @@ AutoForm.hooks({
         phoneNumber = "+1" + phoneNumber;
         var totalCount = Students.find({countNumber:1}).count();
         var waitTime = "Approximate Wait Time: " + totalCount*15 +" Minutes";
+        document.getElementById("insert").innerHTML = waitTime;
         if(textService == true) {
             Meteor.call("sendSMS",phoneNumber);
         }
-        document.getElementById("insert").innerHTML = waitTime;
         console.log(phoneNumber);
         console.log(textService);
         console.log(totalCount);
