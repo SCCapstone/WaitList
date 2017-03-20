@@ -43,9 +43,9 @@ AutoForm.hooks({
         if(textService == true) {
             Meteor.call("sendSMS",phoneNumber);
         }
-        console.log(phoneNumber);
-        console.log(textService);
-        console.log(totalCount);
+        //console.log(phoneNumber);
+        //console.log(textService);
+        //console.log(totalCount);
         swal("Success!", "You have been added to the WaitList", "success");
     },
 }

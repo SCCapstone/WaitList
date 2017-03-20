@@ -23,5 +23,15 @@ Meteor.methods({
                 console.log(responseData.body); // outputs "word to your mother."
             }
         });
+    },
+    isValidPhoneNumber: function(phoneNumber) {
+        if(! /^[0-9]+$/.test(phoneNumber))
+        {
+            console.log("THis is wrong");
+        }
+        else
+        {
+            console.log("Atta' babe!");
+        }
     }
 });

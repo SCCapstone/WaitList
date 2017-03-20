@@ -25,9 +25,18 @@ StudentSchema = new SimpleSchema({
 
     PhoneNumber: {
         type: String,
-        min: 10,
+        regEx: /^[0-9999999999]{10}$/,
+        //min: 10,
         max: 10,
-        label: 'Phone Number *'
+        label: 'Phone Number *',
+        autoform:
+        {
+            placeholder: "ex. 8031234567"
+        },
+        /*custom: function(){
+          var phoneNumber = this.siblingField("PhoneNumber").value;
+            Meteor.call("isValidPhoneNumber",phoneNumber);
+        }*/
     },
 
     USCID: {
@@ -416,6 +425,9 @@ SimpleSchema.messages({
   required: "This field is required",
   minString: "This field must be [min] digits",
     expectedString: "- is not allowed",
+    "regEx":[
+        {msg: "Please use only numbers (803)-123-4567 is 8031234567 also include Area code"}
+    ]
 });
 
 Students.attachSchema(StudentSchema);
