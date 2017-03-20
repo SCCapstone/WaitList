@@ -31,7 +31,7 @@ StudentSchema = new SimpleSchema({
         label: 'Phone Number *',
         autoform:
         {
-            placeholder: "ex. 8031234567"
+            placeholder: "example: 8031234567"
         },
         /*custom: function(){
           var phoneNumber = this.siblingField("PhoneNumber").value;
