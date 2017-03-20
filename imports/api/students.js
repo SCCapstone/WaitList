@@ -30,11 +30,11 @@ StudentSchema = new SimpleSchema({
         label: 'Phone Number *'
     },
 
-    VipID: {
+    USCID: {
         type: String,
-        min: 8,
-        max: 8,
-        label: 'VIP ID *'
+        min: 9,
+        max: 9,
+        label: 'USC ID *'
     },
 
     ReasonForVisit: {
