@@ -1,3 +1,4 @@
+//creates default admin user account, if no account exists
 Meteor.startup(function(){
     console.log('ON STARTUP CREATE ADMIN USER');
     if( Meteor.users.find().count() == 0){
