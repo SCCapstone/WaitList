@@ -3,7 +3,7 @@ import { students } from '../api/students.js';
 import './body.html';
 
 Accounts.config({
-    forbidClientAccountCreation : false
+    forbidClientAccountCreation : true
 });
 
 Accounts.createUser({
