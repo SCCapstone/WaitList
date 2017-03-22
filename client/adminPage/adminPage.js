@@ -8,6 +8,7 @@ Template.adminPage.student = function() {
     return Students.find({}, {sort: {createdAt: 1}});
 };
 
+
 Template.buttonSelections.events({
   'click .check-in, click .glyphicon-log-in' (event) {
        Students.update(this._id, {$set: {currentStatus: "In Advisement"}});

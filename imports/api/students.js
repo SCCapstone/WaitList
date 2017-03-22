@@ -1,5 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
+
+
 Students = new Mongo.Collection('students');
 
 var rank = 0;
