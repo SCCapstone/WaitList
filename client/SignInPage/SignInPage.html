@@ -4,10 +4,33 @@
 
 <template name= "home">
     <body>
+        <br>
         <h2 id="insert">Approximate Wait Time: 0 Minutes</h2>
         <div class="col-lg-6 col-lg-offset-3">
-            {{>quickForm id="studentForm" collection="Students" type="insert" template="bootstrap3-horizontal" label-class="col-sm-3" input-col-class="col-sm-9"}}
+            {{>quickForm id="studentForm" collection="Students" type="insert" template="bootstrap3-horizontal"
+                    label-class="col-sm-3" input-col-class="col-sm-9"}}
+        <br>
+            <div id="checkTime">
+                <button class="btn btn-success" type="button" onclick="checkTime()">Check wait time</button>
+                <script>
+                    function checkTime() {
+
+                        var timeCheck = prompt("Please enter your phone number below");
+                        var phoneNum = Students.findOne({},{sort:{limit:1, fields:{PhoneNumber:1, _id:0}}}).PhoneNumber;
+                        var total = Students.find({countNumber:1}).count();
+                        if (timeCheck != null && phoneNum == timeCheck) {
+                            swal("Your approximate wait time is " + total*15 + " minutes");
+                        }
+                        else {
+                            swal("Something went wrong", "Your phone number was not found on the wait list, " +
+                                    "make sure you entered your number correctly and have filled out the " +
+                                    "form below", "error");
+                        }
+                    }
+                </script>
+            </div>
         </div>
+
     </body>
 </template>
 

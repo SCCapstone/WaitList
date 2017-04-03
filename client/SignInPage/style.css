@@ -112,6 +112,10 @@
     color: blue;
 }
 
+#checkTime {
+    margin-left: 40%;
+}
+
 #insert {
     margin-left: 40%;
 }
