@@ -15,9 +15,16 @@
                 <script>
                     function checkTime() {
                         var timeCheck = prompt("Please enter your phone number below");
-                        var phoneNum = Students.findOne({},{fields:{PhoneNumber:1}}).PhoneNumber;
+                        var phoneNum = Students.find({PhoneNumber:timeCheck});
+
+                        //still working on this to show individual's wait time
+                        //we can use the rank attribute and just multiply that by 15 to get wait time
+                        //var total = Students.findOne({},{fields:{PhoneNumber:timeCheck}}).rank;
+
+                        //this one does not show individual wait time but total wait time
                         var total = Students.find({countNumber:1}).count();
-                        if (timeCheck != null && phoneNum == timeCheck) {
+
+                        if (timeCheck != null && phoneNum != null) {
                             swal("Your approximate wait time is " + total*15 + " minutes");
                         }
                         else {
@@ -25,7 +32,7 @@
                                     "make sure you entered your number correctly and have filled out the " +
                                     "form below.", "error");
                         }
-                    }
+                    };
                 </script>
             </div>
         </div>
