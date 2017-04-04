@@ -1,7 +1,8 @@
 import '../../imports/ui/body.js';
 import '../../imports/api/students';
 
-Template.home.onCreated(function() {//This is not needed,only for testing purposes to access databse from sign-in page
+
+Template.home.onCreated(function() {//This is not needed,only for testing purposes to access database from sign-in page
     Meteor.subscribe("allStudents");
 });
 
