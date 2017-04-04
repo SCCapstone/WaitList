@@ -14,9 +14,8 @@
                 <button class="btn btn-success" type="button" onclick="checkTime()">Check wait time</button>
                 <script>
                     function checkTime() {
-
                         var timeCheck = prompt("Please enter your phone number below");
-                        var phoneNum = Students.findOne({},{sort:{limit:1, fields:{PhoneNumber:1, _id:0}}}).PhoneNumber;
+                        var phoneNum = Students.findOne({},{fields:{PhoneNumber:1}}).PhoneNumber;
                         var total = Students.find({countNumber:1}).count();
                         if (timeCheck != null && phoneNum == timeCheck) {
                             swal("Your approximate wait time is " + total*15 + " minutes");
@@ -24,7 +23,7 @@
                         else {
                             swal("Something went wrong", "Your phone number was not found on the wait list, " +
                                     "make sure you entered your number correctly and have filled out the " +
-                                    "form below", "error");
+                                    "form below.", "error");
                         }
                     }
                 </script>

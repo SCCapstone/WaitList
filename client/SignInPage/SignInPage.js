@@ -2,9 +2,24 @@ import '../../imports/ui/body.js';
 import '../../imports/api/students';
 
 
-Template.home.onCreated(function() {//This is not needed,only for testing purposes to access databse from sign-in page
+Template.home.onCreated(function() {//This is not needed,only for testing purposes to access database from sign-in page
     Meteor.subscribe("allStudents");
 });
+
+// same function as one on SignInPage
+// function checkTime() {
+//     var timeCheck = prompt("Please enter your phone number below");
+//     var phoneNum = Students.findOne({},{fields:{PhoneNumber:1}}).PhoneNumber;
+//     var total = Students.find({countNumber:1}).count();
+//     if (timeCheck != null && phoneNum == timeCheck) {
+//         swal("Your approximate wait time is " + total*15 + " minutes");
+//     }
+//     else {
+//         swal("Something went wrong", "Your phone number was not found on the wait list, " +
+//             "make sure you entered your number correctly and have filled out the " +
+//             "form below", "error");
+//     }
+// };
 
 AutoForm.hooks({
     studentForm:
