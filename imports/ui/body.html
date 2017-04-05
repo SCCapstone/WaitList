@@ -9,15 +9,20 @@
                 <img class="img-responsive" id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center</h1>
-                <div id="createAccount">
-                <!--{{#if currentUser}}
-                    <h7><a href="/createAdmin">Create Account</a></h7>
-                {{/if}}-->
-                </div>
+                {{#if currentUser}}
+                {{else}}
+                    <div id="createAccount">
+                        {{> checkWaitTime}}
+                    </div>
+                {{/if}}
                 <div class="Login">
                     {{> loginButtons}}
                 </div>
          </div>
      </div>
  </header>
+</template>
+
+<template name="checkWaitTime">
+        <h7 class="checkTime">Check Wait Time</h7>
 </template>
