@@ -27,7 +27,7 @@ Meteor.methods({
     isValidPhoneNumber: function(phoneNumber) {
         if(! /^[0-9]+$/.test(phoneNumber))
         {
-            console.log("THis is wrong");
+            console.log("This is wrong");
         }
         else
         {

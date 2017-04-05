@@ -17,13 +17,15 @@ Template.checkWaitTime.events({
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
         console.log(timeCheck);
         console.log(phoneNum);
+
         //still working on this to show individual's wait time
         //we can use the rank attribute and just multiply that by 15 to get wait time
-        //var total = Students.findOne({{PhoneNumber:timeCheck}}).rank;
+        var waitTime = Students.findOne({PhoneNumber:timeCheck}).rank;
+        waitTime = waitTime * 15;
 
-        //this one does not show individual wait time but total wait time
-        var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
+        //var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
         console.log(waitTime);
+
         if (timeCheck != null && phoneNum != null) {
            swal("Your approximate wait time is " + waitTime + " minutes");
         }
