@@ -20,6 +20,10 @@ Template.buttonSelections.events({
    },
    'click .move'(){
        Students.update(this._id, {$set: {createdAt: new Date()}});
+   },
+   'click .check-out'() {
+       console.log("hey");
+       //Students.update(this._id, {$inc: {waitTime: -15}}, {multi:true});
    }
 });
 
