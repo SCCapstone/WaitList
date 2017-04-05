@@ -19,10 +19,10 @@
 
                         //still working on this to show individual's wait time
                         //we can use the rank attribute and just multiply that by 15 to get wait time
-                        //var total = Students.findOne({},{fields:{PhoneNumber:timeCheck}}).rank;
+                        var total = Students.findOne({PhoneNumber:timeCheck}).rank;
 
                         //this one does not show individual wait time but total wait time
-                        var total = Students.find({countNumber:1}).count();
+                        //var total = Students.find({countNumber:1}).count();
 
                         if (timeCheck != null && phoneNum != null) {
                             swal("Your approximate wait time is " + total*15 + " minutes");
