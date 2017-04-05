@@ -4,23 +4,11 @@ import { Mongo } from 'meteor/mongo';
 
 Students = new Mongo.Collection('students');
 
-var rank = 0;
-
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
         max: 50,
         label: 'Name *',
-        /*custom: function(){
-            if(this.Name.contains("-"))
-            {
-                SimpleSchema.messages("NO!!!!!!");
-                return;
-            }
-            else{
-                return;
-            }
-        }*/
     },
 
     PhoneNumber: {
@@ -33,10 +21,6 @@ StudentSchema = new SimpleSchema({
         {
             placeholder: "example: 8031234567"
         },
-        /*custom: function(){
-          var phoneNumber = this.siblingField("PhoneNumber").value;
-            Meteor.call("isValidPhoneNumber",phoneNumber);
-        }*/
     },
 
     USCID: {
@@ -394,30 +378,15 @@ StudentSchema = new SimpleSchema({
             }
     },
 
-    countNumber: {
+    waitTime: {
         type: Number,
         autoform: {
             type: "hidden",
             label: false
         },
-        autoValue: function() {
-            countNumber = 1;
-            return countNumber;
+        autoValue: function() {       
+            return 15*(Students.find().count()+1);
       }
-    },
-
-    rank: {
-        type: Number,
-            autoform: {
-                type: "hidden",
-                label: false
-            },
-            autoValue: function() {
-                if (this.isInsert) {
-                    rank = rank + 1;
-                    return rank;
-                }
-            }
     }
 });
 

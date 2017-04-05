@@ -82,7 +82,7 @@
     <button class="btn btn-default btn-sm check-in">
         <span class="glyphicon glyphicon-log-in"> Check-In</span>
     </button>
-    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
+    {{#afModal class="btn btn-warning btn-sm check-out" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-log-out"> Check-Out</span>
     {{/afModal}}
 </template>
