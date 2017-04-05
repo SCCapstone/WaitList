@@ -14,16 +14,14 @@ Accounts.createUser({
 Template.checkWaitTime.events({
     'click .checkTime' (){
         var timeCheck = prompt("Please enter your phone number below");
+
+        //finds the phone number from the collection that is entered in the prompt
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
         console.log(timeCheck);
         console.log(phoneNum);
 
-        //still working on this to show individual's wait time
-        //we can use the rank attribute and just multiply that by 15 to get wait time
-        var waitTime = Students.findOne({PhoneNumber:timeCheck}).rank;
-        waitTime = waitTime * 15;
-
-        //var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
+        //individual's wait time based off their slot in the wait list queue
+        var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
         console.log(waitTime);
 
         if (timeCheck != null && phoneNum != null) {
@@ -36,3 +34,4 @@ Template.checkWaitTime.events({
         }
     }
 });
+
