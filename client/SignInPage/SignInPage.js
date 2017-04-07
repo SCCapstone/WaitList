@@ -6,13 +6,17 @@ Template.home.onCreated(function() {//This is not needed,only for testing purpos
     Meteor.subscribe("allStudents");
 });
 
+//Used to show approximate wait time on sign in page
 Template.home.helpers({
     waitTime: function() {
         var totalCount = Students.find().count();
         var waitTime = totalCount*15;
         return waitTime;
     }
-})
+});
+
+//Hook to make sure text is only sent on success of form submission, also gives popup 
+//telling user that form was submitted succesfully
 AutoForm.hooks({
     studentForm:
     {

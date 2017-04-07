@@ -36,3 +36,4 @@ yogiben:autoform-modals       # For modals on admin page
 cleandersonlobo:sweetalert2   # For alert messages
 comerc:autoform-typeahead     # For selection on forms
 comerc:bs-typeahead           # For selection on forms
+meteorhacks:picker

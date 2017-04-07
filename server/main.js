@@ -24,17 +24,17 @@ Meteor.methods({
             }
         });
     },
-    isValidPhoneNumber: function(phoneNumber) {
-        if(! /^[0-9]+$/.test(phoneNumber))
-        {
-            console.log("THis is wrong");
-        }
-        else
-        {
-            console.log("Atta' babe!");
-        }
+    updateWaitTime: function(timeStamp){
+         Students.update({createdAt: { $gt: timeStamp }}, {$inc: {waitTime: -15 }},{multi:true});
+    },
+    updateAfterMove: function(timestamp1, timestamp2){
+        Students.update({createdAt: { $gt: timestamp1, $lt: timestamp2 }}, {$inc: {waitTime: -15 }},{multi:true});
+    },
+    checkOut: function() {
+        console.log("this worked");
     }
 });
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
@@ -42,18 +42,38 @@ var app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.post('/server/SMS.xml', function (req, res){
+app.post('/server/sms.xml', function (req, res){
     console.log(req.body);
     var msgFrom = req.body.From;
     var msgBody = req.body.Body;
-
-    res.send(`
-<?xml version="1.0" encoding="UTF-8"?>
-    <Response>
-        <Message>
-        Hello ${msgFrom}. You said: ${msgBody}
-        </Message>
-      </Response>`);
+    //var phone = msgFrom.replace(/\+1/g, "");
+    //var waitTime = Students.findOne({},{limit:1, fields:{PhoneNumber: phone}}).waitTime;     
+    //console.log(waitTime);
+    if(msgBody == "Remove") {
+        res.send(`<?xml version="1.0" encoding="UTF-8"?>
+            <Response>
+                <Message>
+                    Hello ${msgFrom}. You said: ${msgBody}. You will now be removed from the waitlist.
+                </Message>
+            </Response>`);
+    }
+    else if(msgBody == "Time") {
+        var waitTime = Students.findOne({PhoneNumber: msgFrom}).waitTime;
+        res.send(`<?xml version="1.0" encoding="UTF-8"?>
+            <Response>
+                <Message>
+                    Your current wait time is: ${waitTime} minutes.
+                </Message>
+            </Response>`);
+    }
+    else {
+        res.send(`<?xml version="1.0" encoding="UTF-8"?>
+            <Response>
+                <Message>
+                    Default
+                </Message>
+            </Response>`);
+    }
 });
 
 app.listen(1337);
