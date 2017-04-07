@@ -63,6 +63,7 @@ logging@1.1.15_1
 mdg:validation-error@0.2.0
 meteor@1.2.17_1
 meteor-base@1.0.4
+meteorhacks:picker@1.0.3
 meteortoys:allthings@3.0.0
 meteortoys:authenticate@3.0.0
 meteortoys:autopub@3.0.0

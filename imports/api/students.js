@@ -3,7 +3,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 Students = new Mongo.Collection('students');
-
+//All below is schema for Mongodb, Collection Students
 StudentSchema = new SimpleSchema({
     Name: {
         type: String,
@@ -384,8 +384,10 @@ StudentSchema = new SimpleSchema({
             type: "hidden",
             label: false
         },
-        autoValue: function() {       
-            return 15*(Students.find().count()+1);
+        autoValue: function() {    
+            if(this.isInsert) {
+                return 15*(Students.find().count()+1);
+            }   
       }
     }
 });

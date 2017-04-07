@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.23.0",
+    "body-parser": "^1.17.1",
     "mongodb": "^2.2.24",
     "npm": "^4.2.0"
   },

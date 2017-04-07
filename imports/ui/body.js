@@ -2,29 +2,29 @@ import { Template } from 'meteor/templating';
 import { students } from '../api/students.js';
 import './body.html';
 
+//prevents other user accounts from being created
+//Client only wants one user so this is not needed for us
 Accounts.config({
     forbidClientAccountCreation : true
 });
 
+//Default user set up
 Accounts.createUser({
         email: 'admin@email.com',
         password: 'asdfasdf',
 });
 
-Template.checkWaitTime.events({
+//Gives functionality for check wait time buttons
+Template.header.events({
     'click .checkTime' (){
+        //prompt to enter number
         var timeCheck = prompt("Please enter your phone number below");
+        //checks if number is in database
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
-        console.log(timeCheck);
-        console.log(phoneNum);
-        //still working on this to show individual's wait time
-        //we can use the rank attribute and just multiply that by 15 to get wait time
-        //var total = Students.findOne({},{fields:{PhoneNumber:timeCheck}}).rank;
-
-        //this one does not show individual wait time but total wait time
-        var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
-        console.log(waitTime);
+        
+        //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
+            var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
            swal("Your approximate wait time is " + waitTime + " minutes");
         }
         else {

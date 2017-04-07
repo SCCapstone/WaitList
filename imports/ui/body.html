@@ -9,14 +9,16 @@
                 <img class="img-responsive" id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center</h1>
+                <!--used to show check wait time button only on main sign in page-->
                 {{#if currentUser}}
                 {{else}}
-                    <div id="createAccount">
+                    <div id="checkTime">
                         {{> checkWaitTime}}
                     </div>
                 {{/if}}
+                <!--Uses built in login buttons template-->
                 <div class="Login">
-                    {{> loginButtons}}
+                    <button class="btn btn-default btn-sm sign-in">{{> loginButtons}}</button>
                 </div>
          </div>
      </div>
@@ -24,5 +26,5 @@
 </template>
 
 <template name="checkWaitTime">
-        <h7 class="checkTime">Check Wait Time</h7>
+        <button class="btn btn-default btn-sm checkTime">Check Wait Time</button>
 </template>
