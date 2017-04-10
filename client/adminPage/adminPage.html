@@ -88,7 +88,7 @@
         <span class="glyphicon glyphicon-log-in"> Check-In</span>
     </button>
     <!-- Check out modal basically does the same thing as delete modal, just makes it more clear on how to remove student from the list-->
-    {{#afModal class="btn btn-warning btn-sm check-out" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
+    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary remove" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-log-out"> Check-Out</span>
     {{/afModal}}
 </template>

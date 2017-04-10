@@ -14,12 +14,18 @@ Template.adminPage.student = function() {
 Template.buttonSelections.events({
     //Updates status on click of check-in button to In advisment
   'click .check-in, click .glyphicon-log-in' (event) {
+       var status = Students.findOne(this._id).currentStatus;
        Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
+       var timestamp = Students.findOne(this._id).createdAt;
+       Meteor.call("updateWaitTime", timestamp, status);
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
    //Updatews status back to waiting on double click, this is mainly for if check-in is accidently clicked
    'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
+       var status = Students.findOne(this._id).currentStatus;
        Students.update(this._id, {$set: {currentStatus: "Waiting"}});
+       var timestamp = Students.findOne(this._id).createdAt;
+       Meteor.call("updateFix", timestamp, status);
        //$(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
    },
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
@@ -33,16 +39,12 @@ Template.buttonSelections.events({
        Meteor.call("updateAfterMove", timestamp1, timestamp2);
    },
    //updates wait times when student removed
-   'click .check-out'() {
-       console.log("hello");
-       //var timeStamp = Students.findOne(this._id).waitTime;
-       //console.log(timeStamp);
+   'click .remove'() {
+       var timestamp = Students.findOne(this._id).createdAt;
        //calls on server side code to update multiple people in the collection at one time
-       var temp = Meteor.call("checkOut");
-       console.log(temp);
+       Meteor.call("checkOut", timestamp);
        console.log("hey");
    },
-   
 });
 
 //allows rows on admin page in table to expand and collapse on press of +/- button, shows hidden row

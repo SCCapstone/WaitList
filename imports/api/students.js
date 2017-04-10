@@ -3,6 +3,7 @@ import { Mongo } from 'meteor/mongo';
 
 
 Students = new Mongo.Collection('students');
+
 //All below is schema for Mongodb, Collection Students
 StudentSchema = new SimpleSchema({
     Name: {
@@ -386,7 +387,13 @@ StudentSchema = new SimpleSchema({
         },
         autoValue: function() {    
             if(this.isInsert) {
-                return 15*(Students.find().count()+1);
+                var count = Students.find().count();
+                if(count == 0) {
+                    return 5;
+                }
+                else{
+                    return 15*(Students.find().count());
+                }
             }   
       }
     }
@@ -395,11 +402,11 @@ StudentSchema = new SimpleSchema({
 SimpleSchema.messages({
   required: "This field is required",
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
-    "minString USCID": "USC ID must be [min] characters",
-    expectedString: "- is not allowed",
-    "regEx":[
-        {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
-    ]
+  "minString USCID": "USC ID must be [min] characters",
+  expectedString: "- is not allowed",
+  "regEx":[
+    {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
+  ]
 });
 
 Students.attachSchema(StudentSchema);
