@@ -27,6 +27,9 @@ Template.header.events({
             var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
            swal("Your approximate wait time is " + waitTime + " minutes");
         }
+        else if(timeCheck !=null && phoneNum == ""){
+            swal("nothing entered", "error");
+        }
         else {
             swal("Something went wrong", "Your phone number was not found on the wait list, " +
                  "make sure you entered your number correctly and have filled out the " +

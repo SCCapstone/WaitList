@@ -333,7 +333,8 @@ StudentSchema = new SimpleSchema({
                 type: "boolean-checkbox",
             }
         },
-        label: "Opt in for text service"
+        label: "Opt in for text service" +
+        " *standard text rates may apply"
     },
    
     createdAt: {
@@ -403,6 +404,7 @@ SimpleSchema.messages({
   required: "This field is required",
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
   "minString USCID": "USC ID must be [min] characters",
+    alreadyExists: "This phone already exists in the waitlist",
   expectedString: "- is not allowed",
   "regEx":[
     {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
