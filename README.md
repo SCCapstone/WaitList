@@ -23,6 +23,7 @@ This is the page that will be displayed for all students who wish to add themsel
 
 ###### Form Fields
 **Name** - (Required field) - 
+
 **Phone Number** - (Required field) - will only accept properly formatted numbers of 10-digits with no white-space or non-integer values.
 
 **USC ID** - (Required field) - USC ID is 9-digits/characters long.(foun on back of student ID cards).
