@@ -24,10 +24,17 @@ This is the page that will be displayed for all students who wish to add themsel
 ###### Form Fields
 **Name** - (Required field) - 
 **Phone Number** - (Required field) - will only accept properly formatted numbers of 10-digits with no white-space or non-integer values.
+
 **USC ID** - (Required field) - USC ID is 9-digits/characters long.(foun on back of student ID cards).
+
 **Reason for Visit** - (Required field) - 3 drop-down options as per client request.
+
 **Current Major** - (Required field) - A list of all majors offered at UofSC-Columbia. This list will auto-complete and show a list of majors that match what you currenty have typed in for you to select. 
+
 **Intended Major** - (Optional) - Same as Current Major.
+
 **Comments** - (Optional) - A text field to allow students to write anything they wish the Advisor to see before entering the appointment.
+
 **Text service radio buttion** - Checking this button to opt in for texting services will send text notifications to the phone number inputed in Phone Number field. This will first alert you that you have been added to the list. You can respond with either "Time" to get your current estimated remaining wait time or respond "Remove" to be removed form the waitlist. 
+
 **Submit** - submits form to database
