@@ -7,7 +7,7 @@ email: myersjg2@email.sc.edu
 
 password: asdfasdf
 
-NOTIFICATION WHEN TESTING:
+### NOTIFICATION WHEN TESTING:
 
 Any number should be able to receive messages as long as the "opt in for text" box is checked on submission.
 
