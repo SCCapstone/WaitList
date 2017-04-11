@@ -52,7 +52,7 @@ This page contains a table with all people currently on the wait list. It is sor
 
 This has each row show (Name, Phone number, USCID, Button selections, and current status). 
 
-**Expand button**  - This is the button with a plus sign on the left side of each row. If this button is pressed the row will expand and show a hidden row within the table that will show (Current major, intended major, and any submitted comments). This can be pressed again to hide the row.
+**Expand button**  - This is the button with a plus sign on the left side of each row. If this button is pressed the row will expand and show a hidden row within the table that will show (Reason for visit, Current major, Intended major, and any submitted comments). This can be pressed again to hide the row.
 
 ###### Button Selections
 
