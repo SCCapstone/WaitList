@@ -19,7 +19,8 @@ For testing the "forgot password" function. Send us one of your emails and we wi
 This is the page that will be displayed for all students who wish to add themselves to the waitlist. 
 ###### Header
 **Sign-in** - drop menu to sign in to the admin account using the valid e-mail and password. a "forgot password" funciton is also provided to send to the valid admin e-mail account.
-**Check Wait Time** - A menu to enter a phone number. If the phone number is currently attributed to a student in the wait list, it will return their current estimated remaining time.
+
+**Check Wait Time** - A prompt to enter a phone number. If the phone number is currently attributed to a student in the wait list, it will return their current estimated remaining time.
 
 ###### Form Fields
 **Name** - (Required field) - 
@@ -39,3 +40,28 @@ This is the page that will be displayed for all students who wish to add themsel
 **Text service radio buttion** - Checking this button to opt in for texting services will send text notifications to the phone number inputed in Phone Number field. This will first alert you that you have been added to the list. You can respond with either "Time" to get your current estimated remaining wait time or respond "Remove" to be removed form the waitlist. 
 
 **Submit** - submits form to database
+
+## Admin Page
+This is the page for the administrator who will be advising during drop in hours. 
+
+###### Header
+The header will be similar to that of the Sign up page, but will just contain the dropdown for signing out or changing the password while logged in as an admin.
+
+###### Features
+This page contains a table with all people currently on the wait list. It is sorted based off of who submitted their information first.
+
+This has each row show (Name, Phone number, USCID, Button selections, and current status). 
+
+**Expand button**  - This is the button with a plus sign on the left side of each row. If this button is pressed the row will expand and show a hidden row within the table that will show (Current major, intended major, and any submitted comments). This can be pressed again to hide the row.
+
+###### Button Selections
+
+**Edit button** - This button will bring a modal with a form similar to that of the sign in page (excludes comments and opt in for text radio button). It will populate the field with the selected students information and if any of that information is changed on submission it will then change in the table.
+
+**Delete button** - This will bring up a modal for confirmation of deleting the selected student from the wait list.
+
+**Move button** - This button is the one with a down arrow. This will move the specific student to the botton of the wait list and will reorder all wait times.
+
+**Check-in button** - This is a button that will change the current status field to "In Advisement" if pressed. If you wish to change the status back to "Waiting" double click on the check-in buttons (this is for accidental clicks on the check-in button). This is meant to be a check for the advisor to help keep track of who is in advisement if there are multiple advisors advising at one time.
+
+**Check-out buttons** - Basically the same thing as the delete button. It will bring up a modal for confirmation that the student has completed their advisement. If selected as done then the student will be removed from the list. This is meant to be a clarification button for the adminstrative user to try and reduce confusion of what to do once the person is done with advisement. 
