@@ -333,7 +333,7 @@ StudentSchema = new SimpleSchema({
                 type: "boolean-checkbox",
             }
         },
-        label: "Opt in for text service"
+        label: "Opt in for text service *standard text rates may apply"
     },
    
     createdAt: {
