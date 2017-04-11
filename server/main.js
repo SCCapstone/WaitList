@@ -7,12 +7,12 @@ Meteor.startup(() => {
 });
 Meteor.methods({
     sendSMS: function (phoneNumber) {
-        var authToken = '3fc96c75764570141d7a6d027a67c393';
-        var accountSid = 'ACbfda93341d7f70d41239419da6474999';
+        var authToken = 'f3d5c0559fed5389332c911ad930e600';
+        var accountSid = 'ACd82dc2f26dfff254f2703a4719050567';
         twilio = Twilio(accountSid, authToken);
         twilio.sendSms({
             to: phoneNumber, // Any number Twilio can deliver to
-            from: '+18437930380', // A number you bought from Twilio and can use for outbound communication
+            from: '+18034030499', // A number you bought from Twilio and can use for outbound communication
             body: 'You have been added to the waitlist. Reply "Remove" to be removed or reply "Time" to see you current estimated wait time.' // body of the SMS message
         }, function (err, responseData) { //this function is executed when a response is received from Twilio
             if (!err) { // "err" is an error received during the request, if any
