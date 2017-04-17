@@ -12,6 +12,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "http": "0.0.0",
+    "meteor-node-stubs": "^0.2.6",
     "mongodb": "^2.2.24",
     "npm": "^4.2.0",
     "twilio": "^2.11.1"
