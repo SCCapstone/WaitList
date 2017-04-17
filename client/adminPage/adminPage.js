@@ -40,16 +40,27 @@ Template.buttonSelections.events({
    },
    //updates wait times when student removed
    'click .remove'() {
-       var timestamp = Students.findOne(this._id).createdAt;
+       console.log(this._id);
+       var timestamp = Students.findOne(this._id).waitTime;
+       console.log(timestamp);
        //calls on server side code to update multiple people in the collection at one time
-       Meteor.call("checkOut", timestamp);
+       //Meteor.call("checkOut", timestamp);
        console.log("hey");
-   },
+   }
 });
 
 //allows rows on admin page in table to expand and collapse on press of +/- button, shows hidden row
 Template.expandButton.events({
     'click #expandBtn'(event, temp) {
         temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
+    }
+});
+
+AutoForm.hooks({
+    checkingOut:
+    {
+        onSuccess: function (insert,result) {
+            swal("Success!", "You have been added to the WaitList", "success");
+        },
     }
 });
