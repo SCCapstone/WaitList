@@ -129,7 +129,10 @@
 	background-color:#73000a;
     width: 35px;
 }
+#inner-data{
+    max-width:35px;
 
+}
 #top-heading {
 	background-color: black;
 	color: white;
@@ -147,9 +150,9 @@
 #parent{
     display:flex;
 }
-#drop-in{
-    color:white;
-    font-size:100%;
-    margin-top:1%;
-    width:20%;
+#drop-in {
+    color: white;
+    font-size: 100%;
+    margin-top: 1%;
+    width: 20%;
 }
