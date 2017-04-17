@@ -32,7 +32,7 @@ Template.home.helpers({
 });
 
 //Hook to make sure text is only sent on success of form submission, also gives popup 
-//telling user that form was submitted succesfully
+//telling user that form was submitted successfully
 AutoForm.hooks({
     studentForm:
     {
