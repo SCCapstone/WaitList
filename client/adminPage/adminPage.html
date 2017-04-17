@@ -20,13 +20,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!--Each block below goes throgh every student in collection and populates the waitlist table-->
                                 {{#each student}}
-                                    <tr  class="accordion-toggle mainRow"> <!--mainRow if want whole row to change green-->
+                                    <tr  class="accordion-toggle mainRow">
                                         <td>{{> expandButton}}</td>
                                         <td>{{Name}}</td>
                                         <td>{{PhoneNumber}}</td>
                                         <td>{{USCID}}</td>
-                                        <td class="selectionChange">{{> buttonSelections}}</td>
+                                        <td class="selectionChange">{{> buttonSelections}}</td> <!-- Calls on button selections below-->
                                         <td>{{currentStatus}}</td>
                                     </tr>
                                     <tr>
@@ -55,7 +56,7 @@
                                     </tr>
                                 {{/each}}
                             </tbody>
-                             {{> autoformModals}}
+                             {{> autoformModals}} <!--Calls on template from modal package to allow modal functionality on certain buttons-->
                         </table>
                     </div>
             </div>
@@ -70,19 +71,24 @@
 </template>
 
 <template name="buttonSelections">
+    <!-- Modal for edit button to update person info if needed-->
     {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
         <span class="glyphicon glyphicon-edit"></span>
     {{/afModal}}
+    <!-- Modal for delete button to remove someone-->
     {{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Student" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-trash"></span>
     {{/afModal}}
+    <!-- Button to move person to the bottom of the wait list-->
     <button class="btn btn-default btn-sm move">
         <span class="glyphicon glyphicon-arrow-down"></span>
     </button>
+    <!-- Button can be used as a check for keeping track of who is being advised (mainly for multiple advisors at a time-->
     <button class="btn btn-default btn-sm check-in">
         <span class="glyphicon glyphicon-log-in"> Check-In</span>
     </button>
-    {{#afModal class="btn btn-warning btn-sm check-out" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished there appointment? If so press Done." operation="remove" doc=_id}}
+    <!-- Check out modal basically does the same thing as delete modal, just makes it more clear on how to remove student from the list-->
+    {{#afModal class="btn btn-warning btn-sm" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary remove" prompt="Has this student finished their appointment? If so press Done." operation="remove" doc=_id}}
         <span class="glyphicon glyphicon-log-out"> Check-Out</span>
     {{/afModal}}
 </template>
