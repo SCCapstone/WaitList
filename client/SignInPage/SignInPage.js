@@ -11,10 +11,8 @@ Template.home.helpers({
     waitTime: function() {
         var totalCount = Students.find().count();
         var hour = totalCount/4;
-        
-        if(totalCount == 0){
-            return 5 + " minutes";
-        }else if(totalCount < 4){
+
+        if(totalCount < 4){
             return 15*totalCount + " minutes"
         }else if(totalCount >= 4 && totalCount%4 == 0){
             return hour + " hour(s)";
