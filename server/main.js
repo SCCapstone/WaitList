@@ -24,14 +24,19 @@ Meteor.methods({
             }
         });
     },
-    updateWaitTime: function(timeStamp){
-         Students.update({createdAt: { $gt: timeStamp }}, {$inc: {waitTime: -15 }},{multi:true});
+    updateWaitTime: function(timestamp){
+         Students.update({createdAt: { $gt: timestamp }}, {$inc: {waitTime: -15 }},{multi:true});
+    },
+    updateFix: function(timestamp, status){
+        if(status == "Waiting"){
+            Students.update({createdAt: { $gt: timestamp }}, {$inc: {waitTime: -15 }},{multi:true});
+        }
+        if(status == "In Advisement"){
+            Students.update({createdAt: {$gt: timestamp }}, {$inc: {waitTime: 15 }}, {multi: true});
+        }
     },
     updateAfterMove: function(timestamp1, timestamp2){
         Students.update({createdAt: { $gt: timestamp1, $lt: timestamp2 }}, {$inc: {waitTime: -15 }},{multi:true});
-    },
-    checkOut: function() {
-        console.log("this worked");
     },
     validate: function(){
         if(Meteor.userId())

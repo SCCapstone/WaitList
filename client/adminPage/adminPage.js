@@ -1,5 +1,7 @@
 import '../../imports/api/students.js';
 
+var modalId_checkOut;
+var modalId_delete;
 //subscribes to collection to access data
 Template.adminPage.onCreated(function (){
     Meteor.subscribe('allStudents');
@@ -15,19 +17,24 @@ Template.buttonSelections.events({
     //Updates status on click of check-in button to In advisment
   'click .check-in, click .glyphicon-log-in' (event) {
        var status = Students.findOne(this._id).currentStatus;
-       Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
+       if(status == "Waiting"){
+           Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
+       }else{
+           Students.update(this._id, {$set: {currentStatus: "Waiting"}});
+       }
+       status = Students.findOne(this._id).currentStatus;
        var timestamp = Students.findOne(this._id).createdAt;
-       Meteor.call("updateWaitTime", timestamp, status);
+       Meteor.call("updateFix", timestamp, status);
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
    //Updatews status back to waiting on double click, this is mainly for if check-in is accidently clicked
-   'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
+   /*'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
        var status = Students.findOne(this._id).currentStatus;
        Students.update(this._id, {$set: {currentStatus: "Waiting"}});
        var timestamp = Students.findOne(this._id).createdAt;
-       Meteor.call("updateFix", timestamp, status);
+       //Meteor.call("updateFix", timestamp, status);
        //$(event.target).closest('.mainRow').css({"background-color":"#FAFAFA","color":"black"});
-   },
+   },*/
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
    'click .move'(){
        var lastWait = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{waitTime:1, _id:0}}).waitTime;
@@ -39,28 +46,45 @@ Template.buttonSelections.events({
        Meteor.call("updateAfterMove", timestamp1, timestamp2);
    },
    //updates wait times when student removed
-   'click .remove'() {
+   'click .checkingOut'(){
        console.log(this._id);
-       var timestamp = Students.findOne(this._id).waitTime;
-       console.log(timestamp);
-       //calls on server side code to update multiple people in the collection at one time
-       //Meteor.call("checkOut", timestamp);
-       console.log("hey");
+       modalId_checkOut = this._id;
+       console.log(modalId_checkOut);
+       Modal.show('checkOutModal', function () {
+           return Students.findOne(this._id);
+	    });
+   },
+   'click .delete'(){
+       console.log(this._id);
+       modalId_delete = this._id;
+       console.log(modalId_delete);
+       Modal.show('deleteModal', function() {
+           return Students.findOne(this._id);
+       });
    }
+});
+
+Template.checkOutModal.events({
+    'click .checkOut'(){
+       console.log(modalId_checkOut);
+       var timestamp = Students.findOne(modalId_checkOut).createdAt;
+       Meteor.call("updateWaitTime", timestamp);
+       Students.remove(modalId_checkOut);
+   }
+});
+
+Template.deleteModal.events({
+    'click .deleteStudent'(){
+        console.log(modalId_delete);
+        var timestamp = Students.findOne(modalId_delete).createdAt;
+        Meteor.call("updateWaitTime", timestamp);
+        Students.remove(modalId_delete);
+    }
 });
 
 //allows rows on admin page in table to expand and collapse on press of +/- button, shows hidden row
 Template.expandButton.events({
     'click #expandBtn'(event, temp) {
         temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
-    }
-});
-
-AutoForm.hooks({
-    checkingOut:
-    {
-        onSuccess: function (insert,result) {
-            swal("Success!", "You have been added to the WaitList", "success");
-        },
     }
 });
