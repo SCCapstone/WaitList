@@ -393,7 +393,6 @@ StudentSchema = new SimpleSchema({
         },
         autoValue: function() {    
             if(this.isInsert) {
-                var count = Students.find().count();
                 return 15*(Students.find().count());          
             }   
       }

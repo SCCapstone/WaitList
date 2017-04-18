@@ -16,18 +16,17 @@ Template.adminPage.student = function() {
 Template.buttonSelections.events({
     //Updates status on click of check-in button to In advisment
   'click .check-in, click .glyphicon-log-in' (event) {
-       var status = Students.findOne(this._id).currentStatus;
-       if(status == "Waiting"){
-           Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
-       }else{
-           Students.update(this._id, {$set: {currentStatus: "Waiting"}});
-       }
-       status = Students.findOne(this._id).currentStatus;
-       var timestamp = Students.findOne(this._id).createdAt;
-       Meteor.call("updateFix", timestamp, status);
+      var status = Students.findOne(this._id).currentStatus;
+
+      if(status == "Waiting"){
+          var timestamp = Students.findOne(this._id).createdAt;
+          console.log(timestamp);
+          Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
+          Meteor.call("updateWaitTime", timestamp);
+      }
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
-   //Updatews status back to waiting on double click, this is mainly for if check-in is accidently clicked
+   //Updates status back to waiting on double click, this is mainly for if check-in is accidently clicked
    /*'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
        var status = Students.findOne(this._id).currentStatus;
        Students.update(this._id, {$set: {currentStatus: "Waiting"}});
@@ -68,7 +67,11 @@ Template.checkOutModal.events({
     'click .checkOut'(){
        console.log(modalId_checkOut);
        var timestamp = Students.findOne(modalId_checkOut).createdAt;
-       Meteor.call("updateWaitTime", timestamp);
+       var status = Students.findOne(modalId_checkOut).currentStatus;
+        console.log(status);
+        if(status == "Waiting"){
+            Meteor.call("updateWaitTime", timestamp);
+        }
        Students.remove(modalId_checkOut);
    }
 });
@@ -77,7 +80,11 @@ Template.deleteModal.events({
     'click .deleteStudent'(){
         console.log(modalId_delete);
         var timestamp = Students.findOne(modalId_delete).createdAt;
-        Meteor.call("updateWaitTime", timestamp);
+        var status = Students.findOne(modalId_delete).currentStatus;
+        console.log(status);
+        if(status == "Waiting"){
+            Meteor.call("updateWaitTime", timestamp);
+        }
         Students.remove(modalId_delete);
     }
 });
