@@ -70,12 +70,6 @@
     </button>
 </template>
 
-
-
-
-
-
-
 <template name="buttonSelections">
     <!-- Modal for edit button to update person info if needed-->
     {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
@@ -101,15 +95,28 @@
 
 
 
+<template name="deleteModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Student</h4>
+                </div>
 
+                <div class="modal-body">
+                    <p>This student is about to be removed from the wait list. Are you sure you want to do this?</p>
+                </div>
 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-danger deleteStudent" data-dismiss="modal">Delete</button>
+                </div>
 
-
-
-
-
-
+            </div>
+        </div>
+    </div>
+</template>
 
 
 <template name="checkOutModal">
