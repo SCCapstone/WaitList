@@ -70,22 +70,22 @@ Template.buttonSelections.events({
 
 Template.checkOutModal.events({
     'click .checkOut'(){
-       console.log(modalId_checkOut);
-       var timestamp = Students.findOne(modalId_checkOut).createdAt;
-       var status = Students.findOne(modalId_checkOut).currentStatus;
-       console.log(status);
-       if(status == "Waiting"){
-           Meteor.call("updateWaitTime", timestamp);
-           if(Students.find().count() > 3){
-               whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-               var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-               if(receiveText == true){
-                   Meteor.call("getToUAC", whoToContact);
-               }
-           }
-       }
-       Students.remove(modalId_checkOut);
-   }
+        console.log(modalId_checkOut);
+        var timestamp = Students.findOne(modalId_checkOut).createdAt;
+        var status = Students.findOne(modalId_checkOut).currentStatus;
+        console.log(status);
+        if(status == "Waiting"){
+            Meteor.call("updateWaitTime", timestamp);
+            if(Students.find().count() > 3){
+                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+                if(receiveText == true){
+                    Meteor.call("getToUAC", whoToContact);
+                }
+            }
+        }
+        Students.remove(modalId_checkOut);
+    }
 });
 
 Template.deleteModal.events({
