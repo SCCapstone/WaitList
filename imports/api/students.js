@@ -8,6 +8,10 @@ StudentSchema = new SimpleSchema({
         type: String,
         max: 50,
         label: 'Name *',
+        autoform:
+        {
+            placeholder: "First and last name"
+        }
     },
 
     PhoneNumber: {
@@ -19,14 +23,18 @@ StudentSchema = new SimpleSchema({
         autoform:
         {
             placeholder: "example: 8031234567"
-        },
+        }
     },
 
     USCID: {
         type: String,
         min: 9,
         max: 9,
-        label: 'USC ID *'
+        label: 'USC ID *',
+        autoform:
+        {
+            placeholder: "Located on the back of your Carolina Card"
+        }
     },
 
     ReasonForVisit: {
@@ -44,6 +52,7 @@ StudentSchema = new SimpleSchema({
         type: String,
         max: 100,
         label: 'Current Major *',
+        regEx:/^([^0-9]*)$/,
         autoform: {
             type: "typeahead",
                 options: function () {
@@ -318,6 +327,7 @@ StudentSchema = new SimpleSchema({
         max: 300, 
         optional: true,
         label: 'Comments',
+        //regEx: /^{1,10}\b/,
         autoform: {
             rows: 3
         }
@@ -385,13 +395,7 @@ StudentSchema = new SimpleSchema({
         },
         autoValue: function() {    
             if(this.isInsert) {
-                var count = Students.find().count();
-                if(count == 0) {
-                    return 5;
-                }
-                else{
-                    return 15*(Students.find().count());
-                }
+                return 15*(Students.find().count());          
             }   
       }
     }
@@ -402,9 +406,15 @@ SimpleSchema.messages({
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
   "minString USCID": "USC ID must be [min] characters",
   expectedString: "- is not allowed",
-  "regEx":[
+  "regEx PhoneNumber":[
     {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
-  ]
+  ],
+    "regEx CurrentMajor":[
+        {msg:"Numbers are not allowed in this field"}
+    ],
+    "regEx IntendedMajor":[
+        {msg:"Numbers are not allowed in this field"}
+    ]
 });
 
 Students.attachSchema(StudentSchema);

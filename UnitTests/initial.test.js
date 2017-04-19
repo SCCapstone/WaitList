@@ -20,7 +20,8 @@ describe('Title', function () {
     });
 });
 
-/*describe('Login', function () {
+
+describe('Login', function () {
     it('should login', function() {
 
         chai.request('http://localhost:3000')
@@ -53,13 +54,13 @@ describe('Add Form', function () {
             .put('/addForm')
 
             .send({ Name: 'Eddie',
-                    PhoneNumber: '864-517-2770',
-                    VipID: '11875095',
-                    ReasonForVisit: 'Change Major',
-                    CurrentMajor: 'Computer Engineering',
-                    IntendedMajor: 'Business',
-                    Comments: 'No comments',
-                    Disclaimer: 'True'
+                PhoneNumber: '864-517-2770',
+                VipID: '11875095',
+                ReasonForVisit: 'Change Major',
+                CurrentMajor: 'Computer Engineering',
+                IntendedMajor: 'Business',
+                Comments: 'No comments',
+                Disclaimer: 'True'
             })
 
             .end(function (err, res) {
@@ -76,5 +77,3 @@ describe('Add Form', function () {
     });
 
 });
-
-*/
