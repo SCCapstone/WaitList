@@ -1,7 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 
-
-
 Students = new Mongo.Collection('students');
 
 //All below is schema for Mongodb, Collection Students

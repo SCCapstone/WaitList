@@ -19,6 +19,7 @@ Template.header.events({
     'click .checkTime' (){
         //prompt to enter number
         var timeCheck = prompt("Please enter your phone number below");
+
         //checks if number is in database
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
         
@@ -34,3 +35,4 @@ Template.header.events({
         }
     }
 });
+
