@@ -70,49 +70,21 @@
     </button>
 </template>
 
-<template name="buttonSelections">
-    <!-- Modal for edit button to update person info if needed-->
-    {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
-        <span class="glyphicon glyphicon-edit"> Edit</span>
-    {{/afModal}}
-    <!-- Modal for delete button to remove someone-->
-    <!--{{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Student" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
-        <span class="glyphicon glyphicon-trash"> Delete</span>
-    {{/afModal}}-->
-    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash delete"> Delete</button>
-    <!-- Button to move person to the bottom of the wait list-->
-    <button class="btn btn-default btn-sm move glyphicon glyphicon-arrow-down"> Move Down</button>
-    <!-- Button can be used as a check for keeping track of who is being advised (mainly for multiple advisors at a time-->
-    <button class="btn btn-success btn-sm glyphicon glyphicon-log-in check-in"> Check-In</button>
-    <!-- Check out modal basically does the same thing as delete modal, just makes it more clear on how to remove student from the list-->
-    <!--{{#afModal class="btn btn-warning btn-sm remove" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished their appointment? If so press Done." onSuccess="checkingOut" operation="remove" doc=_id}}
-        <span class="glyphicon glyphicon-log-out"> Check-Out</span>
-    {{/afModal}}-->
-    <button class="btn btn-warning btn-sm glyphicon glyphicon-log-out checkingOut"> Check-Out</button>
-</template>
 
-<template name="deleteModal">
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
 
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Student</h4>
-                </div>
 
-                <div class="modal-body">
-                    <p>This student is about to be removed from the wait list. Are you sure you want to do this?</p>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button class="btn btn-danger deleteStudent" data-dismiss="modal">Delete</button>
-                </div>
 
-            </div>
-        </div>
-    </div>
-</template>
+
+
+
+
+
+
+
+
+
+
 
 <template name="checkOutModal">
     <div class="modal fade">
