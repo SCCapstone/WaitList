@@ -10,6 +10,10 @@ StudentSchema = new SimpleSchema({
         type: String,
         max: 50,
         label: 'Name *',
+        autoform:
+        {
+            placeholder: "First and last name"
+        }
     },
 
     PhoneNumber: {
@@ -21,7 +25,7 @@ StudentSchema = new SimpleSchema({
         autoform:
         {
             placeholder: "example: 8031234567"
-        },
+        }
     },
 
     USCID: {
@@ -32,7 +36,7 @@ StudentSchema = new SimpleSchema({
         autoform:
         {
             placeholder: "Located on the back of your Carolina Card"
-        },
+        }
     },
 
     ReasonForVisit: {

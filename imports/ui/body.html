@@ -20,7 +20,7 @@
                 {{/if}}
                 <!--Uses built in login buttons template-->
                 <div class="Login">
-                    <button class="btn btn-default btn-sm sign-in">{{> loginButtons}}</button>
+                    {{> loginButtons}}
                 </div>
                  </div>
          </div>
@@ -30,5 +30,5 @@
 
 
 <template name="checkWaitTime">
-        <button class="btn btn-default btn-sm checkTime">Check Wait Time</button>
+        <p class="checkTime">Check Wait Time</p>
 </template>
