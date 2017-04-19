@@ -76,10 +76,12 @@ Template.checkOutModal.events({
        console.log(status);
        if(status == "Waiting"){
            Meteor.call("updateWaitTime", timestamp);
-           whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-           var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-           if(receiveText == true){
-               Meteor.call("getToUAC", whoToContact);
+           if(Students.find().count() > 3){
+               whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+               var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+               if(receiveText == true){
+                   Meteor.call("getToUAC", whoToContact);
+               }
            }
        }
        Students.remove(modalId_checkOut);
@@ -98,10 +100,12 @@ Template.deleteModal.events({
         console.log(waitTime);
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
-            whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-            var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-            if(receiveText == true){
-                Meteor.call("getToUAC", whoToContact);
+            if(Students.find().count() > 3){
+                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+                if(receiveText == true){
+                    Meteor.call("getToUAC", whoToContact);
+                }
             }
             if(canGetText == true){
                 if(waitTime == 0){
