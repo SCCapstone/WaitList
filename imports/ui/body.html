@@ -10,7 +10,11 @@
              </div>
              <h1 id="heading">University Advising Center Waitlist</h1>
              <div id="parent">
-                <h2 id="drop-in">Advisement Appointment Form</h2>
+                 {{#if currentUser}}
+                     <h2 id="drop-in">Admin Page</h2>
+                     {{else}}
+                     <h2 id="drop-in">Advisement Appointment Form</h2>
+                     {{/if}}
                 <!--used to show check wait time button only on main sign in page-->
                 {{#if currentUser}}
                 {{else}}
