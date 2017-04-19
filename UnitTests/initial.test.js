@@ -20,7 +20,7 @@ describe('Title', function () {
     });
 });
 
-/*
+
 describe('Login', function () {
     it('should login', function() {
 
@@ -34,7 +34,7 @@ describe('Login', function () {
 
     });
 
-}); */
+});  // issues
 
 describe('phoneNumber',function(){
    it('phoneNumber should only has 10 digits',function(){
@@ -57,7 +57,7 @@ describe('Admin Page Title', function () {
     });
 
 });
-/*
+
 describe('Add Form', function () {
     it('should add a new form', function () {
 
@@ -87,4 +87,4 @@ describe('Add Form', function () {
 
     });
 
-});*/
+});//issue
