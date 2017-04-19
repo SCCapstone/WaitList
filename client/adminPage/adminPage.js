@@ -68,79 +68,25 @@ Template.buttonSelections.events({
    }
 });
 
-
-
-
-
-
-
-
-public function appendWaitlistJoinLeaveButtons ($content) {
-    global $post;
-    if (!$post) { return $content; } // Don't run if we're not being called by WordPress.
-    $lists = get_post_meta($post->ID, $this->prefix . 'lists', true);
-    if (empty($lists)) { return $content; } // Don't run if there is no waitlist info for this post.
-    $html = '';
-    if (!post_password_required($post->ID)) {
-        $current_user_id = get_current_user_id();
-        if (0 === $current_user_id) { // No user is logged in.
-            $html .= '<p>';
-            $html .= sprintf(
-                esc_html__('%1$s with your account in order to be able to join "%2$s" lists!', 'wp-waitlist'),
-                wp_loginout(get_permalink($post->ID), false),
-                $post->post_title
-            );
-            $html .= '</p>';
-        } else {
-            $permalink = get_permalink($post->ID);
-            $html .= '<ul class="' . $this->prefix . '-join-leave-button-list">';
-            foreach ($lists as $list) {
-                $html .= '<li><form action="' . $permalink . '">';
-                // If a blog isn't using pretty permalinks, this form (being an HTTP GET)
-                // overrides the query string in the `action` attribute, so add the permalink manually.
-                $x = get_option('permalink_structure');
-                if (empty($x)) {
-                    $qsx = explode('=', parse_url($permalink, PHP_URL_QUERY));
-                    $html .= '<input type="hidden" name="' . $qsx[0] . '" value="' . $qsx[1] . '">';
+Template.checkOutModal.events({
+    'click .checkOut'(){
+        console.log(modalId_checkOut);
+        var timestamp = Students.findOne(modalId_checkOut).createdAt;
+        var status = Students.findOne(modalId_checkOut).currentStatus;
+        console.log(status);
+        if(status == "Waiting"){
+            Meteor.call("updateWaitTime", timestamp);
+            if(Students.find().count() > 3){
+                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+                if(receiveText == true){
+                    Meteor.call("getToUAC", whoToContact);
                 }
-                $html .= wp_nonce_field('join_or_leave_list', $this->prefix . 'nonce', false, false);
-                $html .= '<input type="hidden" name="' . $this->prefix . 'the_post" value="' . esc_attr($post->ID) . '" />';
-                $html .= '<input type="hidden" name="' . $this->prefix . 'list_name" value="' . esc_attr($list['name']) . '" />';
-                // Is this user already on this list?
-                $user_ids = $this->getUsersOnList($post->ID, $list['name']);
-                if (in_array($current_user_id, $user_ids)) {
-                    // User is currently listed, so make a "Leave List" button.
-                    $html .= '<input type="hidden" name="' . $this->prefix . 'action" value="leave" />';
-                    $html .= '<input type="submit" value="' . sprintf(esc_attr__('Leave "%s" List', 'wp-waitlist'), $list['name']) . '" />';
-                } else {
-                    // User is not on this list, so make a "Join List" button,
-                    $html .= '<input type="hidden" name="' . $this->prefix . 'action" value="join" />';
-                    // but make it say join WAIT list if the list is at capacity already
-                    $btn_text = '';
-                    if (!empty($list['max']) && count($user_ids) >= $list['max']) {
-                        $btn_text = esc_attr__('Join waitlist for "%s" list', 'wp-waitlist');
-                    } else {
-                        $btn_text = esc_attr('Join "%s" list', 'wp-waitlist');
-                    }
-                    $html .= '<input type="submit" value="' . sprintf($btn_text, $list['name']) . '" />';
-                }
-                $html .= '</form></li>';
             }
-            $html .= '</ul>';
         }
+        Students.remove(modalId_checkOut);
     }
-    return $content . $html;
-}
-
-
-
-
-
-
-
-
-
-
+});
 
 Template.deleteModal.events({
     'click .deleteStudent'(){
