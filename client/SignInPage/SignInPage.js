@@ -104,6 +104,10 @@ AutoForm.hooks({
             //console.log(textService);
             //console.log(totalCount);
             var wait = (calcWaitTimeTwo() - 0.25 ) * 60 ;
+
+            if (wait < 5){
+                wait = 5;
+            }
             swal("Success!", "You have been added to the WaitList \n Your waiting time is around: " + wait + "minutes", "success");
         },
     }
