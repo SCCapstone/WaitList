@@ -32,7 +32,8 @@ mrt:moment
 mrt:twilio-meteor             # For twilio/SMS
 email                         # For emails
 practicalmeteor:mocha         # For behavioral testing   
-yogiben:autoform-modals       # For modals on admin page
+yogiben:autoform-modals       # For edit modal 
 cleandersonlobo:sweetalert2   # For alert messages
 comerc:autoform-typeahead     # For selection on forms
 comerc:bs-typeahead           # For selection on forms
+peppelg:bootstrap-3-modal     # For deletion modals
