@@ -34,7 +34,7 @@ describe('Login', function () {
 
     });
 
-});  // issues
+});  
 
 describe('phoneNumber',function(){
    it('phoneNumber should only has 10 digits',function(){
@@ -87,4 +87,59 @@ describe('Add Form', function () {
 
     });
 
-});//issue
+});//issue   
+
+
+describe('Send Email', function () 
+			{ 
+   
+    it('should send email to student', function () {
+
+        chai.request('http://localhost:3000')
+
+            .put
+ 		('/sendEmail')
+
+            .send
+		({ address: ' ',
+
+                    subject: ' ',
+
+                    message: ' '
+              })
+
+              .end
+			(function (err, res) {
+ 
+                expect(res).to.have.property(address);
+              
+		  expect(res).to.have.property(subject);
+               
+ 		 expect(res).to.have.property(message);
+            });
+
+    });
+
+});
+
+describe('Reset Password', function () {
+
+    it('should reset password', function () {
+
+        chai.request
+			('http://localhost:3000')
+
+            .put
+		('/resetPassword')
+
+            .send({ emailVar: ' '
+              })
+
+            .end
+		(function (err, res) {
+               
+		 expect(res).to.have.property(emailVar);
+            });
+
+    });
+}); 
