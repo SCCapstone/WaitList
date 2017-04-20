@@ -17,19 +17,25 @@ StudentSchema = new SimpleSchema({
     PhoneNumber: {
         type: String,
         unique: true,
-        regEx: /^[0-9999999999]{10}$/,
-        min: 10,
-        max: 10,
+//        regEx: /^[0-9999999999]{10}$/,
+//        min: 13,
+  //      max: 13,
         label: 'Phone Number *',
         autoform:
-        {
-            placeholder: "example: 8031234567"
-        }
+        {  
+           type: 'intl-tel',
+          class: 'form-control',
+          intlTelOptions: {
+              autoFormat: true,
+              defaultCountry: 'FR',
+              utilsScript: 'lib/libphonenumber/build/utils.js'
+          }
+              }
+       
     },
 
     USCID: {
         type: String,
-        unique: true,
         min: 9,
         max: 9,
         label: 'USC ID *',
@@ -41,12 +47,12 @@ StudentSchema = new SimpleSchema({
 
     ReasonForVisit: {
         type: String,
+        allowedValues: ["Change Major", "Add Major/Minor", "Other"],
         autoform: {
             afFieldInput: {
                 firstOption: "(Select a Reason)"
             }
         },
-        allowedValues: ["Change Major", "Add Major/Minor","Schedule classes", "Other"],
         label: 'Reason for Visit *'
     },
 
@@ -333,8 +339,6 @@ StudentSchema = new SimpleSchema({
         autoform: {
             rows: 3
         }
-
-
     },
 
     Disclaimer: {
@@ -410,7 +414,6 @@ SimpleSchema.messages({
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
   "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
   "minString USCID": "USC ID must be [min] characters",
-    "notUnique USCID": "This USC ID already exists on the waitlist. Make sure you are not already signed up for an appointment",
   expectedString: "- is not allowed",
   "regEx PhoneNumber":[
     {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
