@@ -14,15 +14,18 @@ Accounts.createUser({
         password: 'asdfasdf',
 });
 
-//Gives functionality for check wait time buttons
+//Gives functionality for check wait time buttons, brings up modal
 Template.header.events({
     'click .checkTime' (){
-        //prompt to enter number
-        var timeCheck = prompt("Please enter your phone number below");
+       Modal.show('checkWaitModal');
+    },
+});
 
-        //checks if number is in database
+//Gets value submitted in modal and checks collection for phone number, outputs message afterwards
+Template.checkWaitModal.events({
+     'click .checkWait' (){
+        var timeCheck = $('[name=phone]').val();
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
-        
         //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
             var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
