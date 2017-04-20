@@ -29,6 +29,7 @@ StudentSchema = new SimpleSchema({
 
     USCID: {
         type: String,
+        unique: true,
         min: 9,
         max: 9,
         label: 'USC ID *',
@@ -409,6 +410,7 @@ SimpleSchema.messages({
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
   "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
   "minString USCID": "USC ID must be [min] characters",
+    "notUnique USCID": "This USC ID already exists on the waitlist. Make sure you are not already signed up for an appointment",
   expectedString: "- is not allowed",
   "regEx PhoneNumber":[
     {msg: "Please use only numbers (803)-123-4567 is 8031234567"}

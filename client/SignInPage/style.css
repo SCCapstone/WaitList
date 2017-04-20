@@ -1,59 +1,224 @@
+@media only screen and (max-width:950px){
+	body #checkTime{
+		padding-left:20%;
+	}
+}
+
+@media only screen and (max-width:720px){
+	body #heading{
+		font-size:22px;
+
+	}
+	body #drop-in{
+		margin-right:30px;
+	}
+	body #checkTime {
+		color: white;
+		text-decoration: underline;
+		float:left;
+		margin: 0px;
+		position: relative;
+		padding-top:10px;
+		padding-left: 50%;
+		padding-right:20px;
+	}
+	body #parent{
+		padding-top: 0px;
+		height:90px;
+		width:450px;
+	}
+
+}
+@media only screen and (max-width: 590px) {
+	body #parent{
+		width:auto;
+	}
+}
+
+@media only screen and (max-width: 495px) {
+	body .header{
+		height:80px;
+	}
+	body #logo {
+		display: none;
+	}
+	body #heading{
+		font-size: 19px;
+		padding-left:10px;
+	}
+	body #drop-in {
+		color: white;
+		float:left;
+		/*width: 230px;*/
+		margin:0px;
+		position: relative;
+		padding:10px;
+		font-size:10%;
+		display:none;
+	}
+
+	body #checkTime {
+		/*width: 530px;/*add to 110*/
+		color: white;
+		text-decoration: underline;
+		float:left;
+		margin: 0px;
+		position: relative;
+		padding-top:10px;
+		padding-left:125px;
+		font-size: 100%;
+	}
+	body .Login
+	{
+		/*width: 60px;*/
+		float:left;
+		color: black;
+		margin:0px;
+		position: relative;
+		padding-top:10px;
+		font-size: 100%;
+	}
+	body .Login .login-close-text{
+		color: black;
+		text-decoration: underline;
+	}
+
+	body .Login .login-link-text{
+		color: white;
+		text-decoration: underline;
+	}
+	.hiddenRow {
+		padding: 0 !important;
+	}
+
+	.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 6px 0;
+		font-size: 12px;
+		line-height: 1.428571429;
+		border-radius: 50%;
+		border-color: black;
+	}
+
+	.info {
+		background-color: black;
+		background: black;
+		color: white;
+	}
+
+	#inner-heading {
+		background-color:#73000a;
+		width: 35px;
+	}
+	#inner-data{
+		max-width:35px;
+
+	}
+	body #parent{
+		height:50px;
+		overflow: hidden;
+		padding-top:0px;
+		width:auto;
+	}
+	#top-heading {
+		background-color: black;
+		color: white;
+		width: 35px;
+	}
+	.glyphicon-arrow-down {
+		color: black;
+	}
+
+	body #insert {
+		margin-left: 5%;
+		font-size: 150%;
+		padding-bottom: 20px;
+	}
+	.Login
+	{
+		float:left;
+		color: black;
+		margin:0px;
+		position: relative;
+		padding-top:10px;
+		z-index: 1;
+	}
+}
+/*
+* START OF BODY.html
+*
+*/
 .header
 {
     background-color: rgb(32, 32, 32);
     background-image: linear-gradient(to right, #73000a, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, #73000a), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
     background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
     background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
-    padding: 20px;
+    padding: 0px;
     margin: 0px;
     height: 140px;
     color: white;
 }
-body { 
-    padding-right: 0 !important 
-}
-
-.header h4
+#heading
 {
-    margin-left: 80%;
-    color: white;
-    text-decoration: underline;
+	margin:0px;
+	padding-top:3%;
+	height:auto;
+	z-index:-1;
 }
-
-.img-responsive 
+#parent{
+	height:50px;
+	overflow: hidden;
+	padding-top:22px;
+	position: relative;
+	z-index:1;
+}
+#logo
 {
-    float: left;
-    width: auto;
-    height: auto;
+	float: left;
+	width: 140px;
+	height:100px;
+	margin-top: 35px;
 }
-
-.header .accounts-dialog a {
-    color: #262626;
+#drop-in {
+	color: white;
+	font-size: 100%;
+	float:left;
+	/*width: 230px;*/
+	margin:0px;
+	position: relative;
+	padding:10px;
 }
-
 #checkTime {
-    width: 10%;
-    margin-left: 40%;
-    color: white;
-    text-decoration: underline;
+	color: white;
+	text-decoration: underline;
+	float:left;
+	margin: 0px;
+	position: relative;
+	padding-top:10px;
+	padding-left: 40%;
+	padding-right:10%;
 }
-
 .Login
 {
-    width: 15%;
-    margin-left: 2%;
-    margin-bottom: 10%;
-    color: black;
+	float:left;
+	color: black;
+	margin:0px;
+	position: relative;
+	padding-top:10px;
+	z-index: 1000;
 }
 
 .Login .login-close-text{
-    color: black;
-    text-decoration: underline;
+	color: black;
+	text-decoration: underline;
 }
 
 .Login .login-link-text{
-    color: white;
-    text-decoration: underline;
+	color: white;
+	text-decoration: underline;
 }
 
 /*.Login #login-email-label {
@@ -80,35 +245,13 @@ body {
     width: 70%;
 }
 */
-.studentContainer
-{
-    float: left;
-    margin-left: 8.5%;
-    width: 85%;
-    margin-top: 1%;
+/*
+* END OF BODY.html
+*
+*/
+body { 
+    padding-right: 0 !important;
 }
-
-#adminHeaders
-{
-    font-weight: bold;
-}
-
-#logo
-{
-    float: left;
-    width: 140px;
-    height:100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-#heading
-{
-    margin: 0px;   
-}
-
 .hiddenRow {
     padding: 0 !important;
 }
@@ -152,17 +295,11 @@ body {
     font-size: 265%;
     padding-bottom: 20px;
 }
-#parent{
-    display:flex;
-}
 
-#drop-in {
-    color: white;
-    font-size: 100%;
-    margin-top: 1%;
-    width: 20%;
-}
-
+/*
+*Part of CIrcle ICON
+*
+*/
 .loader{
     margin-left: 45%;
     margin-top: 2%;

@@ -1,21 +1,23 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../../SignInPage/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
    {{> header}}
 </body>
 <template name="header">
 {{#if Template.subscriptionsReady}}
  <header>
-     <div class="Waitlist">
          <div class="header">
              <div id="image">
-                <img class="img-responsive" id="logo" src="img/usc_logo.png">
+                <img id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center Waitlist</h1>
-             
              <div id="parent">
                  {{#if currentUser}}
-                     <h2 id="drop-in">Admin Page</h2>
+                     <div id="drop-in">Admin Page</div>
                      {{else}}
-                     <h2 id="drop-in">Advisement Appointment Form</h2>
+                     <div id="drop-in">Advisement Appointment Form</div>
                      {{/if}}
                 <!--used to show check wait time button only on main sign in page-->
                 {{#if currentUser}}
@@ -31,7 +33,6 @@
             </div>
            
          </div>
-     </div>
  </header>
   {{/if}}
 </template>
