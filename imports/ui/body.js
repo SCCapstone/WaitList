@@ -14,6 +14,10 @@ Accounts.createUser({
         password: 'asdfasdf',
 });
 
+Template.header.onCreated(function(){
+    this.subscribe("allStudents");
+});
+
 //Gives functionality for check wait time buttons, brings up modal
 Template.header.events({
     'click .checkTime' (){
