@@ -16,6 +16,7 @@ StudentSchema = new SimpleSchema({
 
     PhoneNumber: {
         type: String,
+        unique: true,
         regEx: /^[0-9999999999]{10}$/,
         min: 10,
         max: 10,
@@ -404,6 +405,7 @@ StudentSchema = new SimpleSchema({
 SimpleSchema.messages({
   required: "This field is required",
   "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
+  "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
   "minString USCID": "USC ID must be [min] characters",
   expectedString: "- is not allowed",
   "regEx PhoneNumber":[
