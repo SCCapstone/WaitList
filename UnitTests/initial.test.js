@@ -3,7 +3,7 @@ var chaiHttp = require('chai-http'); //required to run tests in the browser
 var assert = chai.assert;
 var expect = chai.expect;
 chai.use(chaiHttp);
-
+var should = chai.should();
 
 describe('Homepage', function() {
     it('should open homepage', function() {
@@ -34,6 +34,17 @@ describe('Login', function () {
 
     });
 
+});  // issues
+
+describe('phoneNumber',function(){
+   it('phoneNumber should only has 10 digits',function(){
+
+          chai.request('http://localhost:3000')
+
+          assert.lengthOf('PhoneNumber', 11, 'The phone number only has 10 digit');
+
+
+});
 });
 
 describe('Admin Page Title', function () {
@@ -76,4 +87,4 @@ describe('Add Form', function () {
 
     });
 
-});
+});//issue

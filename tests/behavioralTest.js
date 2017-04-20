@@ -11,7 +11,7 @@ describe('Page setTitle', function () {
     });
 });
 
-/*
+
 describe('Admin Login', function () {
     it('Admin should be logged in @watch', function () {
         browser.setValue('#inputEmail', 'admin@email.com');
@@ -25,4 +25,4 @@ describe('Admin Login', function () {
         //console.log(test);
     });
 });
-*/
+
