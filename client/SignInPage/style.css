@@ -9,6 +9,9 @@
     height: 140px;
     color: white;
 }
+body { 
+    padding-right: 0 !important 
+}
 
 .header h4
 {
@@ -158,4 +161,44 @@
     font-size: 100%;
     margin-top: 1%;
     width: 20%;
+}
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #73000a;
+}
+
+.load-3 {
+    margin-left: 50%;
+    margin-top: 25%;
+}
+.load-3 .line:nth-last-child(1) {
+    animation: loadingC .6s .1s linear infinite;
+}
+
+.load-3 .line:nth-last-child(2) {
+    animation: loadingC .6s .2s linear infinite;
+}
+
+.load-3 .line:nth-last-child(3) {
+    animation: loadingC .6s .3s linear infinite;
+}
+
+.l-3 {
+    animation-delay: .72s;
+}
+
+@keyframes loadingC {
+    0%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(0,15px);
+        }
+    100% {
+        transform: translate(0,0);
+        }
 }
