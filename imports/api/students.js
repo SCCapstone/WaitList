@@ -18,7 +18,9 @@ StudentSchema = new SimpleSchema({
         type: String,
         unique: true,
 //        regEx: /^[0-9999999999]{10}$/,
+  
           min: 12,
+  
           max: 12,
         label: 'Phone Number *',
         autoform:
@@ -27,7 +29,7 @@ StudentSchema = new SimpleSchema({
           class: 'form-control',
           intlTelOptions: {
               autoFormat: true,
-              defaultCountry: 'FR',
+              defaultCountry: 'US',
               utilsScript: 'lib/libphonenumber/build/utils.js'
           }
               }
