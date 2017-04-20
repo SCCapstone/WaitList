@@ -40,12 +40,12 @@ StudentSchema = new SimpleSchema({
 
     ReasonForVisit: {
         type: String,
-        allowedValues: ["Change Major", "Add Major/Minor", "Other"],
         autoform: {
             afFieldInput: {
                 firstOption: "(Select a Reason)"
             }
         },
+        allowedValues: ["Change Major", "Add Major/Minor","Schedule classes", "Other"],
         label: 'Reason for Visit *'
     },
 
@@ -332,6 +332,8 @@ StudentSchema = new SimpleSchema({
         autoform: {
             rows: 3
         }
+
+
     },
 
     Disclaimer: {
