@@ -1,43 +1,15 @@
 import '../../imports/ui/body.js';
 import '../../imports/api/students';
 
-function calcWaitTime(){
-    var totalCount = Students.find().count();
-    var hour = totalCount / 4;
-    if (totalCount == 0) {
-        //return 5 + " minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ 5 + " minutes";
-    } else if (totalCount < 4) {
-        console.log("We here");
-        //return 15 * totalCount + " minutes"
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ 15 * totalCount + " minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 0) {
-        //return hour + " hour(s)";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)";
-    } else if (totalCount >= 4 && totalCount % 4 == 1) {
-        hour = hour - .25;
-        //return hour + " hour(s)" + " 15 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 15 minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 2) {
-        hour = hour - .5;
-        //return hour + " hour(s)" + " 30 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 30 minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 3) {
-        hour = hour - .75;
-        //return hour + " hour(s)" + " 45 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 45 minutes";
-    }
-}
 
-Template.home.onCreated(function() {//This is not needed,only for testing purposes to access database from sign-in page
-    Meteor.subscribe("allStudents");
+Template.home.onCreated (function() {
+  this.subscribe("allStudents");
 });
 
 //Used to show approximate wait time on sign in page
 Template.home.helpers({
     waitTime: function() {
-        return calcWaitTime();
-        /*var totalCount = Students.find().count();
+        var totalCount = Students.find().count();
         var hour = totalCount/4;
 
         if(totalCount < 4){
@@ -53,7 +25,7 @@ Template.home.helpers({
         }else if(totalCount >= 4 && totalCount%4 == 3){
             hour = hour - .75;
             return hour + " hour(s)" + " 45 minutes";
-        }*/
+        }
     }
 });
 
