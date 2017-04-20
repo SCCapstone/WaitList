@@ -29,37 +29,6 @@ function calcWaitTime(){
     }
 }
 
-
-
-
-function calcWaitTimeTwo(){
-    var totalCount = Students.find().count();
-    var hour = totalCount / 4;
-    if (totalCount == 0) {
-        //return 5 + " minutes";
-    return 5;
-    } else if (totalCount < 4) {
-
-        //return 15 * totalCount + " minutes"
-       return 0.25*totalCount;
-    } else if (totalCount >= 4 && totalCount % 4 == 0) {
-        //return hour + " hour(s)";
-       return hour;
-    } else if (totalCount >= 4 && totalCount % 4 == 1) {
-        hour = hour - .25;
-        //return hour + " hour(s)" + " 15 minutes";
-       return hour+0.25;
-    } else if (totalCount >= 4 && totalCount % 4 == 2) {
-        hour = hour - .5;
-        //return hour + " hour(s)" + " 30 minutes";
-        return hour + 0.5;
-    } else if (totalCount >= 4 && totalCount % 4 == 3) {
-        hour = hour - .75;
-        //return hour + " hour(s)" + " 45 minutes";
-        return hour +0.75;
-    }
-}
-
 Template.home.onCreated(function() {//This is not needed,only for testing purposes to access database from sign-in page
     Meteor.subscribe("allStudents");
 });
@@ -95,7 +64,9 @@ AutoForm.hooks({
     {
         onSuccess: function (insert,result) {
             var textService = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{Disclaimer:1, _id:0}}).Disclaimer;
-            var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;                     
+            var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;  
+            var wait = Students.findOne({}, {sort:{createdAt:-1},limit:1, fields: {waitTime:1, _id:0}}).waitTime;
+
             phoneNumber = "+1" + phoneNumber;
             if(textService == true) {
                 Meteor.call("sendSMS",phoneNumber);
@@ -103,8 +74,8 @@ AutoForm.hooks({
             //console.log(phoneNumber);
             //console.log(textService);
             //console.log(totalCount);
-            var wait = (calcWaitTimeTwo() - 0.25 ) * 60 ;
-            swal("Success!", "You have been added to the WaitList \n Your waiting time is around: " + wait + "minutes", "success");
+
+            swal("Success!", "You have been added to the WaitList \n Your current wait time is approximately: " + wait + " minutes", "success");
         },
     }
 });

@@ -4,9 +4,10 @@
     background-image: linear-gradient(to right, #73000a, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, #73000a), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
     background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
     background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
-    padding: 2.5em 2em;
-    margin-bottom: 3em;
+    padding: 20px;
+    margin: 0px;
     height: 140px;
+    color: white;
 }
 
 .header h4
@@ -102,8 +103,7 @@
 
 #heading
 {
-    color: white;
-    
+    margin: 0px;   
 }
 
 .hiddenRow {
