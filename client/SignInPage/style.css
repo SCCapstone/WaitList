@@ -217,6 +217,7 @@
 	height: 50px;
 	float: right;
 	margin-right: 10%;
+	padding-top:1%;
 }
 
 #checkTime {
@@ -225,7 +226,7 @@
 	float:left;
 	margin: 0px;
 	position: relative;
-	padding-top:30px;
+	/*padding-top:30px;*/
 	padding-right: 3%;
 	padding-left: 10%;
 }
@@ -235,7 +236,7 @@
 	color: white;
 	margin:0px;
 	position: relative;
-	padding-top:30px;
+	/*padding-top:30px;*/
 	padding-right:10%;
 	/*text-align: right;*/
 	width:auto;
