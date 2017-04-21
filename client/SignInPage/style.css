@@ -79,7 +79,7 @@
 		margin: 0px;
 		position: relative;
 		padding-top:10px;
-		padding-left:125px;
+		padding-left:60px;
 		padding-right: 0px;
 		font-size: 100%;
 	}
@@ -101,7 +101,7 @@
 	}
 
 	body .Login .login-link-text{
-		color: white;
+		color: black;
 		text-decoration: underline;
 	}
 	.hiddenRow {
@@ -217,6 +217,7 @@
 	height: 50px;
 	float: right;
 	margin-right: 10%;
+	padding-top:1%;
 }
 
 #checkTime {
@@ -225,7 +226,7 @@
 	float:left;
 	margin: 0px;
 	position: relative;
-	padding-top:30px;
+	/*padding-top:30px;*/
 	padding-right: 3%;
 	padding-left: 10%;
 }
@@ -235,7 +236,7 @@
 	color: white;
 	margin:0px;
 	position: relative;
-	padding-top:30px;
+	/*padding-top:30px;*/
 	padding-right:10%;
 	/*text-align: right;*/
 	width:auto;
@@ -249,7 +250,7 @@
 }
 
 .Login .login-link-text{
-	color: white;
+	color: black;
 	text-decoration: underline;
 }
 
@@ -259,22 +260,18 @@
 	top:15%;
 }
 
-#login-email-label{
-	float:left;
-}
-#login-password-label{
-	float: left;
-}
+
 .login-close-text{
 	padding-left:170px;
 }
-/*.Login #login-email-label {
+.Login #login-email-label {
     width: 10%;
-    margin-right: 10%;
-    margin-left: 0%;
+	float: left;
+    margin-right: 80px;
+    margin-left: 1%;
 }
 .Login #login-email {
-    width: 70%;
+    width: 120px;
     margin-bottom: 2%;
 }
 
@@ -284,14 +281,25 @@
 
 .Login #login-password-label {
     width: 10%;
+	float: left;
     margin-left: 1%;
-    margin-right: 0%;
+    margin-right: 80px;
 }
 
 .Login #login-password {
-    width: 70%;
+    width: 120px;
 }
-*/
+
+.Login #login-old-password-label{
+	width: 10px;
+}
+
+.Login #login-old-password{
+	width: 120px;
+    margin-bottom: 2%;
+}
+
+
 /*
 * END OF BODY.html
 *
