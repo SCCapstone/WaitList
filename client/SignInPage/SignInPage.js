@@ -39,7 +39,6 @@ AutoForm.hooks({
             var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;  
             var wait = Students.findOne({}, {sort:{createdAt:-1},limit:1, fields: {waitTime:1, _id:0}}).waitTime;
 
-            phoneNumber = "+1" + phoneNumber;
             if(textService == true) {
                 Meteor.call("sendSMS",phoneNumber);
             }
