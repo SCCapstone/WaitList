@@ -10,7 +10,7 @@ Accounts.config({
 
 //Default user set up
 Accounts.createUser({
-        email: 'admin@email.com',
+        email: 'redmonc2@email.sc.edu',
         password: 'asdfasdf',
 });
 
