@@ -2,7 +2,6 @@ import '../../imports/api/students.js';
 
 var modalId_checkOut;
 var modalId_delete;
-var whoToContact;
 //subscribes to collection to access data
 Template.adminPage.onCreated(function (){
     Meteor.subscribe('allStudents');
@@ -23,10 +22,12 @@ Template.buttonSelections.events({
           console.log(timestamp);
           Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
           Meteor.call("updateWaitTime", timestamp);
-          whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-          var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-          if(receiveText == true){
-              Meteor.call("getToUAC", whoToContact);
+          if(Students.find().count() > 3){
+              var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+              var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+              if(receiveText == true){
+                  Meteor.call("getToUAC", whoToContact);
+              }
           }
       }
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
@@ -34,19 +35,19 @@ Template.buttonSelections.events({
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
    'click .move'(){
        var lastWait = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{waitTime:1, _id:0}}).waitTime;
-       //console.log(lastWait);
        var timestamp1 = Students.findOne(this._id).createdAt;
        Students.update(this._id, {$set: {createdAt: new Date(), waitTime: lastWait}});
        var timestamp2 = Students.findOne(this._id).createdAt;
-       
+
        //calls on server side code to update multiple people in the collection at one time
        Meteor.call("updateAfterMove", timestamp1, timestamp2);
-       whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-       console.log(whoToContact);
-       var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-       console.log(receiveText);
-       if(receiveText == true){
-           Meteor.call("getToUAC", whoToContact);
+
+       if(Students.find().count() > 3){
+           var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+           var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+           if(receiveText == true){
+               Meteor.call("getToUAC", whoToContact);
+            }
        }
    },
    //updates wait times when student removed
@@ -77,7 +78,7 @@ Template.checkOutModal.events({
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
             if(Students.find().count() > 3){
-                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
                 var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
                 if(receiveText == true){
                     Meteor.call("getToUAC", whoToContact);
@@ -101,7 +102,7 @@ Template.deleteModal.events({
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
             if(Students.find().count() > 3){
-                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
                 var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
                 if(receiveText == true){
                     Meteor.call("getToUAC", whoToContact);

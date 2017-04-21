@@ -153,7 +153,6 @@
 		margin:0px;
 		position: relative;
 		padding-top:10px;
-		z-index: 1;
 	}
 	body #login-dropdown-list{
 		left:20%;
@@ -175,14 +174,12 @@
     height: 140px;
     color: white;
 	position: relative;
-	z-index:5;
 }
 #heading
 {
 	margin:0px;
 	padding-top:3%;
 	height:auto;
-	z-index:5;
 	position: relative;
 }
 #parent{
@@ -190,7 +187,6 @@
 	/*overflow: hidden;*/
 	padding-top:22px;
 	position: relative;
-	z-index:6;
 }
 #logo
 {
@@ -199,7 +195,6 @@
 	height:100px;
 	margin-top: 35px;
 	position: relative;
-	z-index: 1;
 }
 #drop-in {
 	color: white;
@@ -228,7 +223,6 @@
 	padding-top:10px;
 	padding-right:4%;
 	/*text-align: right;*/
-	z-index: 1000;
 	width:auto;
 	height: auto;
 	text-decoration: underline;
@@ -321,7 +315,8 @@ body {
 }
 #inner-data{
     max-width:35px;
-
+	word-break: normal;
+	word-break: break-all;
 }
 #top-heading {
 	background-color: black;
