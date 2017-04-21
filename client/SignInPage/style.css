@@ -2,6 +2,9 @@
 	body #checkTime{
 		padding-left:20%;
 	}
+	body #login-dropdown-list{
+		left:65%;
+	}
 }
 
 @media only screen and (max-width:720px){
@@ -19,19 +22,24 @@
 		margin: 0px;
 		position: relative;
 		padding-top:10px;
-		padding-left: 50%;
-		padding-right:20px;
+		padding-left:35%;
 	}
 	body #parent{
 		padding-top: 0px;
 		height:90px;
-		width:450px;
+		/*width:450px;*/
+	}
+	body #login-dropdown-list{
+		left:55%;
 	}
 
 }
 @media only screen and (max-width: 590px) {
 	body #parent{
 		width:auto;
+	}
+	body #login-dropdown-list{
+		left:50%;
 	}
 }
 
@@ -71,12 +79,13 @@
 	body .Login
 	{
 		/*width: 60px;*/
-		float:left;
-		color: black;
+		float:right;
+		color: white;
 		margin:0px;
 		position: relative;
 		padding-top:10px;
 		font-size: 100%;
+
 	}
 	body .Login .login-close-text{
 		color: black;
@@ -145,6 +154,10 @@
 		padding-top:10px;
 		z-index: 1;
 	}
+	body #login-dropdown-list{
+		left:20%;
+		top:15%;
+	}
 }
 /*
 * START OF BODY.html
@@ -160,20 +173,23 @@
     margin: 0px;
     height: 140px;
     color: white;
+	position: relative;
+	z-index:5;
 }
 #heading
 {
 	margin:0px;
 	padding-top:3%;
 	height:auto;
-	z-index:-1;
+	z-index:5;
+	position: relative;
 }
 #parent{
 	height:50px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	padding-top:22px;
 	position: relative;
-	z-index:1;
+	z-index:6;
 }
 #logo
 {
@@ -181,6 +197,8 @@
 	width: 140px;
 	height:100px;
 	margin-top: 35px;
+	position: relative;
+	z-index: 1;
 }
 #drop-in {
 	color: white;
@@ -198,17 +216,21 @@
 	margin: 0px;
 	position: relative;
 	padding-top:10px;
-	padding-left: 40%;
-	padding-right:10%;
+	padding-left: 29%;
 }
 .Login
 {
-	float:left;
-	color: black;
+	float:right;
+	color: white;
 	margin:0px;
 	position: relative;
 	padding-top:10px;
+	padding-right:4%;
+	/*text-align: right;*/
 	z-index: 1000;
+	width:auto;
+	height: auto;
+	text-decoration: underline;
 }
 
 .Login .login-close-text{
@@ -220,7 +242,26 @@
 	color: white;
 	text-decoration: underline;
 }
+#login-dropdown-list{
+position:fixed;
+	top:22%;
+	left:75%;
+}
+.login-link-and-dropdown-list{
 
+}
+#login-buttons{
+
+}
+#login-email-label{
+	float:left;
+}
+#login-password-label{
+	float: left;
+}
+.login-close-text{
+	padding-left:170px;
+}
 /*.Login #login-email-label {
     width: 10%;
     margin-right: 10%;
@@ -249,7 +290,7 @@
 * END OF BODY.html
 *
 */
-body { 
+body {
     padding-right: 0 !important;
 }
 .hiddenRow {
