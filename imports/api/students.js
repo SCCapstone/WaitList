@@ -17,22 +17,19 @@ StudentSchema = new SimpleSchema({
     PhoneNumber: {
         type: String,
         unique: true,
-//        regEx: /^[0-9999999999]{10}$/,
-  
-          min: 12,
-  
-          max: 12,
+        min: 12,
+        max: 12,
         label: 'Phone Number *',
         autoform:
         {  
-           type: 'intl-tel',
-          class: 'form-control',
-          intlTelOptions: {
-              autoFormat: true,
-              defaultCountry: 'US',
-              utilsScript: 'lib/libphonenumber/build/utils.js'
-          }
-              }
+            type: 'intl-tel',
+            class: 'form-control',
+            intlTelOptions: {
+                autoFormat: true,
+                defaultCountry: 'US',
+                utilsScript: 'lib/libphonenumber/build/utils.js'
+            }
+        }
        
     },
 
@@ -412,19 +409,27 @@ StudentSchema = new SimpleSchema({
 });
 
 SimpleSchema.messages({
-  required: "This field is required",
-  "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
-  "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
-  "minString USCID": "USC ID must be [min] characters",
-  expectedString: "- is not allowed",
-  "regEx PhoneNumber":[
-    {msg: "Please use only numbers (803)-123-4567 is 8031234567"}
-  ],
+    required: "This field is required",
+    "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
+    "maxString PhoneNumber": "Phone number cannot exceed [max] digits.",
+    "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
+    "minString USCID": "USC ID must be [min] characters",
+    expectedString: "- is not allowed",
+    "regEx PhoneNumber":
+    [
+        {
+            msg: "Please use only numbers (803)-123-4567 is 8031234567"
+        }
+    ],
     "regEx CurrentMajor":[
-        {msg:"Numbers are not allowed in this field"}
+        { 
+            msg: "Numbers are not allowed in this field"
+        }
     ],
     "regEx IntendedMajor":[
-        {msg:"Numbers are not allowed in this field"}
+        {
+            msg: "Numbers are not allowed in this field"
+        }
     ]
 });
 
