@@ -23,8 +23,13 @@
 		margin: 0px;
 		position: relative;
 		padding-top:10px;
-		padding-left:35%;
+		padding-left:25%;
 	}
+
+	body .Login {
+		padding-top: 10px;
+	}
+	
 	body #parent{
 		padding-top: 0px;
 		height:90px;
@@ -75,6 +80,7 @@
 		position: relative;
 		padding-top:10px;
 		padding-left:125px;
+		padding-right: 0px;
 		font-size: 100%;
 	}
 	body .Login
@@ -85,6 +91,7 @@
 		margin:0px;
 		position: relative;
 		padding-top:10px;
+		padding-right: 2%;
 		font-size: 100%;
 
 	}
@@ -185,7 +192,7 @@
 #parent{
 	height:50px;
 	/*overflow: hidden;*/
-	padding-top:22px;
+	padding-top: 0px;
 	position: relative;
 }
 #logo
@@ -205,14 +212,22 @@
 	position: relative;
 	padding:10px;
 }
+.containLinks {
+	width: 300px;
+	height: 50px;
+	float: right;
+	margin-right: 10%;
+}
+
 #checkTime {
 	color: white;
 	text-decoration: underline;
 	float:left;
 	margin: 0px;
 	position: relative;
-	padding-top:10px;
-	padding-left: 29%;
+	padding-top:30px;
+	padding-right: 3%;
+	padding-left: 10%;
 }
 .Login
 {
@@ -220,8 +235,8 @@
 	color: white;
 	margin:0px;
 	position: relative;
-	padding-top:10px;
-	padding-right:4%;
+	padding-top:30px;
+	padding-right:10%;
 	/*text-align: right;*/
 	width:auto;
 	height: auto;
@@ -237,17 +252,13 @@
 	color: white;
 	text-decoration: underline;
 }
+
 #login-dropdown-list{
-position:fixed;
-	top:22%;
+	position:fixed;
 	left:75%;
+	top:15%;
 }
-.login-link-and-dropdown-list{
 
-}
-#login-buttons{
-
-}
 #login-email-label{
 	float:left;
 }
@@ -334,7 +345,7 @@ body {
 }
 
 /*
-*Part of CIrcle ICON
+*Part of Circle ICON
 *
 */
 .loader{

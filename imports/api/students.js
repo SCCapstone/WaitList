@@ -410,8 +410,8 @@ StudentSchema = new SimpleSchema({
 
 SimpleSchema.messages({
     required: "This field is required",
-    "minString PhoneNumber": "Phone number must be [min] digits, please include area code.",
-    "maxString PhoneNumber": "Phone number cannot exceed [max] digits.",
+    "minString PhoneNumber": "Phone number must be 10 digits, please include area code.",
+    "maxString PhoneNumber": "Phone number cannot exceed 10 digits.",
     "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
     "minString USCID": "USC ID must be [min] characters",
     expectedString: "- is not allowed",

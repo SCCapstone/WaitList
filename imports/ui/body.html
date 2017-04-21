@@ -15,13 +15,16 @@
              <h1 id="heading">University Advising Center Waitlist</h1>
              <div id="parent">
                  {{#if currentUser}}
+                    
                      <div id="drop-in">Admin Page</div>
                      {{else}}
                      <div id="drop-in">Advisement Appointment Form</div>
                      {{/if}}
                 <!--used to show check wait time button only on main sign in page-->
+                <div class="containLinks">
                 {{#if currentUser}}
                 {{else}}
+                
                     <div id="checkTime">
                         {{> checkWaitTime}}
                     </div>
@@ -30,6 +33,7 @@
                 <div class="Login">
                     {{> loginButtons}}
                 </div>
+             </div>
             </div>
            
          </div>

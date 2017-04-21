@@ -35,6 +35,7 @@ Template.buttonSelections.events({
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
    'click .move'(){
        var lastWait = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{waitTime:1, _id:0}}).waitTime;
+       console.log(lastWait);
        var timestamp1 = Students.findOne(this._id).createdAt;
        Students.update(this._id, {$set: {createdAt: new Date(), waitTime: lastWait}});
        var timestamp2 = Students.findOne(this._id).createdAt;
@@ -44,6 +45,14 @@ Template.buttonSelections.events({
 
        if(Students.find().count() > 3){
            var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+           var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+           if(receiveText == true){
+               Meteor.call("getToUAC", whoToContact);
+            }
+       }
+       if(Students.find().count() == 3){
+           var lastPerson = Students.findOne({},{sort:{createdAt:-1},limit:1}).Name;
+           var whoToContact = Students.findOne({Name: lastPerson}).PhoneNumber;
            var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
            if(receiveText == true){
                Meteor.call("getToUAC", whoToContact);
