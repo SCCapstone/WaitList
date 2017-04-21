@@ -10,7 +10,7 @@ Accounts.config({
 
 //Default user set up
 Accounts.createUser({
-        email: 'myersjg2@email.sc.edu',
+        email: 'admin@email.com',
         password: 'asdfasdf',
 });
 
@@ -23,6 +23,9 @@ Template.header.events({
     'click .checkTime' (){
        Modal.show('checkWaitModal');
     },
+    /*'click .signIn' (){
+        Modal.show('SignInModal');
+    },*/
 });
 
 //Gets value submitted in modal and checks collection for phone number, outputs message afterwards
@@ -43,3 +46,13 @@ Template.checkWaitModal.events({
     }
 });
 
+/*Template.SignInModal.events({
+   'submit form' (event){
+       //event.preventDefault();
+       var email= $('[name=email]').val();
+       var password = $('[name=password]').val();
+       Meteor.loginWithPassword(email,password);
+       console.log(email);
+       cosole.log(password);
+   }
+});*/
