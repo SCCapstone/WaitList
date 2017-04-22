@@ -35,6 +35,7 @@ StudentSchema = new SimpleSchema({
 
     USCID: {
         type: String,
+        unique: true,
         min: 9,
         max: 9,
         label: 'USC ID *',
@@ -196,7 +197,7 @@ StudentSchema = new SimpleSchema({
         type: String,
         optional: true,
         max: 100,
-        label: 'Intended Major',
+        label: 'Intended Major/Minor',
         autoform: {
             type: "typeahead",
                 options: function () {
@@ -402,7 +403,7 @@ StudentSchema = new SimpleSchema({
         },
         autoValue: function() {    
             if(this.isInsert) {
-                return 15*(Students.find().count());          
+                return 15*(Students.find({currentStatus: "Waiting"}).count());          
             }   
       }
     }
@@ -413,6 +414,7 @@ SimpleSchema.messages({
     "minString PhoneNumber": "Phone number must be 10 digits, please include area code.",
     "maxString PhoneNumber": "Phone number cannot exceed 10 digits.",
     "notUnique PhoneNumber": "This phone number already seems to be in our list. Make sure you are not already signed up for an appointment.",
+    "notUnique USCID": "This USC ID already appears to be in our list. Make sure you are not already signed up for an appointment",
     "minString USCID": "USC ID must be [min] characters",
     expectedString: "- is not allowed",
     "regEx PhoneNumber":
