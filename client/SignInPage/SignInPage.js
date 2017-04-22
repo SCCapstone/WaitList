@@ -9,20 +9,20 @@ Template.home.onCreated (function() {
 //Used to show approximate wait time on sign in page
 Template.home.helpers({
     waitTime: function() {
-        var totalCount = Students.find().count();
-        var hour = totalCount/4;
-
-        if(totalCount < 4){
-            return 15*totalCount + " minutes"
-        }else if(totalCount >= 4 && totalCount%4 == 0){
+        var count = Students.find({currentStatus: "Waiting"}).count();
+        var hour = count/4;
+        
+        if(count < 4){
+            return 15*count + " minutes"
+        }else if(count >= 4 && count%4 == 0){
             return hour + " hour(s)";
-        }else if(totalCount >= 4 && totalCount%4 == 1){
+        }else if(count >= 4 && count%4 == 1){
             hour = hour - .25;
             return hour + " hour(s)" + " 15 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 2){
+        }else if(count >= 4 && count%4 == 2){
             hour = hour - .5;
             return hour + " hour(s)" + " 30 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 3){
+        }else if(count >= 4 && count%4 == 3){
             hour = hour - .75;
             return hour + " hour(s)" + " 45 minutes";
         }

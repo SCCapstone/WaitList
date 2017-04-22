@@ -37,7 +37,7 @@ Template.checkWaitModal.events({
         //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
             var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
-           swal("Your approximate wait time is " + waitTime + " minutes");
+           swal("Your approximate wait time is \n" + waitTime + " minutes");
         }
         else {
             swal("Something went wrong", "Your phone number was not found on the wait list, " +
