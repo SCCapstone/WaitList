@@ -32,7 +32,7 @@ Template.header.events({
 Template.checkWaitModal.events({
      'click .checkWait' (){
         var timeCheck = $('[name=phone]').val();
-        timeCheck = "+1" + timeCheck;
+        timeCheck =  timeCheck;
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
         //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
