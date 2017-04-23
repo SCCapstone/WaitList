@@ -307,6 +307,12 @@
 * END OF BODY.html
 *
 */
+
+/*For secret page*/
+#goHome{
+	margin-left: 45%;
+}
+
 body {
     padding-right: 0 !important;
 }

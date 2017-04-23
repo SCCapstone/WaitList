@@ -190,7 +190,7 @@ StudentSchema = new SimpleSchema({
         type: String,
         optional: true,
         max: 100,
-        label: 'Intended Major',
+        label: 'Intended Major/Minor',
         autoform: {
             type: "typeahead",
                 options: function () {
@@ -396,7 +396,7 @@ StudentSchema = new SimpleSchema({
         },
         autoValue: function() {    
             if(this.isInsert) {
-                return 15*(Students.find().count());          
+                return 15*(Students.find({currentStatus: "Waiting"}).count());          
             }   
       }
     }
@@ -412,7 +412,7 @@ SimpleSchema.messages({
     "regEx PhoneNumber":
     [
         {
-            msg: "Please enter a valid number"
+            msg: "It appears that the area code entered is not valid. Please enter a valid area code."
         }
     ],
     "regEx CurrentMajor":[
