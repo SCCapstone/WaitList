@@ -10,7 +10,7 @@ Template.secret.helpers({
         var current = document.URL;
         console.log(current);
         /*Change this for uofsc... to 35 or 34*/
-        current = current.substr(22);
+        current = current.substr(35);
         console.log(current);
         var phoneNum = Students.findOne({PhoneNumber:current});
         if(phoneNum != null && current != null){
