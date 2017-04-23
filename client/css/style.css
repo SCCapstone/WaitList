@@ -1,0 +1,512 @@
+@media only screen and (max-width:950px){
+	body #checkTime{
+		padding-left:20%;
+	}
+	body #login-dropdown-list{
+		left:65%;
+		top:15%;
+	}
+}
+
+@media only screen and (max-width:720px){
+	body #heading{
+		font-size:22px;
+
+	}
+	body #drop-in{
+		margin-right:30px;
+	}
+	body #checkTime {
+		color: white;
+		text-decoration: underline;
+		float:left;
+		margin: 0px;
+		position: relative;
+		padding-top:10px;
+		padding-left:25%;
+	}
+
+	body .Login {
+		padding-top: 10px;
+	}
+	
+	body #parent{
+		padding-top: 0px;
+		height:90px;
+		/*width:450px;*/
+	}
+	body #login-dropdown-list{
+		left:55%;
+	}
+
+}
+@media only screen and (max-width: 590px) {
+	body #parent{
+		width:auto;
+	}
+	body #login-dropdown-list{
+		left:50%;
+	}
+}
+
+@media only screen and (max-width: 495px) {
+	body .header{
+		height:80px;
+	}
+	body #logo {
+		display: none;
+	}
+	body #heading{
+		font-size: 19px;
+		padding-left:10px;
+	}
+	body #drop-in {
+		color: white;
+		float:left;
+		/*width: 230px;*/
+		margin:0px;
+		position: relative;
+		padding:10px;
+		font-size:10%;
+		display:none;
+	}
+
+	body #checkTime {
+		/*width: 530px;/*add to 110*/
+		color: white;
+		text-decoration: underline;
+		float:left;
+		margin: 0px;
+		position: relative;
+		padding-top:10px;
+		padding-left:60px;
+		padding-right: 0px;
+		font-size: 100%;
+	}
+	body .Login
+	{
+		/*width: 60px;*/
+		float:right;
+		color: white;
+		margin:0px;
+		position: relative;
+		padding-top:10px;
+		padding-right: 2%;
+		font-size: 100%;
+
+	}
+	body .Login .login-close-text{
+		color: black;
+		text-decoration: underline;
+	}
+
+	body .Login .login-link-text{
+		color: black;
+		text-decoration: underline;
+	}
+	.hiddenRow {
+		padding: 0 !important;
+	}
+
+	.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 6px 0;
+		font-size: 12px;
+		line-height: 1.428571429;
+		border-radius: 50%;
+		border-color: black;
+	}
+
+	.info {
+		background-color: black;
+		background: black;
+		color: white;
+	}
+
+	#inner-heading {
+		background-color:#73000a;
+		width: 35px;
+	}
+	#inner-data{
+		max-width:35px;
+
+	}
+	body #parent{
+		height:50px;
+		overflow: hidden;
+		padding-top:0px;
+		width:auto;
+	}
+	#top-heading {
+		background-color: black;
+		color: white;
+		width: 35px;
+	}
+	.glyphicon-arrow-down {
+		color: black;
+	}
+
+	body #insert {
+		margin-left: 5%;
+		font-size: 150%;
+		padding-bottom: 20px;
+	}
+	.Login
+	{
+		float:left;
+		color: black;
+		margin:0px;
+		position: relative;
+		padding-top:10px;
+	}
+	body #login-dropdown-list{
+		left:20%;
+		top:15%;
+	}
+}
+/*
+* START OF BODY.html
+*
+*/
+.header
+{
+    background-color: rgb(32, 32, 32);
+    background-image: linear-gradient(to right, #73000a, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, #73000a), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black), linear-gradient(to bottom, rgb(8, 8, 8), rgb(32, 32, 32));
+    background-size: 100% 100%, 10px 10px, 10px 10px, 10px 5px;
+    background-position: 0px 0px, 0px 0px, 5px 5px, 0px 0px;
+    padding: 0px;
+    margin: 0px;
+    height: 140px;
+    color: white;
+	position: relative;
+}
+#heading
+{
+	margin:0px;
+	padding-top:3%;
+	height:auto;
+	position: relative;
+}
+#parent{
+	height:50px;
+	/*overflow: hidden;*/
+	padding-top: 0px;
+	position: relative;
+}
+#logo
+{
+	float: left;
+	width: 140px;
+	height:100px;
+	margin-top: 35px;
+	position: relative;
+}
+#drop-in {
+	color: white;
+	font-size: 100%;
+	float:left;
+	/*width: 230px;*/
+	margin:0px;
+	position: relative;
+	padding:10px;
+}
+.containLinks {
+	width: 300px;
+	height: 50px;
+	float: right;
+	margin-right: 10%;
+	padding-top:.5%;
+}
+
+#checkTime {
+	color: white;
+	text-decoration: underline;
+	float:left;
+	margin: 0px;
+	position: relative;
+	/*padding-top:30px;*/
+	padding-right: 3%;
+	padding-left: 10%;
+}
+
+.Login
+{
+	float:right;
+	color: white;
+	margin:0px;
+	position: relative;
+	/*padding-top:30px;*/
+	padding-right:10%;
+	/*text-align: right;*/
+	width:auto;
+	height: auto;
+	text-decoration: underline;
+}
+
+.Login .login-close-text{
+	color: black;
+	text-decoration: underline;
+}
+
+.Login .login-link-text{
+	color: black;
+	text-decoration: underline;
+}
+
+#login-dropdown-list{
+	position:fixed;
+	left:75%;
+	top:15%;
+}
+
+
+.login-close-text{
+	padding-left:170px;
+}
+.Login #login-email-label {
+    width: 10%;
+	float: left;
+    margin-right: 80px;
+    margin-left: 1%;
+}
+.Login #login-email {
+    width: 120px;
+    margin-bottom: 2%;
+}
+
+#forgot-password-email {
+    width: 80%;
+}
+
+.Login #login-password-label {
+    width: 10%;
+	float: left;
+    margin-left: 1%;
+    margin-right: 80px;
+}
+
+.Login #login-password {
+    width: 120px;
+}
+
+.Login #login-old-password-label{
+	width: 10px;
+}
+
+.Login #login-old-password{
+	width: 120px;
+    margin-bottom: 2%;
+}
+
+.container {
+	margin-top: 5%;
+}
+/*
+* END OF BODY.html
+*
+*/
+body {
+    padding-right: 0 !important;
+}
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.info {
+	background-color: black;
+	background: black;
+	color: white;
+}
+
+#inner-heading {
+	background-color:#73000a;
+    width: 35px;
+}
+#inner-data{
+    max-width:35px;
+	word-break: normal;
+	word-break: break-all;
+}
+#top-heading {
+	background-color: black;
+	color: white;
+    width: 35px;
+}
+.glyphicon-arrow-down {
+    color: black;
+}
+
+#insert {
+    margin-left: 28%;
+    font-size: 265%;
+    padding-bottom: 20px;
+}
+
+/*
+*Part of Circle ICON
+*
+*/
+.loader{
+    margin-left: 45%;
+    margin-top: 2%;
+    position: relative;
+}
+
+.loadTitle{
+    margin-left: 39%;
+    margin-top: 18%;
+    color: #73000a;
+    position: relative;
+}
+/*Outer most circle for load icon*/
+ #outerCircle
+{
+	display:block;
+	position:absolute;
+	margin:0 auto;
+
+	width:80px;
+	height:80px;
+	border-top:7px solid #73000a;
+	border-bottom:7px solid #73000a;
+	border-left:7px solid transparent;
+	border-right:7px solid transparent;
+	
+	border-radius:80px;
+	-moz-border-radius:80px;
+	-webkit-border-radius:80px;
+	-ms-border-radius:80px;
+	-o-border-radius:80px;
+	
+	box-shadow:0 0 20px black;
+	-mozbox-shadow:0 0 20px black;
+	-ms-box-shadow:0 0 20px black;
+	-o-box-shadow:0 0 20px black;
+	-webkit-box-shadow:0 0 20px black;
+	
+	-webkit-animation: cwSpin 1s linear .2s infinite;
+	-moz-animation: cwSpin .666s linear .2s infinite;
+	-o-animation: cwSpin .666s linear .2s infinite;
+	-ms-animation: cwSpin .666s linear .2s infinite;
+	animation: cwSpin .666s linear .2s infinite;
+}
+
+/*circle in middle of other two circles for load icon*/
+ #innerCircle
+{
+	display:block;
+	position:absolute;
+	margin:20px 0 0 20px;
+	
+	width:40px;
+	height:40px;
+	border-top:7px solid #73000a;
+	border-bottom:7px solid #73000a;
+	border-left:7px solid transparent;
+	border-right:7px solid transparent;
+	
+	border-radius:40px;
+	-moz-border-radius:40px;
+	-webkit-border-radius:40px;
+	-ms-border-radius:40px;
+	-o-border-radius:40px;
+	
+	box-shadow:0 0 20px black;
+	-webkit-box-shadow:0 0 20px black;
+	-moz-box-shadow:0 0 20px black;
+	-ms-box-shadow:0 0 20px black;
+	-o-box-shadow:0 0 20px black;
+	
+	-webkit-animation: ccwSpin .555s linear .2s infinite;
+	-moz-animation: ccwSpin .555s linear .2s infinite;
+	-o-animation: ccwSpin .555s linear .2s infinite;
+	-ms-animation: ccwSpin .555s linear .2s infinite;
+	animation: ccwSpin .555s linear .2s infinite;
+}
+
+/*inner most circle for load icon*/
+ #innerCircle #center
+{
+	display:block;
+	margin:5px 0 0 5px;
+	
+	width:30px;
+	height:30px;
+	
+	background-color:black;
+	
+	border-radius:30px;
+	-moz-border-radius:30px;
+	-webkit-border-radius:30px;
+	-ms-border-radius:30px;
+	-o-border-radius:30px;
+}
+
+
+/*Outer circle spin for load icon*/
+@-webkit-keyframes cwSpin
+{
+	0%{-webkit-transform:rotate(0deg);	}
+	100%{-webkit-transform:rotate(360deg); }
+}
+@-moz-keyframes cwSpin
+{
+	0%{-moz-transform:rotate(0deg);	}
+	100%{-moz-transform:rotate(360deg); }
+}
+@-ms-keyframes cwSpin
+{
+	0%{-ms-transform:rotate(0deg);	}
+	100%{-ms-transform:rotate(360deg); }
+}
+@-o-keyframes cwSpin
+{
+	0%{-o-transform:rotate(0deg);	}
+	100%{-o-transform:rotate(360deg); }
+}
+
+/*Inner circle spin for load icon*/
+@keyframes cwSpin
+{
+	0%{transform:rotate(0deg);	}
+	100%{transform:rotate(360deg); }
+}
+
+@-webkit-keyframes ccwSpin
+{
+	0%{-webkit-transform:rotate(0deg);	}
+	100%{-webkit-transform:rotate(-360deg); }
+}
+@-moz-keyframes ccwSpin
+{
+	0%{-moz-transform:rotate(0deg);	}
+	100%{-moz-transform:rotate(-360deg); }
+}
+@-ms-keyframes ccwSpin
+{
+	0%{-ms-transform:rotate(0deg);	}
+	100%{-ms-transform:rotate(-360deg); }
+}
+@-o-keyframes ccwSpin
+{
+	0%{-o-transform:rotate(0deg);	}
+	100%{-o-transform:rotate(-360deg); }
+}
+@keyframes ccwSpin
+{
+	0%{transform:rotate(0deg);	}
+	100%{transform:rotate(-360deg); }
+}

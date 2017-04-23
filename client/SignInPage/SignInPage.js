@@ -1,90 +1,31 @@
 import '../../imports/ui/body.js';
 import '../../imports/api/students';
 
-function calcWaitTime(){
-    var totalCount = Students.find().count();
-    var hour = totalCount / 4;
-    if (totalCount == 0) {
-        //return 5 + " minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ 5 + " minutes";
-    } else if (totalCount < 4) {
-        console.log("We here");
-        //return 15 * totalCount + " minutes"
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ 15 * totalCount + " minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 0) {
-        //return hour + " hour(s)";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)";
-    } else if (totalCount >= 4 && totalCount % 4 == 1) {
-        hour = hour - .25;
-        //return hour + " hour(s)" + " 15 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 15 minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 2) {
-        hour = hour - .5;
-        //return hour + " hour(s)" + " 30 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 30 minutes";
-    } else if (totalCount >= 4 && totalCount % 4 == 3) {
-        hour = hour - .75;
-        //return hour + " hour(s)" + " 45 minutes";
-        document.getElementById("insert").innerHTML ="Approximate Wait Time: "+ hour + " hour(s)" + " 45 minutes";
-    }
-}
 
-
-
-
-function calcWaitTimeTwo(){
-    var totalCount = Students.find().count();
-    var hour = totalCount / 4;
-    if (totalCount == 0) {
-        //return 5 + " minutes";
-    return 5;
-    } else if (totalCount < 4) {
-
-        //return 15 * totalCount + " minutes"
-       return 0.25*totalCount;
-    } else if (totalCount >= 4 && totalCount % 4 == 0) {
-        //return hour + " hour(s)";
-       return hour;
-    } else if (totalCount >= 4 && totalCount % 4 == 1) {
-        hour = hour - .25;
-        //return hour + " hour(s)" + " 15 minutes";
-       return hour+0.25;
-    } else if (totalCount >= 4 && totalCount % 4 == 2) {
-        hour = hour - .5;
-        //return hour + " hour(s)" + " 30 minutes";
-        return hour + 0.5;
-    } else if (totalCount >= 4 && totalCount % 4 == 3) {
-        hour = hour - .75;
-        //return hour + " hour(s)" + " 45 minutes";
-        return hour +0.75;
-    }
-}
-
-Template.home.onCreated(function() {//This is not needed,only for testing purposes to access database from sign-in page
-    Meteor.subscribe("allStudents");
+Template.home.onCreated (function() {
+  this.subscribe("allStudents");
 });
 
 //Used to show approximate wait time on sign in page
 Template.home.helpers({
     waitTime: function() {
-        return calcWaitTime();
-        /*var totalCount = Students.find().count();
-        var hour = totalCount/4;
-
-        if(totalCount < 4){
-            return 15*totalCount + " minutes"
-        }else if(totalCount >= 4 && totalCount%4 == 0){
+        var count = Students.find({currentStatus: "Waiting"}).count();
+        var hour = count/4;
+        
+        if(count < 4){
+            return 15*count + " minutes"
+        }else if(count >= 4 && count%4 == 0){
             return hour + " hour(s)";
-        }else if(totalCount >= 4 && totalCount%4 == 1){
+        }else if(count >= 4 && count%4 == 1){
             hour = hour - .25;
             return hour + " hour(s)" + " 15 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 2){
+        }else if(count >= 4 && count%4 == 2){
             hour = hour - .5;
             return hour + " hour(s)" + " 30 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 3){
+        }else if(count >= 4 && count%4 == 3){
             hour = hour - .75;
             return hour + " hour(s)" + " 45 minutes";
-        }*/
+        }
     }
 });
 
@@ -95,16 +36,18 @@ AutoForm.hooks({
     {
         onSuccess: function (insert,result) {
             var textService = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{Disclaimer:1, _id:0}}).Disclaimer;
-            var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;                     
-            phoneNumber = "+1" + phoneNumber;
+            var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;  
+            var wait = Students.findOne({}, {sort:{createdAt:-1},limit:1, fields: {waitTime:1, _id:0}}).waitTime;
+
             if(textService == true) {
                 Meteor.call("sendSMS",phoneNumber);
             }
             //console.log(phoneNumber);
             //console.log(textService);
             //console.log(totalCount);
-            var wait = (calcWaitTimeTwo() - 0.25 ) * 60 ;
-            swal("Success!", "You have been added to the WaitList \n Your waiting time is around: " + wait + "minutes", "success");
+
+            swal("Success!", "You have been added to the WaitList \n Your current wait time is approximately: " + wait + " minutes", "success");
         },
     }
 });
+

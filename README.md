@@ -3,7 +3,7 @@ Application available at: http://uofscwaitlist.meteorapp.com
 
 Login for admin page
 
-email: myersjg2@email.sc.edu
+email: admin@email.com
 
 password: asdfasdf
 

@@ -1,38 +1,75 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
    {{> header}}
 </body>
 <template name="header">
+{{#if Template.subscriptionsReady}}
  <header>
-     <div class="Waitlist">
          <div class="header">
              <div id="image">
-                <img class="img-responsive" id="logo" src="img/usc_logo.png">
+                <img id="logo" src="img/usc_logo.png">
              </div>
              <h1 id="heading">University Advising Center Waitlist</h1>
              <div id="parent">
                  {{#if currentUser}}
-                     <h2 id="drop-in">Admin Page</h2>
+                    
+                     <div id="drop-in">Admin Page</div>
                      {{else}}
-                     <h2 id="drop-in">Advisement Appointment Form</h2>
+                     <div id="drop-in">Advisement Appointment Form</div>
                      {{/if}}
                 <!--used to show check wait time button only on main sign in page-->
+                <div class="containLinks">
                 {{#if currentUser}}
                 {{else}}
+                
                     <div id="checkTime">
                         {{> checkWaitTime}}
                     </div>
                 {{/if}}
                 <!--Uses built in login buttons template-->
                 <div class="Login">
-                    {{> loginButtons}}
+                    <button class="btn btn-default btn-sm">{{> loginButtons}}</button>
                 </div>
-                 </div>
+             </div>
+            </div>
+           
          </div>
-     </div>
  </header>
+  {{/if}}
 </template>
 
 
 <template name="checkWaitTime">
-        <p class="checkTime">Check Wait Time</p>
+        <button class="btn btn-default btn-sm checkTime">Check Wait Time</button>
+</template>
+<!--
+<template name="signIn">
+    <p class="signIn">Sign-In</p>
+</template>
+-->
+<template name="checkWaitModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Check Wait Time</h4>
+                </div>
+                
+                <form class="register">
+                    <div class="modal-body">
+                        <label for="timeInput">Phone Number:</label>
+                        <input type="text" class="form-control" id="timeInput" name="phone" placeholder="ex:(803)123-4567 is 8031234567" maxlength="10">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button class="btn btn-primary checkWait" data-dismiss="modal">Done</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </template>

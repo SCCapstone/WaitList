@@ -3,7 +3,7 @@ var chaiHttp = require('chai-http'); //required to run tests in the browser
 var assert = chai.assert;
 var expect = chai.expect;
 chai.use(chaiHttp);
-
+var should = chai.should();
 
 describe('Homepage', function() {
     it('should open homepage', function() {
@@ -21,20 +21,19 @@ describe('Title', function () {
 });
 
 
-describe('Login', function () {
-    it('should login', function() {
 
-        chai.request('http://localhost:3000')
-            .put('/login')
-            .send({ email: 'admin@email.com', password: 'asdfasdf' })
-            .end(function (err, res) {
-                expect(res).to.have.property(email);
-                expect(res).to.have.property(password);
-            });
+describe('phoneNumber',function(){
+   it('phoneNumber should only has 10 digits',function(){
 
-    });
+          chai.request('http://localhost:3000')
+
+          assert.lengthOf('PhoneNumber', 11, 'The phone number only has 10 digit');
+
 
 });
+});
+
+
 
 describe('Admin Page Title', function () {
     it('should be set to Administrator Page', function () {
@@ -47,11 +46,31 @@ describe('Admin Page Title', function () {
 
 });
 
+
+describe('Login', function () {
+    it('should login', function() {
+
+        chai.request('http://localhost:3000')
+           
+          
+ .post('login')
+           .send({ email: 'redmonc2@email.sc.edu', password: 'asdfasdf' })
+           .end(function (err, resp) {
+
+               expect(resp).to.have.property(email);
+              expect(resp).to.have.property(password);
+           });
+
+    });
+
+});
+
+
 describe('Add Form', function () {
     it('should add a new form', function () {
 
         chai.request('http://localhost:3000')
-            .put('/addForm')
+            .put('addForm')
 
             .send({ Name: 'Eddie',
                 PhoneNumber: '864-517-2770',
@@ -76,4 +95,87 @@ describe('Add Form', function () {
 
     });
 
+});   
+
+describe('Send Email', function () 
+			{ 
+   
+    it('should send email to student', function () {
+
+        chai.request('http://localhost:3000')
+
+            .put
+ 		('sendEmail')
+
+            .send
+		({ address: ' ',
+
+                    subject: ' ',
+
+                    message: ' '
+              })
+
+              .end
+			(function (err, res) {
+ 
+                expect(res).to.have.property(address);
+              
+		  expect(res).to.have.property(subject);
+               
+ 		 expect(res).to.have.property(message);
+            });
+
+    });
+
+   it('it should  check the  page title', function () {
+
+        chai.request('http://localhost:3000')
+            .put('sendEmail')
+
+        assert.equal('Send Email', 'Send Email', 'title should be equal')
+
+
+
 });
+}); 
+describe('Reset Password', function () {
+
+    it('should reset password', function () {
+
+        chai.request
+			('http://localhost:3000')
+
+            .put
+		('resetPassword')
+
+            .send({ email: 'redmonc2@email.sc.edu'
+              })
+       
+             
+
+            .end
+		(function (err, res) {
+               
+		 expect(res).to.have.property(email);
+            });
+
+    });
+
+it(' Check page title', function () {
+
+        chai.request('http://localhost:3000')
+            .put('Reset Password')
+
+        assert.equal('Reset Password', 'Reset Password', 'Title should be equal')
+
+    });
+
+
+
+}); 
+
+
+
+
+
+

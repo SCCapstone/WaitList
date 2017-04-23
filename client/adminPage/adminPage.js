@@ -2,51 +2,87 @@ import '../../imports/api/students.js';
 
 var modalId_checkOut;
 var modalId_delete;
-var whoToContact;
 //subscribes to collection to access data
 Template.adminPage.onCreated(function (){
     Meteor.subscribe('allStudents');
 });
 
 //gets every student in collection, this is used to populate the table in .html file
-Template.adminPage.student = function() {
-    return Students.find({}, {sort: {createdAt: 1}});
-};
-
+Template.adminPage.helpers({
+    student: function(){
+        return Students.find({}, {sort: {createdAt: 1}});
+    },
+    waitTimes: function(){
+    return Students.findOne(this._id).waitTime +" minutes";
+    }
+});
 //gives functionality to buttons on admin page
 Template.buttonSelections.events({
     //Updates status on click of check-in button to In advisment
   'click .check-in, click .glyphicon-log-in' (event) {
       var status = Students.findOne(this._id).currentStatus;
-      if(status == "Waiting"){
+      var checkTime = Students.findOne(this._id).waitTime;
+      var studentName = Students.findOne(this._id).Name;
+      if(status == "Waiting" && checkTime==0){
           var timestamp = Students.findOne(this._id).createdAt;
-          console.log(timestamp);
           Students.update(this._id, {$set: {currentStatus: "In Advisement"}});
           Meteor.call("updateWaitTime", timestamp);
-          whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-          var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-          if(receiveText == true){
-              Meteor.call("getToUAC", whoToContact);
+          if(Students.find().count() > 3){
+              var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+              var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+              if(receiveText == true){
+                  Meteor.call("getToUAC", whoToContact);
+              }
           }
+      }
+      if(status="Waiting" && checkTime != 0){
+          var nextStudentWaiting = Students.findOne({waitTime:0},{currentStatus:"Waiting"}).Name;
+          swal( studentName +" is not the next person in line","The next student currently waiting is "+nextStudentWaiting,"error");
       }
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
    'click .move'(){
-       var lastWait = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{waitTime:1, _id:0}}).waitTime;
-       //console.log(lastWait);
-       var timestamp1 = Students.findOne(this._id).createdAt;
-       Students.update(this._id, {$set: {createdAt: new Date(), waitTime: lastWait}});
-       var timestamp2 = Students.findOne(this._id).createdAt;
-       
-       //calls on server side code to update multiple people in the collection at one time
-       Meteor.call("updateAfterMove", timestamp1, timestamp2);
-       whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-       console.log(whoToContact);
-       var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-       console.log(receiveText);
-       if(receiveText == true){
-           Meteor.call("getToUAC", whoToContact);
+       var status = Students.findOne(this._id).currentStatus;
+       var studentsWaiting = Students.find({currentStatus: "Waiting"}).count();
+       if(studentsWaiting > 3){
+           var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+       }
+       if(status == "Waiting"){
+           //var check = Students.findOne(this._id).PhoneNumber;
+           var checkTime = Students.findOne(this._id).waitTime;
+           var lastWait = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{waitTime:1, _id:0}}).waitTime;
+           var timestamp1 = Students.findOne(this._id).createdAt;
+           Students.update(this._id, {$set: {createdAt: new Date(), waitTime: lastWait}});
+           var timestamp2 = Students.findOne(this._id).createdAt;
+           //calls on server side code to update multiple people in the collection at one time
+           Meteor.call("updateAfterMove", timestamp1, timestamp2);
+           if(checkTime <45) {
+               if(studentsWaiting ==4){
+                   var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+                   if(receiveText == true){
+                       Meteor.call("getToUAC",whoToContact);
+                   }
+               }
+               if (studentsWaiting > 3) {
+                   //var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                   var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
+                   if (receiveText == true) {
+                       Meteor.call("getToUAC", whoToContact);
+                   }
+               }
+               if (studentsWaiting == 3 && checkTime != 30) {
+                   var lastPerson = Students.findOne({}, {sort: {createdAt: -1}, limit: 1}).Name;
+                   var contact = Students.findOne({Name: lastPerson}).PhoneNumber;
+                   var receiveText = Students.findOne({PhoneNumber: contact}).Disclaimer;
+                   if (receiveText == true) {
+                       Meteor.call("getToUAC", contact);
+                   }
+               }
+           }
+       }
+       else{
+          swal("invalid operation", "You cannot move a student that is in advisement", "error");
        }
    },
    //updates wait times when student removed
@@ -54,9 +90,15 @@ Template.buttonSelections.events({
        console.log(this._id);
        modalId_checkOut = this._id;
        console.log(modalId_checkOut);
-       Modal.show('checkOutModal', function () {
-           return Students.findOne(this._id);
-	    });
+       var status = Students.findOne(modalId_checkOut).currentStatus;
+       if(status == "In Advisement") {
+           Modal.show('checkOutModal', function () {
+               return Students.findOne(this._id);
+           });
+       }
+       else{
+           swal("Invalid operation","Students cannot be checked out unless they've been checked in."+" If you wish to remove them, click the delete button.", "error");
+       }
    },
    'click .delete'(){
        console.log(this._id);
@@ -70,38 +112,36 @@ Template.buttonSelections.events({
 
 Template.checkOutModal.events({
     'click .checkOut'(){
-        console.log(modalId_checkOut);
+        /*console.log(modalId_checkOut);
         var timestamp = Students.findOne(modalId_checkOut).createdAt;
         var status = Students.findOne(modalId_checkOut).currentStatus;
         console.log(status);
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
             if(Students.find().count() > 3){
-                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+                var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
                 var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
                 if(receiveText == true){
                     Meteor.call("getToUAC", whoToContact);
                 }
             }
-        }
+        }*/
         Students.remove(modalId_checkOut);
     }
 });
 
 Template.deleteModal.events({
     'click .deleteStudent'(){
-        console.log(modalId_delete);
         var timestamp = Students.findOne(modalId_delete).createdAt;
         var status = Students.findOne(modalId_delete).currentStatus;
         var phone = Students.findOne(modalId_delete).PhoneNumber;
         var waitTime = Students.findOne(modalId_delete).waitTime;
         var canGetText = Students.findOne(modalId_delete).Disclaimer;
-        console.log(status);
-        console.log(waitTime);
+        var studentsWaiting = Students.find({currentStatus: "Waiting"}).count();
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
-            if(Students.find().count() > 3){
-                whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
+            if(studentsWaiting > 3){
+                var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
                 var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
                 if(receiveText == true){
                     Meteor.call("getToUAC", whoToContact);

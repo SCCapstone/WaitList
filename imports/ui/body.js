@@ -10,23 +10,34 @@ Accounts.config({
 
 //Default user set up
 Accounts.createUser({
-        email: 'myersjg2@email.sc.edu',
+        email: 'redmonc2@email.sc.edu',
         password: 'asdfasdf',
 });
 
-//Gives functionality for check wait time buttons
+Template.header.onCreated(function(){
+    this.subscribe("allStudents");
+});
+
+//Gives functionality for check wait time buttons, brings up modal
 Template.header.events({
     'click .checkTime' (){
-        //prompt to enter number
-        var timeCheck = prompt("Please enter your phone number below");
+       Modal.show('checkWaitModal');
+    },
+    /*'click .signIn' (){
+        Modal.show('SignInModal');
+    },*/
+});
 
-        //checks if number is in database
+//Gets value submitted in modal and checks collection for phone number, outputs message afterwards
+Template.checkWaitModal.events({
+     'click .checkWait' (){
+        var timeCheck = $('[name=phone]').val();
+        timeCheck = "+1" + timeCheck;
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
-        
         //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
             var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
-           swal("Your approximate wait time is " + waitTime + " minutes");
+           swal("Your approximate wait time is \n" + waitTime + " minutes");
         }
         else {
             swal("Something went wrong", "Your phone number was not found on the wait list, " +
@@ -36,3 +47,13 @@ Template.header.events({
     }
 });
 
+/*Template.SignInModal.events({
+   'submit form' (event){
+       //event.preventDefault();
+       var email= $('[name=email]').val();
+       var password = $('[name=password]').val();
+       Meteor.loginWithPassword(email,password);
+       console.log(email);
+       cosole.log(password);
+   }
+});*/
