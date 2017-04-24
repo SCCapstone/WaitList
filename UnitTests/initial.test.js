@@ -140,10 +140,13 @@ describe('Send Email', function ()
 			(function (err, res) {
  
                 expect(res).to.have.property(address);
-              
+                 
+                expect(resp.body.address).to.equal("bli@email.sc.edu");
 		  expect(res).to.have.property(subject);
-               
- 		 expect(res).to.have.property(message);
+                expect(resp.body.subject).to.equal("none");
+ 		 expect(res).to.have.property(message); 
+
+                expect(resp.body.message).to.equal("hello");
             });
 
     });
@@ -178,8 +181,10 @@ describe('Reset Password', function () {
 
             .end
 		(function (err, res) {
-               
+                           
 		 expect(res).to.have.property(email);
+
+                expect(resp.body.email).to.equal("redmonc2@email.sc.edu");
             });
 
     });
