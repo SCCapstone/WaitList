@@ -1,3 +1,5 @@
+
+
 var chai = require('chai');
 var chaiHttp = require('chai-http'); //required to run tests in the browser
 var assert = chai.assert;
@@ -23,7 +25,9 @@ describe('Title', function () {
 
 describe('phoneNumber',function(){
    it('phoneNumber should only has 10 digits',function(){
+   
 
+    var PhoneNumber=803414214;
           chai.request('http://localhost:3000')
 
           assert.lengthOf('PhoneNumber', 11, 'The phone number only has 10 digit');
@@ -46,11 +50,13 @@ describe('Admin Page Title', function () {
 
 describe('Login', function () {
     it('should login', function() {
+    
+     var email = 'redmonc2@email.sc.edu'  ;
 
-        chai.request('http://localhost:3000')
+           chai.request('http://localhost:3000')
            
           
- .put('login')
+ .put('/login')
            .send({ email: 'redmonc2@email.sc.edu', password: 'asdfasdf' })
            .end(function (err, resp) {
                expect(err).to.be.null;
@@ -61,6 +67,7 @@ describe('Login', function () {
     
               expect(resp.body).to.have.property(password);
              expect(resp.body.password).to.equal("asdfasdf");
+            done(); 
            });
 
     });
@@ -86,23 +93,23 @@ describe('Add Form', function () {
 
             .end(function (err, res) {
                 expect(res).to.have.property(Name);
-               expect(resp.body.Name).to.equal("Eddie");
+                expect(resp.body.Name).to.equal("Eddie");
                 expect(res).to.have.property(PhoneNumber);
-              expect(resp.body.PhoneNumber).to.equal("854-517-2770");
+                expect(resp.body.PhoneNumber).to.equal("854-517-2770");
                 expect(res).to.have.property(VipID);
-         expect(resp.body.VipID).to.equal("11875095");
+                expect(resp.body.VipID).to.equal("11875095");
              
                 expect(res).to.have.property(ReasonForVisit);
 
-           expect(resp.body.ReasonForvisit).to.equal("Change Major");
+                expect(resp.body.ReasonForvisit).to.equal("Change Major");
                 expect(res).to.have.property(CurrentMajor);
-expect(resp.body.CurrentMajor).to.equal("Computer Engineering");
+                expect(resp.body.CurrentMajor).to.equal("Computer Engineering");
            
                 expect(res).to.have.property(IntendedMajor);
-  expect(resp.body.IntendedMajor).to.equal("Business");
+                expect(resp.body.IntendedMajor).to.equal("Business");
 
                 expect(res).to.have.property(Comments);
-           expect(resp.body.Comments).to.equal("No comments");
+                expect(resp.body.Comments).to.equal("No comments");
                 expect(Disclaimer).to.be(true);
             });
 
@@ -189,12 +196,6 @@ it(' Check page title', function () {
 
 
 }); 
-
-
-
-
-
-
 
 
 
