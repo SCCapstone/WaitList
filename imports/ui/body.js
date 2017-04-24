@@ -38,7 +38,7 @@ Template.header.events({
         });
     },
     'click #login-buttons-logout'(){
-        window.location.replace("http://uofscwaitlist.meteorapp.com/");
+        window.location.replace('http://uofscwaitlist.meteorapp.com/');
     }
 });
 
