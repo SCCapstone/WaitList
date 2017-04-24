@@ -6,6 +6,7 @@ var modalId_delete;
 //subscribes to collection to access data
 Template.adminPage.onCreated(function (){
     Meteor.subscribe('allStudents');
+    Meteor.subscribe('theArchive');
 });
 
 //gets every student in collection, this is used to populate the table in .html file
@@ -185,6 +186,16 @@ Template.deleteModal.events({
                 }            
             }
         }
+       /* var date = new Date();
+        var currentDateDay = date.getDate();
+        var currentDateMonth = date.getMonth()+1;
+        var earliestArchiveDateID = Archive.findOne({},{sort:{createdAt:1}, limit:1})._id;
+        var earliestArchiveDate = Archive.findOne({},{sort:{createdAt:1}, limit:1}).createdAt;
+        var earliestArchiveMonthDate = earliestArchiveDate.getMonth()+1;
+        var earliestArchiveDayDate = earliestArchiveDate.getDate();
+        if(Math.abs(earliestArchiveMonthDate - currentDateMonth)==6){
+            Archive.remove(earliestArchiveDateID);
+        }*/
         Students.remove(modalId_delete);
     }
 });
