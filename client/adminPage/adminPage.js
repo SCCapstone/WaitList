@@ -21,7 +21,7 @@ Template.adminPage.helpers({
 //gives functionality to buttons on admin page
 Template.buttonSelections.events({
     //Updates status on click of check-in button to In advisment
-  'click .check-in, click .glyphicon-log-in' (event) {
+  'dblclick .check-in, dblclick .glyphicon-log-in' (event) {
       var status = Students.findOne(this._id).currentStatus;
       var checkTime = Students.findOne(this._id).waitTime;
       var studentName = Students.findOne(this._id).Name;
@@ -44,7 +44,7 @@ Template.buttonSelections.events({
        //$(event.target).closest('.mainRow').css({"background-color":"#16B804","color":"white"});
    },
    //on click of move button it moves person to bottom of the list and updates all wait times in the list
-   'click .move'(){
+   'dblclick .move'(){
        var status = Students.findOne(this._id).currentStatus;
        var studentsWaiting = Students.find({currentStatus: "Waiting"}).count();
        if(studentsWaiting > 3){
@@ -88,7 +88,7 @@ Template.buttonSelections.events({
        }
    },
    //updates wait times when student removed
-   'click .checkingOut'(){
+   'dblclick .checkingOut'(){
        console.log(this._id);
        modalId_checkOut = this._id;
        console.log(modalId_checkOut);
@@ -102,7 +102,7 @@ Template.buttonSelections.events({
            swal("Invalid operation","Students cannot be checked out unless they've been checked in."+" If you wish to remove them, click the delete button.", "error");
        }
    },
-   'click .delete'(){
+   'dblclick .delete'(){
        console.log(this._id);
        modalId_delete = this._id;
        console.log(modalId_delete);
@@ -200,9 +200,4 @@ Template.deleteModal.events({
     }
 });
 
-//allows rows on admin page in table to expand and collapse on press of +/- button, shows hidden row
-Template.expandButton.events({
-    'click #expandBtn'(event, temp) {
-        temp.$('#expand').toggleClass('glyphicon-plus glyphicon-minus');
-    }
-});
+
