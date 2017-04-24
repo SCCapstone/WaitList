@@ -37,6 +37,9 @@ Template.header.events({
             }
         });
     },
+    'click #login-buttons-logout'(){
+        window.location.replace("http://uofscwaitlist.meteorapp.com/");
+    }
 });
 
 //Gets value submitted in modal and checks collection for phone number, outputs message afterwards
