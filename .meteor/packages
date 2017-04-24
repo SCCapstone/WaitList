@@ -38,3 +38,4 @@ comerc:autoform-typeahead     # For selection on forms
 comerc:bs-typeahead           # For selection on forms
 peppelg:bootstrap-3-modal     # For deletion modals
 smaltcreation:autoform-intl-tel-input # For phone number submission
+f3r:download-collection-csv
