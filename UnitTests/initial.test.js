@@ -13,7 +13,6 @@ describe('Homepage', function() {
 
 describe('Title', function () {
     it('should be set to Wait List', function () {
-
         chai.request('http://localhost:3000')
 
         assert.equal('Wait List', 'Wait List', 'title is equal')
@@ -34,12 +33,10 @@ describe('phoneNumber',function(){
 });
 
 
-
 describe('Admin Page Title', function () {
     it('should be set to Administrator Page', function () {
 
         chai.request('http://localhost:3000')
-            .put('/admin_overall')
 
         assert.equal('Admin Page', 'Admin Page', 'title is equal')
     });
@@ -53,12 +50,17 @@ describe('Login', function () {
         chai.request('http://localhost:3000')
            
           
- .post('login')
+ .put('login')
            .send({ email: 'redmonc2@email.sc.edu', password: 'asdfasdf' })
            .end(function (err, resp) {
+               expect(err).to.be.null;
+               expect(res).to.have.status(200);
+               expect(resp.body).to.have.property(email);
 
-               expect(resp).to.have.property(email);
-              expect(resp).to.have.property(password);
+              expect(resp.body.email).to.equal("redmonc2@email.sc.edu");
+    
+              expect(resp.body).to.have.property(password);
+             expect(resp.body.password).to.equal("asdfasdf");
            });
 
     });
@@ -84,18 +86,30 @@ describe('Add Form', function () {
 
             .end(function (err, res) {
                 expect(res).to.have.property(Name);
+               expect(resp.body.Name).to.equal("Eddie");
                 expect(res).to.have.property(PhoneNumber);
+              expect(resp.body.PhoneNumber).to.equal("854-517-2770");
                 expect(res).to.have.property(VipID);
+         expect(resp.body.VipID).to.equal("11875095");
+             
                 expect(res).to.have.property(ReasonForVisit);
+
+           expect(resp.body.ReasonForvisit).to.equal("Change Major");
                 expect(res).to.have.property(CurrentMajor);
+expect(resp.body.CurrentMajor).to.equal("Computer Engineering");
+           
                 expect(res).to.have.property(IntendedMajor);
+  expect(resp.body.IntendedMajor).to.equal("Business");
+
                 expect(res).to.have.property(Comments);
+           expect(resp.body.Comments).to.equal("No comments");
                 expect(Disclaimer).to.be(true);
             });
 
     });
 
 });   
+
 
 describe('Send Email', function () 
 			{ 
@@ -108,11 +122,11 @@ describe('Send Email', function ()
  		('sendEmail')
 
             .send
-		({ address: ' ',
+		({ address: 'bli@email.sc.edu ',
 
-                    subject: ' ',
+                    subject: 'none ',
 
-                    message: ' '
+                    message: 'hello '
               })
 
               .end
@@ -138,6 +152,8 @@ describe('Send Email', function ()
 
 });
 }); 
+
+
 describe('Reset Password', function () {
 
     it('should reset password', function () {
@@ -173,6 +189,10 @@ it(' Check page title', function () {
 
 
 }); 
+
+
+
+
 
 
 
