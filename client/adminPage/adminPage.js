@@ -126,6 +126,8 @@ Template.checkOutModal.events({
         }
         if(Students.findOne(modalId_checkOut).Comments) {
             var archiveComment = Students.findOne(modalId_checkOut).Comments;
+            archiveComment = archiveComment.replace(/,/g," ");
+            archiveComment = archiveComment.replace(/'/g,"");
         }
         else{
             var archiveComment = "N/A";
@@ -158,6 +160,8 @@ Template.deleteModal.events({
         }
         if(Students.findOne(modalId_delete).Comments) {
             var archiveComment = Students.findOne(modalId_delete).Comments;
+            archiveComment = archiveComment.replace(/,/g," ");
+            archiveComment = archiveComment.replace(/'/g,"");
         }
         else{
             var archiveComment = "N/A";
