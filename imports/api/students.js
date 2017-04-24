@@ -374,7 +374,30 @@ StudentSchema = new SimpleSchema({
             denyInsert: true,
             optional: true
     },
-    
+   /* monthCreated: {
+        type: number,
+        autoform:{
+            type: "hidden",
+            label: false
+        },
+        autoValue: function(){
+            var date = new Date();
+            var dateMonth = date.getMonth()+1;
+            return dateMonth;
+        },
+    },
+    dayCreated: {
+        type: number,
+        autoform:{
+            type: "hidden",
+            label: false
+        },
+        autoValue: function(){
+            var date = new Date();
+            var dateDay = date.getDate();
+            return dateDay;
+        },
+    },*/
     currentStatus: {
         type: String,
             autoform: {

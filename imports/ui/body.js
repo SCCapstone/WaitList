@@ -24,7 +24,12 @@ Template.header.events({
        Modal.show('checkWaitModal');
     },
     'click .downloadArchive' (event){
-        var nameFile = 'WaitlistArchive.csv';
+        var date = new Date();
+        var dateDay = date.getDate();
+        var dateMonth = date.getMonth()+1;
+        var dateYear = date.getFullYear();
+        var stringDate = dateMonth+"_"+dateDay+"_"+dateYear;
+        var nameFile = 'WaitlistArchive'+stringDate+'.csv';
         Meteor.call('download', function (err, fileContent) {
             if (fileContent) {
                 var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});

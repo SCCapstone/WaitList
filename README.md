@@ -65,3 +65,18 @@ This has each row show (Name, Phone number, USCID, Button selections, and curren
 **Check-in button** - This is a button that will change the current status field to "In Advisement" if pressed. If you wish to change the status back to "Waiting" double click on the check-in buttons (this is for accidental clicks on the check-in button). This is meant to be a check for the advisor to help keep track of who is in advisement if there are multiple advisors advising at one time.
 
 **Check-out buttons** - Basically the same thing as the delete button. It will bring up a modal for confirmation that the student has completed their advisement. If selected as done then the student will be removed from the list. This is meant to be a clarification button for the adminstrative user to try and reduce confusion of what to do once the person is done with advisement. 
+
+## Secret Page
+After the students sumbit the form, it will route to this secret page automatically. It will show the students their wait time is on the screen. Also, the students can refer back to the page and check their wait time when they add their phone number after the "/" on their URL. The wait time will update automatically. 
+###### Header
+**Sign-in** - drop menu to sign in to the admin account using the valid e-mail and password. a "forgot password" funciton is also provided to send to the valid admin e-mail account.
+
+**Check Wait Time** - A prompt to enter a phone number. If the phone number is currently attributed to a student in the wait list, it will return their current estimated remaining time.
+
+###### Button selection
+**Back to Sign Up Page Button** - This button act as a home button for the students. It will route back to Sign Up page when a new student try to sumbit a form after others. 
+
+
+
+
+
