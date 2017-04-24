@@ -1,8 +1,31 @@
 
 
+/*Unit Testing
+ *
+ * First, installed the chai and mocha by 
+ * typing the commands:
+ *      meteor add practicalmeteor:mocha
+ *      meteor npm install chai
+ *      meteor npm install chai-http
+ *      
+ * after all, start the unit testing by enter the command
+*       meteor test --driver-package practicalmeteor:mocha 
+
+*  it runs the app and out put all the result in browser.  
+ *
+ * In the browser,there are one client test and a service test side 
+ *
+ */
+
+
+
 var chai = require('chai');
 var chaiHttp = require('chai-http'); //required to run tests in the browser
 var assert = chai.assert;
+
+
+
+
 var expect = chai.expect;
 chai.use(chaiHttp);
 var should = chai.should();
