@@ -1,4 +1,5 @@
 import '../../imports/api/students.js';
+import '../../imports/api/Archive';
 
 var modalId_checkOut;
 var modalId_delete;
@@ -58,12 +59,12 @@ Template.buttonSelections.events({
            //calls on server side code to update multiple people in the collection at one time
            Meteor.call("updateAfterMove", timestamp1, timestamp2);
            if(checkTime <45) {
-               if(studentsWaiting ==4){
+               /*if(studentsWaiting ==4){
                    var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
                    if(receiveText == true){
                        Meteor.call("getToUAC",whoToContact);
                    }
-               }
+               }*/
                if (studentsWaiting > 3) {
                    //var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
                    var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
@@ -112,21 +113,27 @@ Template.buttonSelections.events({
 
 Template.checkOutModal.events({
     'click .checkOut'(){
-        /*console.log(modalId_checkOut);
-        var timestamp = Students.findOne(modalId_checkOut).createdAt;
-        var status = Students.findOne(modalId_checkOut).currentStatus;
-        console.log(status);
-        if(status == "Waiting"){
-            Meteor.call("updateWaitTime", timestamp);
-            if(Students.find().count() > 3){
-                var whoToContact = Students.findOne({waitTime: 45}).PhoneNumber;
-                var receiveText = Students.findOne({PhoneNumber: whoToContact}).Disclaimer;
-                if(receiveText == true){
-                    Meteor.call("getToUAC", whoToContact);
-                }
-            }
-        }*/
+        var archiveName = Students.findOne(modalId_checkOut).Name;
+        var archiveNumber = Students.findOne(modalId_checkOut).PhoneNumber;
+        var archiveID = Students.findOne(modalId_checkOut).USCID;
+        var archiveReason = Students.findOne(modalId_checkOut).ReasonForVisit;
+        var archiveCurrMajor = Students.findOne(modalId_checkOut).CurrentMajor;
+        if(Students.findOne(modalId_checkOut).IntendedMajor) {
+            var archiveIntMajor = Students.findOne(modalId_checkOut).IntendedMajor;
+        }
+        else{
+            var archiveIntMajor = "N/A";
+        }
+        if(Students.findOne(modalId_checkOut).Comments) {
+            var archiveComment = Students.findOne(modalId_checkOut).Comments;
+        }
+        else{
+            var archiveComment = "N/A";
+        }
+        var archiveCreatedAt = Students.findOne(modalId_checkOut).createdAt;
+        Archive.insert({Name:archiveName,PhoneNumber:archiveNumber, USCID:archiveID, ReasonForVisit:archiveReason,CurrentMajor:archiveCurrMajor,IntendedMajor:archiveIntMajor,Comments:archiveComment,createdAt:archiveCreatedAt});
         Students.remove(modalId_checkOut);
+
     }
 });
 
@@ -138,6 +145,25 @@ Template.deleteModal.events({
         var waitTime = Students.findOne(modalId_delete).waitTime;
         var canGetText = Students.findOne(modalId_delete).Disclaimer;
         var studentsWaiting = Students.find({currentStatus: "Waiting"}).count();
+
+        var archiveName = Students.findOne(modalId_delete).Name;
+        var archiveID = Students.findOne(modalId_delete).USCID;
+        var archiveReason = Students.findOne(modalId_delete).ReasonForVisit;
+        var archiveCurrMajor = Students.findOne(modalId_delete).CurrentMajor;
+        if(Students.findOne(modalId_delete).IntendedMajor) {
+            var archiveIntMajor = Students.findOne(modalId_delete).IntendedMajor;
+        }
+        else{
+            var archiveIntMajor = "N/A";
+        }
+        if(Students.findOne(modalId_delete).Comments) {
+            var archiveComment = Students.findOne(modalId_delete).Comments;
+        }
+        else{
+            var archiveComment = "N/A";
+        }
+        Archive.insert({Name:archiveName,PhoneNumber:phone, USCID:archiveID, ReasonForVisit:archiveReason,CurrentMajor:archiveCurrMajor,IntendedMajor:archiveIntMajor,Comments:archiveComment,createdAt:timestamp});
+
         if(status == "Waiting"){
             Meteor.call("updateWaitTime", timestamp);
             if(studentsWaiting > 3){

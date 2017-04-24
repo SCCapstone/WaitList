@@ -23,9 +23,15 @@ Template.header.events({
     'click .checkTime' (){
        Modal.show('checkWaitModal');
     },
-    /*'click .signIn' (){
-        Modal.show('SignInModal');
-    },*/
+    'click .downloadArchive' (event){
+        var nameFile = 'WaitlistArchive.csv';
+        Meteor.call('download', function (err, fileContent) {
+            if (fileContent) {
+                var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, nameFile);
+            }
+        });
+    },
 });
 
 //Gets value submitted in modal and checks collection for phone number, outputs message afterwards
