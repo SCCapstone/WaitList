@@ -182,6 +182,9 @@
 		left:20%;
 		top:15%;
 	}
+	body #goHome{
+		margin-left:40px;
+	}
 }
 /*
 * START OF BODY.html
