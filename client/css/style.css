@@ -217,7 +217,7 @@
 	height: 50px;
 	float: right;
 	margin-right: 10%;
-	padding-top:1%;
+	padding-top:.5%;
 }
 
 #checkTime {
@@ -230,6 +230,7 @@
 	padding-right: 3%;
 	padding-left: 10%;
 }
+
 .Login
 {
 	float:right;
@@ -299,11 +300,19 @@
     margin-bottom: 2%;
 }
 
-
+.container {
+	margin-top: 5%;
+}
 /*
 * END OF BODY.html
 *
 */
+
+/*For secret page*/
+#goHome{
+	margin-left: 45%;
+}
+
 body {
     padding-right: 0 !important;
 }

@@ -9,20 +9,20 @@ Template.home.onCreated (function() {
 //Used to show approximate wait time on sign in page
 Template.home.helpers({
     waitTime: function() {
-        var totalCount = Students.find().count();
-        var hour = totalCount/4;
-
-        if(totalCount < 4){
-            return 15*totalCount + " minutes"
-        }else if(totalCount >= 4 && totalCount%4 == 0){
+        var count = Students.find({currentStatus: "Waiting"}).count();
+        var hour = count/4;
+        
+        if(count < 4){
+            return 15*count + " minutes"
+        }else if(count >= 4 && count%4 == 0){
             return hour + " hour(s)";
-        }else if(totalCount >= 4 && totalCount%4 == 1){
+        }else if(count >= 4 && count%4 == 1){
             hour = hour - .25;
             return hour + " hour(s)" + " 15 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 2){
+        }else if(count >= 4 && count%4 == 2){
             hour = hour - .5;
             return hour + " hour(s)" + " 30 minutes";
-        }else if(totalCount >= 4 && totalCount%4 == 3){
+        }else if(count >= 4 && count%4 == 3){
             hour = hour - .75;
             return hour + " hour(s)" + " 45 minutes";
         }
@@ -38,15 +38,22 @@ AutoForm.hooks({
             var textService = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{Disclaimer:1, _id:0}}).Disclaimer;
             var phoneNumber = Students.findOne({},{sort:{createdAt:-1},limit:1, fields:{PhoneNumber:1, _id:0}}).PhoneNumber;  
             var wait = Students.findOne({}, {sort:{createdAt:-1},limit:1, fields: {waitTime:1, _id:0}}).waitTime;
-
+            var routePhoneNum = phoneNumber;
+            phoneNumber = "+1" + phoneNumber;
+            var address = "http://uofscwaitlist.meteorapp.com/" + routePhoneNum;
             if(textService == true) {
-                Meteor.call("sendSMS",phoneNumber);
+                Meteor.call("sendSMS",phoneNumber, address);
             }
             //console.log(phoneNumber);
             //console.log(textService);
             //console.log(totalCount);
 
-            swal("Success!", "You have been added to the WaitList \n Your current wait time is approximately: " + wait + " minutes", "success");
+
+            window.location.replace(address);
+           //swal("Success!", "You have been added to the WaitList \n Your current wait time is approximately: " + wait + " minutes", "success");
+
+
+
         },
     }
 });

@@ -23,21 +23,27 @@ Template.header.events({
     'click .checkTime' (){
        Modal.show('checkWaitModal');
     },
-    /*'click .signIn' (){
-        Modal.show('SignInModal');
-    },*/
+    'click .downloadArchive' (event){
+        var nameFile = 'WaitlistArchive.csv';
+        Meteor.call('download', function (err, fileContent) {
+            if (fileContent) {
+                var blob = new Blob([fileContent], {type: "text/plain;charset=utf-8"});
+                saveAs(blob, nameFile);
+            }
+        });
+    },
 });
 
 //Gets value submitted in modal and checks collection for phone number, outputs message afterwards
 Template.checkWaitModal.events({
      'click .checkWait' (){
         var timeCheck = $('[name=phone]').val();
-        timeCheck = "+1" + timeCheck;
+        timeCheck = timeCheck;
         var phoneNum = Students.findOne({PhoneNumber:timeCheck});
         //Gives appropriate wait time or tells user they didn't enter a phonenumber correctly or that it's not in the database'
         if (timeCheck != null && phoneNum != null) {
             var waitTime = Students.findOne({PhoneNumber:timeCheck}).waitTime;
-           swal("Your approximate wait time is " + waitTime + " minutes");
+           swal("Your approximate wait time is \n" + waitTime + " minutes");
         }
         else {
             swal("Something went wrong", "Your phone number was not found on the wait list, " +
