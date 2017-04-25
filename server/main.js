@@ -7,6 +7,8 @@ Meteor.startup(() => {
 
 });
 Meteor.methods({
+
+    //function for sending the initial Twilio sms message from the host to students phones
     sendSMS: function(phoneNumber, link){
         var authToken = 'f3d5c0559fed5389332c911ad930e600';
         var accountSid = 'ACd82dc2f26dfff254f2703a4719050567';
@@ -26,6 +28,7 @@ Meteor.methods({
         });
     },
 
+    //function for sending an update once the student's wait time changes to 30 minutes
     getToUAC: function(phoneNumber){
         var authToken = 'f3d5c0559fed5389332c911ad930e600';
         var accountSid = 'ACd82dc2f26dfff254f2703a4719050567';
@@ -44,6 +47,8 @@ Meteor.methods({
             }
         });
     },
+
+    //function for sending message to students if they were removed from the WaitList
     removedMessage: function(phoneNumber){
         var authToken = 'f3d5c0559fed5389332c911ad930e600';
         var accountSid = 'ACd82dc2f26dfff254f2703a4719050567';
@@ -62,6 +67,8 @@ Meteor.methods({
             }
         });
     },
+
+    //function for sending message to students if an admin clicked the delete button before student was advised
     accidentalRemoval: function(phoneNumber){
         var authToken = 'f3d5c0559fed5389332c911ad930e600';
         var accountSid = 'ACd82dc2f26dfff254f2703a4719050567';
@@ -80,12 +87,18 @@ Meteor.methods({
             }
         });
     },
+
+    //function that updates the student's current wait time that is stored in the database
     updateWaitTime: function(timestamp){
          Students.update({createdAt: { $gt: timestamp }}, {$inc: {waitTime: -15 }},{multi:true});
     },
+
+    //function that updates the student's current wait time if they moved positions on the admin page
     updateAfterMove: function(timestamp1, timestamp2){
         Students.update({createdAt: { $gt: timestamp1, $lt: timestamp2 }}, {$inc: {waitTime: -15 }},{multi:true});
     },
+
+    //function to download the archive .csv for administrators records
     download: function() {
         var collection = Archive.find().fetch();
         var heading = true; // Optional, defaults to true
