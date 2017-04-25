@@ -105,5 +105,6 @@ After the students sumbit the form, it will route to this secret page automatica
 
 ![secretpage 2](https://cloud.githubusercontent.com/assets/21236079/25366684/5470fbd4-293f-11e7-903b-65bc8d74fd54.png)
 
-
+## Information on developers
+Cory Redmond, Eddie Pace, Ryan Morvay, Bao Li, Run Liang
 
