@@ -28,6 +28,9 @@ var expect = chai.expect;
 chai.use(chaiHttp);
 var should = chai.should();
 
+
+
+
 describe('Homepage', function() {
     it('should open homepage', function() {
        
@@ -35,7 +38,6 @@ describe('Homepage', function() {
     })
 })
 
-//test the title
 describe('Title', function () {
     it('should be set to Wait List', function () {
         chai.request('http://localhost:3000')
@@ -45,6 +47,7 @@ describe('Title', function () {
 });
 
 
+// testing the phone number, make sure it only accept 10 digits
 
 describe('phoneNumber',function(){
    it('phoneNumber should only has 10 digits',function(){
@@ -69,6 +72,7 @@ describe('Admin Page Title', function () {
     });
 
 });
+
 
 
 describe('Login', function () {
@@ -97,6 +101,8 @@ describe('Login', function () {
 
 });
 
+
+// testing add form 
 
 describe('Add Form', function () {
     it('should add a new form', function () {
@@ -228,4 +234,17 @@ it(' Check page title', function () {
 
 
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
