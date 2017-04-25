@@ -5,7 +5,10 @@ var expect = chai.expect;
 chai.use(chaiHttp);
 
 
-
+/*
+    this functions suppose to check the page title for the app. we get the title from the localhost:3000, and
+    check does it equal to "Wait List or not"
+ */
 describe('Page setTitle', function () {
     it('Title should be set to Wait List @watch', function () {
         browser.url('localhost:3000');
@@ -13,6 +16,10 @@ describe('Page setTitle', function () {
     });
 });
 
+/*
+    This function suppose to check the does the form had been submit when the phone number enter with an invalid phone
+    phone number. We fill out the form with elements from the browser.
+ */
 describe('Fail to submitForm due to unvalid phone number', function () {
     it('Form should not be submitted @watch', function () {
         var Name = browser.element("Name");
@@ -38,6 +45,10 @@ describe('Fail to submitForm due to unvalid phone number', function () {
     });
 });
 
+/*
+    this function suppose to check the does the form had been submit when the phone number enter with alphabet letters.
+       we fill out the form with elements from the browser.
+ */
 describe('Fail to submitForm due to have alphabet letters in phone numbers ', function () {
     it('Form should not be submitted @watch', function () {
         var Name = browser.element("Name");
@@ -63,6 +74,9 @@ describe('Fail to submitForm due to have alphabet letters in phone numbers ', fu
     });
 });
 
+/*
+    this functions suppose to submit the form to the app and all the elements fills the correct informations.
+ */
 describe('Succesful submitForm', function () {
     it('Form should be submitted @watch', function () {
         var Name = browser.element("Name");
@@ -86,6 +100,10 @@ describe('Succesful submitForm', function () {
     });
 });
 
+/*
+    this functions use the timeinput element to check does the phone number was in the waitlist or not.
+    If yes, then return the current waitting time for the phone number, otherwise, it return a error message
+ */
 describe('Number was not on the list', function () {
     it('check a phone number that is not on the list @watch', function () {
         var check = browser.element('#timeInput');
@@ -95,6 +113,10 @@ describe('Number was not on the list', function () {
     });
 });
 
+/*
+    this function use the element setvalue function to sign in the browser with usename and password.
+    If it works, then the sign in drop down list suppose change to the user name's label.
+ */
 describe('Admin Login', function () {
     it('Admin user now should be logged in @watch', function () {
         var email = browser.element('#login-email');
@@ -107,6 +129,10 @@ describe('Admin Login', function () {
         expect(browser.getElementById('login-name-link').to.equal(usertext));
     });
 });
+
+/*
+this function check does the sign out button works or not for the admin page.
+ */
 
 describe('Sign out', function () {
     it('Sign out for admin @watch', function () {
