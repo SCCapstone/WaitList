@@ -41,6 +41,10 @@ This is the page that will be displayed for all students who wish to add themsel
 
 **Submit** - submits form to database
 
+The sign in form can be seen below:
+
+![sign_up_form](https://cloud.githubusercontent.com/assets/21236079/25366510/1f1d7300-293e-11e7-9de1-2f416f657019.jpg)
+
 ## Admin Page
 This is the page for the administrator who will be advising during drop in hours. 
 
