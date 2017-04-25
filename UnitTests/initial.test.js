@@ -30,6 +30,7 @@ var should = chai.should();
 
 
 
+// test the Homepage, if it open the homepage correctly.
 
 describe('Homepage', function() {
     it('should open homepage', function() {
@@ -37,6 +38,8 @@ describe('Homepage', function() {
          chai.request('http://localhost:3000')
     })
 })
+
+//test the Title of Wait List, if it open the Wait list correctly.
 
 describe('Title', function () {
     it('should be set to Wait List', function () {
@@ -62,6 +65,7 @@ describe('phoneNumber',function(){
 });
 });
 
+// test the admin page, see if the admin page open correctly  
 
 describe('Admin Page Title', function () {
     it('should be set to Administrator Page', function () {
@@ -74,6 +78,7 @@ describe('Admin Page Title', function () {
 });
 
 
+// test login, if user can login to the account 
 
 describe('Login', function () {
     it('should login', function() {
@@ -148,6 +153,7 @@ describe('Add Form', function () {
 
 });   
 
+// test the email function, make sure email can send to the user 
 
 describe('Send Email', function () 
 			{ 
@@ -195,7 +201,9 @@ describe('Send Email', function ()
 });
 }); 
 
-
+//test the reset password, make sure user can reset the 
+// password through the email. 
+ 
 describe('Reset Password', function () {
 
     it('should reset password', function () {
