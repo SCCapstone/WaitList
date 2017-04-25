@@ -3,7 +3,7 @@ Application available at: http://uofscwaitlist.meteorapp.com
 
 Login for admin page
 
-email: admin@email.com
+email: redmonc2@email.sc.edu
 
 password: asdfasdf
 
@@ -23,7 +23,7 @@ This is the page that will be displayed for all students who wish to add themsel
 **Check Wait Time** - A prompt to enter a phone number. If the phone number is currently attributed to a student in the wait list, it will return their current estimated remaining time.
 
 ###### Form Fields
-**Name** - (Required field) - 
+**Name** - (Required field)  
 
 **Phone Number** - (Required field) - will only accept properly formatted numbers of 10-digits with no white-space or non-integer values.
 
