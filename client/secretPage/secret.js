@@ -5,6 +5,9 @@ Template.secret.onCreated (function() {
     this.subscribe("allStudents");
 });
 
+// check the wait time,if the user in the list, return the wait time, if the user not in the list 
+// it should return "you are not in the list"   
+ 
 Template.secret.helpers({
     waitTime: function() {
         var current = document.URL;
