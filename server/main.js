@@ -51,7 +51,7 @@ Meteor.methods({
         twilio.sendSms({
             to: phoneNumber, // Any number Twilio can deliver to
             from: '+18034030499', // A number you bought from Twilio and can use for outbound communication
-            body: 'Your have been removed from the wait list because you were not at the UAC in time for your appointment. You can sign up again if you wish.' // body of the SMS message
+            body: 'You have been removed from the wait list because you were not at the UAC in time for your appointment. You can sign up again if you wish.' // body of the SMS message
         }, function (err, responseData) { //this function is executed when a response is received from Twilio
             if (!err) { // "err" is an error received during the request, if any
                 // "responseData" is a JavaScript object containing data received from Twilio.
