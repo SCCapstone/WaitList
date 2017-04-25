@@ -1,3 +1,4 @@
+/*adjusts features when screen widht is below 950px and above 720px*/
 @media only screen and (max-width:950px){
 	body #checkTime{
 		padding-left:20%;
@@ -7,7 +8,7 @@
 		top:15%;
 	}
 }
-
+/*adjusts features when screen width is below 720px and above 590px */
 @media only screen and (max-width:720px){
 	body #heading{
 		font-size:22px;
@@ -44,6 +45,7 @@
 	}
 
 }
+/*adjusts features when screen wdith is below 590px and above 495px*/
 @media only screen and (max-width: 590px) {
 	body #parent{
 		width:auto;
@@ -52,7 +54,7 @@
 		left:50%;
 	}
 	body .btn.btn-default.btn-sm.downloadArchive{
-		/*display:none;*/
+
 		width:100px;
 		font-size: 10px;
 		margin-top:10px;
@@ -65,7 +67,7 @@
 		margin:0px;
 	}
 }
-
+/*Adjusts features when screen width is below 495px. This is for mobile device views*/
 @media only screen and (max-width: 495px) {
 	body .header{
 		height:80px;
@@ -80,7 +82,7 @@
 	body #drop-in {
 		color: white;
 		float:left;
-		/*width: 230px;*/
+
 		margin:0px;
 		position: relative;
 		padding:10px;
@@ -89,7 +91,7 @@
 	}
 
 	body #checkTime {
-		/*width: 530px;/*add to 110*/
+
 		color: white;
 		text-decoration: underline;
 		float:left;
@@ -102,7 +104,6 @@
 	}
 	body .Login
 	{
-		/*width: 60px;*/
 		float:right;
 		color: white;
 		margin:0px;
@@ -187,7 +188,7 @@
 	}
 }
 /*
-* START OF BODY.html
+* START OF BODY.html classes and id's
 *
 */
 .header
@@ -211,7 +212,6 @@
 }
 #parent{
 	height:50px;
-	/*overflow: hidden;*/
 	padding-top: 0px;
 	position: relative;
 }
@@ -227,7 +227,6 @@
 	color: white;
 	font-size: 100%;
 	float:left;
-	/*width: 230px;*/
 	margin:0px;
 	position: relative;
 	padding:10px;
@@ -246,7 +245,6 @@
 	float:left;
 	margin: 0px;
 	position: relative;
-	/*padding-top:30px;*/
 	padding-right: 3%;
 	padding-left: 10%;
 }
@@ -257,9 +255,7 @@
 	color: white;
 	margin:0px;
 	position: relative;
-	/*padding-top:30px;*/
 	padding-right:10%;
-	/*text-align: right;*/
 	width:auto;
 	height: auto;
 	text-decoration: underline;
@@ -280,7 +276,6 @@
 	left:75%;
 	top:15%;
 }
-
 
 .login-close-text{
 	padding-left:170px;
@@ -325,7 +320,7 @@
 }
 
 /*
-* END OF BODY.html
+* END OF BODY.html classes and id's
 *
 */
 
@@ -340,7 +335,7 @@ body {
 .hiddenRow {
     padding: 0 !important;
 }
-
+/*end secret page*/
 .btn-circle {
   width: 30px;
   height: 30px;
