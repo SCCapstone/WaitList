@@ -1,18 +1,41 @@
 
 
+/*Unit Testing
+ *
+ * First, installed the chai and mocha by 
+ * typing the commands:
+ *      meteor add practicalmeteor:mocha
+ *      meteor npm install chai
+ *      meteor npm install chai-http
+ *      
+ * after all, start the unit testing by enter the command
+*       meteor test --driver-package practicalmeteor:mocha 
+
+*  it runs the app and out put all the result in browser.  
+ *
+ * In the browser,there are one client test and a service test side 
+ * on the both side, they  will show the result of 
+ * each test case,either passes or failure. 
+ */
+
+
+
 var chai = require('chai');
 var chaiHttp = require('chai-http'); //required to run tests in the browser
 var assert = chai.assert;
+
 var expect = chai.expect;
 chai.use(chaiHttp);
 var should = chai.should();
 
 describe('Homepage', function() {
     it('should open homepage', function() {
-        chai.request('http://localhost:3000')
+       
+         chai.request('http://localhost:3000')
     })
 })
 
+//test the title
 describe('Title', function () {
     it('should be set to Wait List', function () {
         chai.request('http://localhost:3000')
@@ -51,7 +74,7 @@ describe('Admin Page Title', function () {
 describe('Login', function () {
     it('should login', function() {
     
-     var email = 'redmonc2@email.sc.edu'  ;
+    
 
            chai.request('http://localhost:3000')
            
@@ -92,6 +115,8 @@ describe('Add Form', function () {
             })
 
             .end(function (err, res) {
+                
+               expect(res).to.have.status(200);
                 expect(res).to.have.property(Name);
                 expect(resp.body.Name).to.equal("Eddie");
                 expect(res).to.have.property(PhoneNumber);
@@ -138,13 +163,14 @@ describe('Send Email', function ()
 
               .end
 			(function (err, res) {
- 
+                
+                expect(res).to.have.status(200);
                 expect(res).to.have.property(address);
                  
                 expect(resp.body.address).to.equal("bli@email.sc.edu");
-		  expect(res).to.have.property(subject);
+		expect(res).to.have.property(subject);
                 expect(resp.body.subject).to.equal("none");
- 		 expect(res).to.have.property(message); 
+ 	        expect(res).to.have.property(message); 
 
                 expect(resp.body.message).to.equal("hello");
             });
@@ -181,7 +207,8 @@ describe('Reset Password', function () {
 
             .end
 		(function (err, res) {
-                           
+                
+                expect(res).to.have.status(200);           
 		 expect(res).to.have.property(email);
 
                 expect(resp.body.email).to.equal("redmonc2@email.sc.edu");
@@ -201,7 +228,4 @@ it(' Check page title', function () {
 
 
 }); 
-
-
-
 
