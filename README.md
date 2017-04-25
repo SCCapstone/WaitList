@@ -1,8 +1,4 @@
-
-
 # Waitlist
-Check out our github pages at https://sccapstone.github.io/WaitList/
-
 Application available at: http://uofscwaitlist.meteorapp.com
 
 Login for admin page
@@ -64,6 +60,11 @@ This is the page for the administrator who will be advising during drop in hours
 The header will be similar to that of the Sign up page, but will just contain the dropdown for signing out or changing the password while logged in as an admin. It will also have a download archive button
 
 **Download Archive** - This will download a csv file of every person saved in an archive when they are removed from the wait list.
+
+#### An example of a csv file downloaded is shown below:
+
+![archive_example 2](https://cloud.githubusercontent.com/assets/21236079/25367084/90211482-2941-11e7-9d06-fe35448ad779.png)
+
 ###### Features
 This page contains a table with all people currently on the wait list. It is sorted based off of who submitted their information first.
 
@@ -83,14 +84,14 @@ This has each row show (Name, Phone number, USCID, Button selections, and curren
 
 **Check-out buttons** - Basically the same thing as the delete button. It will bring up a modal for confirmation that the student has completed their advisement. If selected as done then the student will be removed from the list. This is meant to be a clarification button for the adminstrative user to try and reduce confusion of what to do once the person is done with advisement. 
 
-#### An example of the Admin page can be seen below
+#### An example of the Admin page can be seen below:
 
 ![admin_page 2](https://cloud.githubusercontent.com/assets/21236079/25366638/033852d0-293f-11e7-8849-ef3ab6ac50c3.png)
 
 ## Secret Page
 After the students sumbit the form, it will route to this secret page automatically. It will show the students their wait time on the screen. Also, the students can refer back to the page and check their wait time when they add their phone number after the "/" in the URL. The wait time will update automatically. 
 
-#### An example of the secret page
+#### An example of the secret page is shown below:
 
 ###### Header
 **Sign-in** - drop menu to sign in to the admin account using the valid e-mail and password. a "forgot password" funciton is also provided to send to the valid admin e-mail account.
