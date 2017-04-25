@@ -1,4 +1,6 @@
 # Waitlist
+Check out our github pages at: https://sccapstone.github.io/WaitList/
+
 Application available at: http://uofscwaitlist.meteorapp.com
 
 Login for admin page
