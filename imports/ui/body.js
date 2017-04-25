@@ -13,7 +13,7 @@ Accounts.createUser({
         email: 'redmonc2@email.sc.edu',
         password: 'asdfasdf',
 });
-
+//subscribe to the student archive
 Template.header.onCreated(function(){
     this.subscribe("allStudents");
 });
@@ -23,6 +23,7 @@ Template.header.events({
     'click .checkTime' (){
        Modal.show('checkWaitModal');
     },
+    //After clicking download archive this will create a unique file name based off of the current date.
     'click .downloadArchive' (event){
         var date = new Date();
         var dateDay = date.getDate();
@@ -60,14 +61,3 @@ Template.checkWaitModal.events({
         }
     }
 });
-
-/*Template.SignInModal.events({
-   'submit form' (event){
-       //event.preventDefault();
-       var email= $('[name=email]').val();
-       var password = $('[name=password]').val();
-       Meteor.loginWithPassword(email,password);
-       console.log(email);
-       cosole.log(password);
-   }
-});*/

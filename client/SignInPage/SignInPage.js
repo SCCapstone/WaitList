@@ -1,7 +1,7 @@
 import '../../imports/ui/body.js';
 import '../../imports/api/students';
 
-
+//Allows access to the student db
 Template.home.onCreated (function() {
   this.subscribe("allStudents");
 });
@@ -11,7 +11,7 @@ Template.home.helpers({
     waitTime: function() {
         var count = Students.find({currentStatus: "Waiting"}).count();
         var hour = count/4;
-        
+        //how to display the accurate wait time with hours
         if(count < 4){
             return 15*count + " minutes"
         }else if(count >= 4 && count%4 == 0){
@@ -44,16 +44,7 @@ AutoForm.hooks({
             if(textService == true) {
                 Meteor.call("sendSMS",phoneNumber, address);
             }
-            //console.log(phoneNumber);
-            //console.log(textService);
-            //console.log(totalCount);
-
-
             window.location.replace(address);
-           //swal("Success!", "You have been added to the WaitList \n Your current wait time is approximately: " + wait + " minutes", "success");
-
-
-
         },
     }
 });
