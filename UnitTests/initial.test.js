@@ -35,6 +35,7 @@ describe('Homepage', function() {
     })
 })
 
+//test the title
 describe('Title', function () {
     it('should be set to Wait List', function () {
         chai.request('http://localhost:3000')
