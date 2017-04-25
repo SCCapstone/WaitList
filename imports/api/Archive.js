@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
+//Creates a new MongoDB collection called 'archive'
 Archive = new Mongo.Collection('archive');
 
 //All below is schema for Mongodb, Collection Students
@@ -46,5 +47,7 @@ ArchiveSchema = new SimpleSchema({
 
     },
 });
+
+//attaches the schema above to the new collection created
 Archive.attachSchema(ArchiveSchema);
 

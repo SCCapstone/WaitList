@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 
+//Creates new MongoDB collection called 'students'
 Students = new Mongo.Collection('students');
 
 //All below is schema for Mongodb, Collection Students
@@ -14,6 +15,7 @@ StudentSchema = new SimpleSchema({
         }
     },
 
+    //schema attribute for phone numbers, regEx checks to make sure students are entering phone numbers with valid area codes
     PhoneNumber: {
         type: String,
         unique: true,
@@ -24,7 +26,6 @@ StudentSchema = new SimpleSchema({
         autoform:{
             placeholder: "Numbers Only ex. 8031182938"
         }
-
     },
 
     USCID: {
@@ -49,6 +50,7 @@ StudentSchema = new SimpleSchema({
         label: 'Reason for Visit *'
     },
 
+    //schema attribute that contains most majors/minors offered at USC
     CurrentMajor: {
         type: String,
         max: 100,
@@ -334,6 +336,7 @@ StudentSchema = new SimpleSchema({
         }
     },
 
+    //text service check box
     Disclaimer: {
         type: Boolean,
         optional: true,
@@ -345,6 +348,7 @@ StudentSchema = new SimpleSchema({
         label: "Opt in for text service *standard text rates may apply"
     },
    
+    //used to create time stamp for when students are added to the waitlist
     createdAt: {
         type: Date,
             autoform: {
@@ -360,6 +364,7 @@ StudentSchema = new SimpleSchema({
             }
     },
   
+    //used for finding updated time stamp after student moved positions on waitlist
     updatedAt: {
         type: Date,
             autoform: {
@@ -411,6 +416,7 @@ StudentSchema = new SimpleSchema({
             }
     },
 
+    //used for keeping track of overall wait time on the main sign-in page
     waitTime: {
         type: Number,
         autoform: {
@@ -425,6 +431,7 @@ StudentSchema = new SimpleSchema({
     }
 });
 
+//messages that appear if students fail to enter in correct information on the sign-in page
 SimpleSchema.messages({
     required: "This field is required",
     "minString PhoneNumber": "Phone number must be 10 digits, please include area code.",
@@ -450,4 +457,5 @@ SimpleSchema.messages({
     ]
 });
 
+//attaches the schema to the collection created above
 Students.attachSchema(StudentSchema);
