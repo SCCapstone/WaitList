@@ -15,8 +15,14 @@ Template.secret.helpers({
         /*Change this for uofsc... to 35 or 34*/
         current = current.substr(35);
         console.log(current);
-        var phoneNum = Students.findOne({PhoneNumber:current});
-        if(phoneNum != null && current != null){
+                  
+        //find the current phone number
+
+         var phoneNum = Students.findOne({PhoneNumber:current});
+        
+       // if user has the number on the list, return the wait time.
+   
+         if(phoneNum != null && current != null){
             var time1 = Students.findOne({PhoneNumber:current}).waitTime;
             return time1 + " minutes";
         }
