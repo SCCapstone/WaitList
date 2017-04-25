@@ -3,12 +3,14 @@
 </body>
 
 <template name="adminPage">
+    <!--Container holding display table in center of screen-->
     <div class="container">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Students Waiting</div>
                     <div class="panel-body">
                         <table class="table table-condensed table-striped" id="outer-table">
+                            <!--header of main table-->
     				        <thead id="top-heading">
                                 <tr>
                                     <th></th>
@@ -23,6 +25,7 @@
                             <tbody>
                                 <!--Each block below goes throgh every student in collection and populates the waitlist table-->
                                 {{#each student}}
+                                    <!--Data for main heading, this is the row you see on the table without dropdown for next row-->
                                     <tr  class="accordion-toggle mainRow">
                                         <td>{{> expandButton}}</td>
                                         <td>{{Name}}</td>
@@ -33,6 +36,7 @@
                                         <td>{{currentStatus}}</td>
                                     </tr>
                                     <tr>
+                                        <!--Heading for hidden row that will be shown on expansion of main row-->
                                         <td colspan="12" class="hiddenRow">
                                             <div class="accordian-body collapse" id="{{this._id}}">
                                                 <table class="table table-striped">
@@ -45,6 +49,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <!--Populates data into cells for hidden row-->
                                                         <tr id="inner-data">
                                                             <td>{{ReasonForVisit}}</td>
                                                             <td>{{CurrentMajor}}</td>
@@ -66,74 +71,65 @@
     </div>
 </template>
 
+<!--Used for showing hidden row when this button is clicked-->
 <template name="expandButton">
     <button class="btn btn-default btn-xs btn-circle" data-toggle="collapse" data-target="#{{this._id}}" id="expandBtn">
         <span id="expand" class="glyphicon glyphicon-plus"></span>
     </button>
 </template>
 
+<!--Holds all possible buttons actions that can be performed, this is called on in the template above to populate each row in the table-->
 <template name="buttonSelections">
-    <!-- Modal for edit button to update person info if needed-->
+
+    <!-- Modal for edit button to update persons info if needed-->
     {{#afModal class="btn btn-primary btn-sm" collection="Students" title="Update Student Info" omitFields="Comments,Disclaimer" operation="update" doc=_id}}
         <span class="glyphicon glyphicon-edit"> Edit</span>
     {{/afModal}}
-    <!-- Modal for delete button to remove someone-->
-    <!--{{#afModal class="btn btn-danger btn-sm" collection="Students" title="Delete Student" prompt="This student is about to be removed from the wait list. Are you sure you want to do this?" operation="remove" doc=_id}}
-        <span class="glyphicon glyphicon-trash"> Delete</span>
-    {{/afModal}}-->
+
+    <!--Delete button that will remove person from the wait list-->
     <button class="btn btn-danger btn-sm glyphicon glyphicon-trash delete"> Delete</button>
+
     <!-- Button to move person to the bottom of the wait list-->
     <button class="btn btn-default btn-sm move glyphicon glyphicon-arrow-down"> Move Down</button>
+
     <!-- Button can be used as a check for keeping track of who is being advised (mainly for multiple advisors at a time-->
     <button class="btn btn-success btn-sm glyphicon glyphicon-log-in check-in"> Check-In</button>
+
     <!-- Check out modal basically does the same thing as delete modal, just makes it more clear on how to remove student from the list-->
-    <!--{{#afModal class="btn btn-warning btn-sm remove" collection="Students" title="Check-Out" buttonContent="Done" buttonClasses="btn btn-primary" prompt="Has this student finished their appointment? If so press Done." onSuccess="checkingOut" operation="remove" doc=_id}}
-        <span class="glyphicon glyphicon-log-out"> Check-Out</span>
-    {{/afModal}}-->
     <button class="btn btn-warning btn-sm glyphicon glyphicon-log-out checkingOut"> Check-Out</button>
 </template>
 
-
-
-
-
+<!--Modal for prompt given when delete button from above is pressed-->
 <template name="deleteModal">
     <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <h4 class="modal-title">Delete Student</h4>
                 </div>
-
                 <div class="modal-body">
                     <p>This student is about to be removed from the wait list. Are you sure you want to do this?</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button class="btn btn-danger deleteStudent" data-dismiss="modal">Delete</button>
                 </div>
-
             </div>
         </div>
     </div>
 </template>
 
-
+<!--Modal for prompt when check-out button from above is pressed-->
 <template name="checkOutModal">
     <div class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <h4 class="modal-title">Check-Out</h4>
                 </div>
-
                 <div class="modal-body">
                     <p>Has this student finished their appointment? If so press Done to remove the student from the list.</p>
                 </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary checkOut" data-dismiss="modal">Done</button>
